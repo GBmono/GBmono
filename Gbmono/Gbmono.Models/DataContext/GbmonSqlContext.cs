@@ -1,7 +1,7 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
-
+﻿
 using Gbmono.Models.ModelConfigs;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Gbmono.Models.DataContext
 {

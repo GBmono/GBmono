@@ -1,8 +1,8 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-
-using GbMono.Models.DataContext;
+﻿
+using Gbmono.Models.DataContext;
 using Gbmono.EF;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace Gbmono.Models.Infrastructure
 {
