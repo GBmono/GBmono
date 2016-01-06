@@ -144,6 +144,16 @@
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gbmono.EF\Gbmono.EF.csproj">
+      <Project>{35B7E126-3D82-4E23-89D9-A23A14D008B2}</Project>
+      <Name>Gbmono.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gbmono.Models\Gbmono.Models.csproj">
+      <Project>{25e50af1-7433-42ee-a5fa-ed1f1ac8466a}</Project>
+      <Name>Gbmono.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

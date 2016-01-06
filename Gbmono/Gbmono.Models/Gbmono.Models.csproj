@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DataContext\GbmonSqlContext.cs" />
     <Compile Include="Infrastructure\RepositoryManager.cs" />
     <Compile Include="ModelConfigs\CategoryMap.cs" />
