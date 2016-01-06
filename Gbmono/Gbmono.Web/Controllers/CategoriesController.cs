@@ -12,16 +12,16 @@ namespace Gbmono.Web.Controllers
 {
     public class CategoriesController : ApiController
     {
-        private readonly RepositoryManager _repositoryManager;
+        private readonly RepositoryManager<Category> _repositoryManager;
 
         #region ctor
 
-        public CategoriesController() : this(new RepositoryManager())
+        public CategoriesController() : this(new RepositoryManager<Category>())
         {
 
         }
 
-        public CategoriesController(RepositoryManager manager)
+        public CategoriesController(RepositoryManager<Category> manager)
         {
             _repositoryManager = manager;
         }
@@ -29,7 +29,7 @@ namespace Gbmono.Web.Controllers
 
         public IEnumerable<Category> GetAll()
         {
-            return _repositoryManager.CategoryRepository.Table.ToList();
+            return _repositoryManager.Repository.Table.ToList();
         }
     }
 }
