@@ -1,5 +1,5 @@
-﻿using Gbmono.Models;
-using Gbmono.Models.Infrastructure;
+﻿using Gbmono.Models.Infrastructure;
+using Gbmono.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

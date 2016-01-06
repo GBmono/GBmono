@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gbmono.Models.Models;
+using System;
 using System.Data.Entity.ModelConfiguration;
 
 namespace Gbmono.Models.ModelConfigs

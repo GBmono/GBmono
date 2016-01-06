@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gbmono.Models
+namespace Gbmono.Models.Models
 {
     public class Category
     {

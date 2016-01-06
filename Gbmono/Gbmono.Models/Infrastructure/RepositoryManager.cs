@@ -3,6 +3,7 @@ using Gbmono.Models.DataContext;
 using Gbmono.EF;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using Gbmono.Models.Models;
 
 namespace Gbmono.Models.Infrastructure
 {
