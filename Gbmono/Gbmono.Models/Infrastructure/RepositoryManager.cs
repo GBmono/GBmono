@@ -3,10 +3,11 @@ using Gbmono.Models.DataContext;
 using Gbmono.EF;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using Gbmono.Models.Models;
 
 namespace Gbmono.Models.Infrastructure
 {
-    public class RepositoryManager
+    public class RepositoryManager<T> where T : class
     {
         // db context
         public DbContext Context { get; private set; }
@@ -41,6 +42,16 @@ namespace Gbmono.Models.Infrastructure
         public IRepository<Category> CategoryRepository
         {
             get { return _categoryRepository ?? (_categoryRepository = new Repository<Category>(Context)); }
+        }
+
+
+        //Generica Repository
+        private IRepository<T> _Repository;
+
+        // public accessors
+        public IRepository<T> Repository
+        {
+            get { return _Repository ?? (_Repository = new Repository<T>(Context)); }
         }
     }
 }
