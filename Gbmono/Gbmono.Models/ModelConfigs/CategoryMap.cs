@@ -13,7 +13,7 @@ namespace Gbmono.Models.ModelConfigs
         {
             ToTable("Category"); // table name in db
 
-            HasKey(m => m.CategoryId); // primary key
+            HasKey(m => m.Id); // primary key
         }
     }
 }

@@ -51,7 +51,9 @@
     <Compile Include="DataContext\GbmonSqlContext.cs" />
     <Compile Include="Infrastructure\RepositoryManager.cs" />
     <Compile Include="ModelConfigs\CategoryMap.cs" />
+    <Compile Include="ModelConfigs\CommodityMap.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Commodity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
