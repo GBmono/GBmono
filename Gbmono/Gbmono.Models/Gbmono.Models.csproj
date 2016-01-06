@@ -51,7 +51,15 @@
     <Compile Include="DataContext\GbmonSqlContext.cs" />
     <Compile Include="Infrastructure\RepositoryManager.cs" />
     <Compile Include="ModelConfigs\CategoryMap.cs" />
+    <Compile Include="ModelConfigs\CdInstanceMap.cs" />
+    <Compile Include="ModelConfigs\CdInstancePropertyMap.cs" />
+    <Compile Include="ModelConfigs\CdPropertyMap.cs" />
+    <Compile Include="ModelConfigs\CdTypeMap.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CdInstanceProperty.cs" />
+    <Compile Include="Models\CdProperty.cs" />
+    <Compile Include="Models\CdType.cs" />
+    <Compile Include="Models\CdInstance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
