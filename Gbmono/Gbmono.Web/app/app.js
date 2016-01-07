@@ -28,12 +28,13 @@
         // configure routes
         $routeProvider
                 .when('/', { // home page
-                    templateUrl: '',
-                    controller: '',
+                    templateUrl: gbmono.app_view_path + '/home/home.html',
+                    controller: 'homeController',
                     caseInsensitiveMatch: true
                 })
-                .otherwise({ // 401 not found
-                    templateUrl: 'l',
+                .otherwise({ 
+                    templateUrl: gbmono.app_view_path + '/home/home.html',
+                    controller: 'homeController',
                     caseInsensitiveMatch: true
                 });
     }
