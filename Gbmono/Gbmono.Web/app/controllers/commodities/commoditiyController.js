@@ -20,13 +20,14 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope'];
+    ctrl.$inject = ['$scope', '$routeParams'];
 
     // create controller
     module.controller('commodityDetailController', ctrl);
 
     // controller body
-    function ctrl($scope) {
-
+    function ctrl($scope, $routeParams) {
+        // get route param id from url
+        var id = $routeParams.id ? parseInt($routeParams.id) : 0;
     }
 })(angular.module('gbmono'));
