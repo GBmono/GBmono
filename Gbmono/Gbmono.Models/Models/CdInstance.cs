@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Gbmono.Models.Models
 {
+    /// <summary>
+    /// Code实体
+    /// </summary>
     public class CdInstance
     {
         public int Id { set; get; }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Gbmono.Models.Models
 {
+    /// <summary>
+    /// Code的属性值
+    /// </summary>
     public class CdInstanceProperty
     {
         public int CdInstanceId { set; get; }
