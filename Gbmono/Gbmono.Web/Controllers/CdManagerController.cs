@@ -10,16 +10,22 @@ namespace Gbmono.Web.App_Start
     public class CdManagerController : ApiController
     {
         private readonly RepositoryManager<CdInstance> _repositoryManager;
+        private readonly RepositoryManager<CdInstanceProperty> _CdrepositoryManager;
+
 
 
         public CdManagerController()
         {
 
+
+
         }
-       
+
 
         public IEnumerable<CdInstance> GetAll()
         {
+
+
             return _repositoryManager.Repository.Table.ToList();
         }
 
