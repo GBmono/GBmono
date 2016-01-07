@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Gbmono.Models.Models
+namespace Gbmono.Models
 {
     /// <summary>
     /// 网店
