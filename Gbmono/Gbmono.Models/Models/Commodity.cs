@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gbmono.Models.Models
+namespace Gbmono.Models
 {
     public class Commodity
     {

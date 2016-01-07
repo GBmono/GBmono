@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Gbmono.Models.Models
-{
+namespace Gbmono.Models
+{ 
     public class Category
     {
         public int Id { get; set; }

@@ -1,4 +1,4 @@
-﻿using Gbmono.Models.Models;
+﻿using Gbmono.Models;
 using System;
 using System.Data.Entity.ModelConfiguration;
 
