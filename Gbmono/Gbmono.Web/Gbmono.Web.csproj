@@ -111,12 +111,15 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\consts.js" />
-    <Content Include="app\controllers\main\homeController.js" />
+    <Content Include="app\controllers\commodities\commoditiyController.js" />
+    <Content Include="app\controllers\home\homeController.js" />
     <Content Include="app\includes\footer.html" />
     <Content Include="app\includes\header.html" />
     <Content Include="app\includes\newsletter.html" />
     <Content Include="app\layout.js" />
     <Content Include="app\services\dataFactory.js" />
+    <Content Include="app\views\commodities\detail.html" />
+    <Content Include="app\views\commodities\list.html" />
     <Content Include="app\views\home\home.html" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\uikit.css" />

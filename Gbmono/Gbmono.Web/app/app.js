@@ -32,6 +32,16 @@
                     controller: 'homeController',
                     caseInsensitiveMatch: true
                 })
+                .when('/commodities', { // 商品列表页
+                    templateUrl: gbmono.app_view_path + '/commodities/list.html',
+                    controller: 'commodityListController',
+                    caseInsensitiveMatch: true
+                })
+                .when('/commodities/:id', { // 商品详细页
+                    templateUrl: gbmono.app_view_path + '/commodities/detail.html',
+                    controller: 'commodityDetailController',
+                    caseInsensitiveMatch: true
+                })
                 .otherwise({ 
                     templateUrl: gbmono.app_view_path + '/home/home.html',
                     controller: 'homeController',
