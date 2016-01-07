@@ -11,6 +11,11 @@
     // controller body
     function ctrl($scope) {
 
+        $scope.test= function() {
+            alert("Test Allen");
+        }
+
+
     }
 })(angular.module('gbmono'));
 
