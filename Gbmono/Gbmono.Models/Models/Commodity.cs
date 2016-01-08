@@ -11,15 +11,7 @@ namespace Gbmono.Models
         public int Id { get; set; }
 
         #region category
-        public int Category1Id { get; set; }
-
-        public int Category2Id { get; set; }
-
-        public int Category3Id { get; set; }
-
-        public string CommodityCode { get; set; }
-
-        public int Category3Sort { get; set; }
+        public int CategoryId { get; set; }
         #endregion
 
         #region 促销活动, 消费券, topics
