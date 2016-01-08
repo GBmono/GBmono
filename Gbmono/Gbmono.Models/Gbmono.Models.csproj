@@ -61,8 +61,9 @@
     <Compile Include="Models\CdProperty.cs" />
     <Compile Include="Models\CdType.cs" />
     <Compile Include="Models\CdInstance.cs" />
-    <Compile Include="Models\Commodity.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Manufacturer.cs" />
+    <Compile Include="Models\ProductImage.cs" />
     <Compile Include="Models\RetailShop.cs" />
     <Compile Include="Models\WebShop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
