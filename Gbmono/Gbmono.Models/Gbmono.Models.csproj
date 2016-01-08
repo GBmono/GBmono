@@ -55,7 +55,6 @@
     <Compile Include="ModelConfigs\CdInstancePropertyMap.cs" />
     <Compile Include="ModelConfigs\CdPropertyMap.cs" />
     <Compile Include="ModelConfigs\CdTypeMap.cs" />
-    <Compile Include="ModelConfigs\CommodityMap.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CdInstanceProperty.cs" />
     <Compile Include="Models\CdProperty.cs" />

@@ -28,8 +28,6 @@ namespace Gbmono.Models.DataContext
 
             modelBuilder.Configurations.Add(new CdTypeMap());
 
-            modelBuilder.Configurations.Add(new CommodityMap());
-
             base.OnModelCreating(modelBuilder);
         }
     }
