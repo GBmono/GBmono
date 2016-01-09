@@ -2,11 +2,11 @@
  global variables & consts
 */
 (function (gbmono) {
-    /* web application name */
-    gbmono.APP_NAME = '';
+    /* web api application name */
+    gbmono.web_api_app_name = 'http://localhost/name';
 
     /* angularJs app view root path */
-    gbmono.app_view_path = gbmono.APP_NAME + '/app/views';
+    gbmono.app_view_path = '/app/views';
 
     /* img root path */
     // gbmono.img_root_path = gbmono.APP_NAME + '/Content/img';
@@ -18,9 +18,13 @@
 
     /* web api controller route prefix */
     /* bearer token entry point*/
-    gbmono.api_token_url = gbmono.APP_NAME + '/Token'; // bearer token end point
-    
-    // category api url 
-    gbmono.api_site_prefix = gbmono.APP_NAME + '/api/Categories';
+    gbmono.api_token_url = gbmono.web_api_app_name + '/Token'; // bearer token end point
+
+    gbmono.api_site_prefix = {
+        // category api url 
+        category_api_url: gbmono.web_api_app_name + '/api/Categories',
+        // product detail url
+        product_api_url: gbmono.web_api_app_name + '/api/products',
+    };
 
 })(window.gbmono = window.gbmono || {});

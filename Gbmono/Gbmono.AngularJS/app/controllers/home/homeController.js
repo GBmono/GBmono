@@ -15,7 +15,6 @@
 
         // call page init function
         init();
-
         // page init method
         // 当该view被初始化时 需要执行的功能
         function init() {

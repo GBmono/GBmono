@@ -5,7 +5,9 @@ namespace Gbmono.Models
 {
     public class Product
     {
-        public int Id { get; set; }
+        public int ProductId { get; set; }
+
+        public string ProductCode { get; set; }
 
         // category 商品目录 根据当前目录id可获得上级目录
         public int CategoryId { get; set; }
@@ -33,6 +35,8 @@ namespace Gbmono.Models
 
         // 容量
         public double Content { get; set; }
+
+        public string ContentUnit { get; set; }
 
         // 条形码
         public string BarCode { get; set; }
