@@ -15,14 +15,14 @@
         <div class="product clearfix">
 
             <!-- Image -->
-            <div class="image">
+            <div class="image" >
                 <a href="product.html" class="main">
                     <img ng-src="{{product.Images[0].Url}}"/>
                     <!--<img src="Content/images/Empty_set.png" alt="">-->
                 </a>
                 <ul class="additional">
                     <li>
-                        <a href="Content/images/Empty_set.png" data-gal="prettyPhoto[gallery 1]" title="Product Name">
+                        <a ng-href="#/products/:{{product.ProductId}}" data-gal="prettyPhoto[gallery 1]" title="Product Name">
                             <img ng-src="{{product.Images[1].Url}}" />
                         </a>
                     </li>

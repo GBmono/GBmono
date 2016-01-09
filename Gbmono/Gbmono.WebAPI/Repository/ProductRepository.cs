@@ -45,6 +45,7 @@ namespace Gbmono.WebAPI.Repository
 
                     productList.Add(new Product()
                     {
+                        ProductId=i,
                         CategoryId = i,
                         PrimaryName = "纸尿布" + i,
                         BarCode = (4912345678901 + i).ToString(),
