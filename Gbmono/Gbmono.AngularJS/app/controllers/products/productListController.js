@@ -3,17 +3,35 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope'];
+    ctrl.$inject = ['$scope', 'productListFactory'];
+
+    module.controller('productListController', ctrl);
 
     // create controller
-    module.controller('productListController', ctrl);
-    init();
-    function init() {
-        alert('list');
-    }
-    // controller body
-    function ctrl($scope) {
-        
+   // controller body
+    function ctrl($scope, productListFactory) {
+        init();
+
+        function init() {
+            loadProducts();
+        }
+
+        // get products
+        function loadProducts() {
+            debugger;
+            // call web api
+            productListFactory.getProductList()
+                .success(function (data) {
+                    // success callback
+                    // retreive the data into local array
+                    // $scope.products can be accessed from the view
+                    debugger;
+                    $scope.products = data;
+                });
+        }
+
+
+
         $scope.test = function () {
             alert("Test Allen");
         }

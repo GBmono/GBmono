@@ -24,13 +24,13 @@
         // get products
         function loadProducts() {
             // call web api
-            productDataFactory.getProductList()
-                .success(function (data) {
-                    // success callback
-                    // retreive the data into local array
-                    // $scope.products can be accessed from the view
-                    $scope.products = data;
-                });
+            //productDataFactory.getProductList()
+            //    .success(function (data) {
+            //        // success callback
+            //        // retreive the data into local array
+            //        // $scope.products can be accessed from the view
+            //        $scope.products = data;
+            //    });
         }
     }
 })(angular.module('gbmono'));
