@@ -19,9 +19,7 @@ namespace Gbmono.WebAPI.Repository
             {
                 var productList = new List<Product>();
 
-                var images1 = new List<ProductImage>();
-                images1.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "merries1_f", Url = "/pics/merries1_f.jpg" });
-                images1.Add(new ProductImage() { IsPrimary = false, IsThumbnail = false, Name = "merries1_b", Url = "/pics/merries1_b.jpg" });
+
                 var images2 = new List<ProductImage>();
                 images2.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "merries2_f", Url = "/pics/merries2_f.jpg" });
                 images2.Add(new ProductImage() { IsPrimary = false, IsThumbnail = false, Name = "merries2_b", Url = "/pics/merries2_b.jpg" });
@@ -29,9 +27,8 @@ namespace Gbmono.WebAPI.Repository
                 images3.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "merries3_f", Url = "/pics/merries3_f.jpg" });
                 images3.Add(new ProductImage() { IsPrimary = false, IsThumbnail = false, Name = "merries3_b", Url = "/pics/merries3_b.jpg" });
                 var dicImages = new Dictionary<int, List<ProductImage>>();
-                dicImages.Add(1, images1);
-                dicImages.Add(2, images2);
-                dicImages.Add(3, images3);
+                dicImages.Add(1, images2);
+                dicImages.Add(2, images3);
 
 
                 for (int i = 0; i < 12; i++)
@@ -40,7 +37,7 @@ namespace Gbmono.WebAPI.Repository
                     lock (syncLock)
                     { // synchronize
                         price = random.Next(100, 200);
-                        imageIndex = random.Next(1,4);
+                        imageIndex = random.Next(1,3);
                     }
 
                     productList.Add(new Product()
