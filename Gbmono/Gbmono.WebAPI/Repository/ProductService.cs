@@ -7,8 +7,9 @@ using Gbmono.Models;
 
 namespace Gbmono.WebAPI.Repository
 {
-    public class ProductRepository : IProductRepository
+    public class ProductService
     {
+
         private static readonly Random random = new Random();
         private static readonly object syncLock = new object();
 
@@ -37,12 +38,12 @@ namespace Gbmono.WebAPI.Repository
                     lock (syncLock)
                     { // synchronize
                         price = random.Next(100, 200);
-                        imageIndex = random.Next(1,3);
+                        imageIndex = random.Next(1, 3);
                     }
 
                     productList.Add(new Product()
                     {
-                        ProductId=i,
+                        ProductId = i,
                         CategoryId = i,
                         PrimaryName = "纸尿布" + i,
                         BarCode = (4912345678901 + i).ToString(),
@@ -67,12 +68,12 @@ namespace Gbmono.WebAPI.Repository
                 return new Product
                 {
                     ProductId = productId,
-                    PrimaryName="moony air fit 搭扣M64片",
-                    Manufacturer=new Manufacturer { ManufacturerId=1, Name="尤妮佳" },
+                    PrimaryName = "moony air fit 搭扣M64片",
+                    Manufacturer = new Manufacturer { ManufacturerId = 1, Name = "尤妮佳" },
                     Content = 64,
                     ContentUnit = "片",
-                    Images=new List<ProductImage>() { new ProductImage { IsPrimary=true, Url="content/images/demo/moony1.jpg", Name="test1" } },
-                    Price=1784,
+                    Images = new List<ProductImage>() { new ProductImage { IsPrimary = true, Url = "content/images/demo/moony1.jpg", Name = "test1" } },
+                    Price = 1784,
                 };
             });
         }
