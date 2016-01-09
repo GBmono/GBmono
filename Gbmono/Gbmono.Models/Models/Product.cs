@@ -36,6 +36,9 @@ namespace Gbmono.Models
         // 容量
         public double Content { get; set; }
 
+        //商品排列Code
+        public string DisplayCode { get; set; }
+
         public string ContentUnit { get; set; }
 
         // 条形码
