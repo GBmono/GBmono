@@ -1,31 +1,13 @@
 ﻿/*
-   商品列表页 controller
-*/
-(function (module) {
-    // inject the controller params
-    ctrl.$inject = ['$scope'];
-
-    // create controller
-    module.controller('productListController', ctrl);
-
-    // controller body
-    function ctrl($scope) {
-        
-        $scope.test = function () {
-            alert("Test Allen");
-        }
-
-
-    }
-})(angular.module('gbmono'));
-
-/*
     商品详细页 controller
 */
 (function (module) {
     // inject the controller params
     ctrl.$inject = ['$scope', '$routeParams'];
-
+    init();
+    function init() {
+        alert('details');
+    }
     // create controller
     module.controller('productDetailController', ctrl);
 
