@@ -22,11 +22,11 @@ namespace Gbmono.WebAPI.Repository
 
 
                 var images2 = new List<ProductImage>();
-                images2.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "merries2_f", Url = "/pics/merries2_f.jpg" });
-                images2.Add(new ProductImage() { IsPrimary = false, IsThumbnail = false, Name = "merries2_b", Url = "/pics/merries2_b.jpg" });
+                images2.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "merries2_f", Url = "/content/images/demo/merries2_f.jpg" });
+                images2.Add(new ProductImage() { IsPrimary = false, IsThumbnail = false, Name = "merries2_b", Url = "/content/images/demo/merries2_b.jpg" });
                 var images3 = new List<ProductImage>();
-                images3.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "merries3_f", Url = "/pics/merries3_f.jpg" });
-                images3.Add(new ProductImage() { IsPrimary = false, IsThumbnail = false, Name = "merries3_b", Url = "/pics/merries3_b.jpg" });
+                images3.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "merries3_f", Url = "/content/images/demo/merries3_f.jpg" });
+                images3.Add(new ProductImage() { IsPrimary = false, IsThumbnail = false, Name = "merries3_b", Url = "/content/images/demo/merries3_b.jpg" });
                 var dicImages = new Dictionary<int, List<ProductImage>>();
                 dicImages.Add(1, images2);
                 dicImages.Add(2, images3);
