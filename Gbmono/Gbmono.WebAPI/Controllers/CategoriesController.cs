@@ -1,14 +1,13 @@
-﻿using Gbmono.Models.Infrastructure;
-using Gbmono.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Gbmono.Models;
+using Gbmono.Models.Infrastructure;
 
-
-namespace Gbmono.Web.Controllers
+namespace Gbmono.WebAPI.Controllers
 {
     public class CategoriesController : ApiController
     {

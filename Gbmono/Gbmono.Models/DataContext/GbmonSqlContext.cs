@@ -20,14 +20,6 @@ namespace Gbmono.Models.DataContext
             // add category map
             modelBuilder.Configurations.Add(new CategoryMap());
 
-            modelBuilder.Configurations.Add(new CdInstanceMap());
-
-            modelBuilder.Configurations.Add(new CdInstancePropertyMap());
-
-            modelBuilder.Configurations.Add(new CdPropertyMap());
-
-            modelBuilder.Configurations.Add(new CdTypeMap());
-
             base.OnModelCreating(modelBuilder);
         }
     }

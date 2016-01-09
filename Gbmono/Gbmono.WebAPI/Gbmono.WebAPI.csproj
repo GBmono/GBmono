@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -105,8 +106,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gbmono.EF\Gbmono.EF.csproj">
+      <Project>{35b7e126-3d82-4e23-89d9-a23a14d008b2}</Project>
+      <Name>Gbmono.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gbmono.Models\Gbmono.Models.csproj">
+      <Project>{25E50AF1-7433-42EE-A5FA-ED1F1AC8466A}</Project>
+      <Name>Gbmono.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
