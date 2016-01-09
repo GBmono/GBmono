@@ -47,12 +47,18 @@
             getProductDetails: getProductDetails
         };
 
+        // sample
         function getProductList() {
             return $http.get(url);
+            // more elegant call
+            // url and action could be removed
+            // return $http.get(gbmono.api_site_prefix.product_api_url)
         }
 
         function getProductDetails(id) {
             return $http.get(url + action.get_product + id);
+            // more elegant call
+            // return $http.get(gbmono.api_site_prefix.product_api_url + '/GetProduct/' + id);
         }
     }
 
