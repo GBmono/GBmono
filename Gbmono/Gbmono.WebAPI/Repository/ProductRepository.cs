@@ -71,8 +71,10 @@ namespace Gbmono.WebAPI.Repository
                     Manufacturer=new Manufacturer { ManufacturerId=1, Name="尤妮佳" },
                     Content = 64,
                     ContentUnit = "片",
-                    Images=new List<ProductImage>() { new ProductImage { IsPrimary=true, Url="content/images/demo/moony1.jpg", Name="test1" } },
+                    Images=new List<ProductImage>() { new ProductImage { IsPrimary=true, Url="content/images/demo/moony3.jpg", Name="test1" } },
                     Price=1784,
+                    RetailShops=new List<RetailShop>() { new RetailShop { Name="松本清(Matsumotokiyoshi)"},new RetailShop { Name= "Tsuruha(ツルハ)" },new RetailShop { Name= "Sundurg（サンドラッグ）" },new RetailShop { Name= "Sugi（スギ）" },new RetailShop { Name= "札幌药妆（サッポロドラッグストア）" } },
+                    WebShops=new List<WebShop>() { new WebShop { Name="A店"} }
                 };
             });
         }
