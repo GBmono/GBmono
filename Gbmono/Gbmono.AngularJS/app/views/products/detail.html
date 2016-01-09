@@ -1,4 +1,23 @@
 ﻿<div class="row">
+    <section class="page-info-block page-info-alt  boxed-section">
+
+        <!-- Container -->
+        <div class="container cont-pad-x-15">
+
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb pull-left">
+                <li><a href="#"><i class="ti ti-home"></i></a></li>
+                <li><a href="#">婴童用品</a></li>
+                <li><a href="#">纸尿布</a></li>
+                <li><a href="#">纸尿裤</a></li>
+                <li class="active">商品</li>
+            </ol>
+            <!-- /Breadcrumb -->
+
+        </div>
+        <!-- /Container -->
+
+    </section>
     <div class="col-md-7">
         <!--basic info -->
         <div>            
@@ -66,11 +85,12 @@
         <div style="height:100px"></div>
         <div class="col-md-12" ng-show="product.WebShops!=null">
             <div class="col-md-12">中国跨金通网店:</div>            
-            <div class="col-md-12" ng-repeat="webShop in product.WebShops"><a href="" >{{webShop.Name}}</a></div>
-            
+            <div class="col-md-12" ng-repeat="webShop in product.WebShops"><a href="" >{{webShop.Name}}</a></div>            
         </div>
         <!--product webshops end-->
     </div>  
     <!--product image end-->
-    
+</div>
+<div>
+    <hr>
 </div>
