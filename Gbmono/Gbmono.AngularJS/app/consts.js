@@ -23,7 +23,7 @@
 
     gbmono.api_site_prefix = {
         // category api url 
-        category_api_url: gbmono.web_api_app_name + '/api/Categories',
+        category_api_url: gbmono.web_api_app_name + '/api/Category',
         // product detail url
         product_api_url: gbmono.web_api_app_name + '/api/Product',
     };

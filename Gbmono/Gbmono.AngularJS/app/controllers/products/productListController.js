@@ -3,13 +3,13 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'productListFactory'];
+    ctrl.$inject = ['$scope', 'productDataFactory'];
 
     module.controller('productListController', ctrl);
 
     // create controller
    // controller body
-    function ctrl($scope, productListFactory) {
+    function ctrl($scope, productDataFactory) {
         init();
 
         function init() {
@@ -19,7 +19,7 @@
         // get products
         function loadProducts() {
             // call web api
-            productListFactory.getProductList()
+            productDataFactory.getProductList()
                 .success(function (data) {
                     // success callback
                     // retreive the data into local array
