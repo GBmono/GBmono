@@ -18,14 +18,12 @@
 
         // get products
         function loadProducts() {
-            debugger;
             // call web api
             productListFactory.getProductList()
                 .success(function (data) {
                     // success callback
                     // retreive the data into local array
                     // $scope.products can be accessed from the view
-                    debugger;
                     $scope.products = data;
                 });
         }
