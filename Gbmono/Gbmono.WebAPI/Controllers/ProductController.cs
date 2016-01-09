@@ -13,11 +13,11 @@ namespace Gbmono.WebAPI.Controllers
 {
     public class ProductController : ApiController
     {
-        private readonly IProductRepository _productRepository;
+        private readonly ProductService _productService;
 
         public ProductController() 
         {
-            _productRepository=new ProductRepository();
+            _productService=new ProductService();
         }
 
 
@@ -26,7 +26,7 @@ namespace Gbmono.WebAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetProductList()
         {
-            var result =await _productRepository.GetProductList();
+            var result =await _productService.GetProductList();
 
             return Ok(result);
         }
@@ -34,7 +34,7 @@ namespace Gbmono.WebAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetProduct(int id)
         {
-            return Ok(await _productRepository.GetProductById(id));
+            return Ok(await _productService.GetProductById(id));
         }
 
     }
