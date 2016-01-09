@@ -38,10 +38,13 @@
     function factory($http) {
         // api url prefix
         var url = gbmono.api_site_prefix.product_api_url + '/';
-
+        var action = {
+            get_product: "GetProduct/"
+        }
         // return data factory with CRUD calls
         return {
-            getProductList: getProductList
+            getProductList: getProductList,
+            getProductDetails: getProductDetails
         };
 
         function getProductList() {
@@ -49,7 +52,7 @@
         }
 
         function getProductDetails(id) {
-            return $http.get(url + id);
+            return $http.get(url + action.get_product + id);
         }
     }
 

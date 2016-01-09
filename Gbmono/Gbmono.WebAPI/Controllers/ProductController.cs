@@ -31,5 +31,11 @@ namespace Gbmono.WebAPI.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        public async Task<IHttpActionResult> GetProduct(int id)
+        {
+            return Ok(await _productRepository.GetProductById(id));
+        }
+
     }
 }

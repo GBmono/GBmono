@@ -31,5 +31,22 @@ namespace Gbmono.WebAPI.Repository
            
             return result;
         }
+
+        public async Task<Product> GetProductById(int productId)
+        {
+            return await Task.Run(() =>
+            {
+                return new Product
+                {
+                    ProductId = productId,
+                    PrimaryName="moony air fit 搭扣M64片",
+                    Manufacturer=new Manufacturer { ManufacturerId=1, Name="尤妮佳" },
+                    Content = 64,
+                    ContentUnit = "片",
+                    Images=new List<ProductImage>() { new ProductImage { IsPrimary=true, Url="content/images/demo/moony1.jpg", Name="test1" } },
+                    Price=1784,
+                };
+            });
+        }
     }
 }

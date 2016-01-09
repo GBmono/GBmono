@@ -3,17 +3,29 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', '$routeParams'];
-    init();
-    function init() {
-        alert('details');
-    }
+    ctrl.$inject = ['$scope', '$routeParams', 'productDataFactory'];
+    
     // create controller
     module.controller('productDetailController', ctrl);
 
     // controller body
-    function ctrl($scope, $routeParams) {
-        // get route param id from url
+    function ctrl($scope, $routeParams, productDataFactory) {
+
         var id = $routeParams.id ? parseInt($routeParams.id) : 0;
+
+        init();
+
+        function init() {
+            GetProduct(id);
+        }
+        // get route param id from url
+        
+        function GetProduct(id) {
+            productDataFactory.getProductDetails(id).success(function (data) {
+                $scope.product = data;
+            });
+        }
+        
+
     }
 })(angular.module('gbmono'));

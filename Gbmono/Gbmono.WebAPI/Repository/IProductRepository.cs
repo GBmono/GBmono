@@ -12,6 +12,6 @@ namespace Gbmono.WebAPI.Repository
     {
         Task<List<Product>> GetProductList();
 
-
+        Task<Product> GetProductById(int productId);
     }
 }
