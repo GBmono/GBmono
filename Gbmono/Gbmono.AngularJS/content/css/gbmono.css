@@ -20,20 +20,28 @@
 
 /* aniamtion for ngShow */
 .animate-show {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
-  line-height:20px;
-  -ms-opacity:0;
-  opacity:1;
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    line-height: 20px;
+    -ms-opacity: 0;
+    opacity: 1;
 }
- 
-.animate-show.ng-hide-add,
-.animate-show.ng-hide-remove {
-  display:block!important;
-}
- 
-.animate-show.ng-hide {
-    line-height:0;
-    -ms-opacity:0;
-    opacity:0;
+
+    .animate-show.ng-hide-add,
+    .animate-show.ng-hide-remove {
+        display: block !important;
+    }
+
+    .animate-show.ng-hide {
+        line-height: 0;
+        -ms-opacity: 0;
+        opacity: 0;
+    }
+
+
+.product .image {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 200px;
 }
