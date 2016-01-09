@@ -10,15 +10,13 @@
 
     // factory implement
     function factory($http) {
-        // api url prefix
-        var url = API_URL_ROOT + '/';
+        function getCategories() {
+            return $http.get(gbmono.api_site_prefix.category_api_url + '/GetAllCategory');
+        }
 
         // return data factory with CRUD calls
         return {
-            get: get,
-            create: create,
-            update: update,
-            del: del
+            getCategories: getCategories
         }
     }
 
@@ -38,28 +36,26 @@
     function factory($http) {
         // api url prefix
         var url = gbmono.api_site_prefix.product_api_url + '/';
-        var action = {
-            get_product: "GetProduct/"
-        }
+
         // return data factory with CRUD calls
         return {
             getProductList: getProductList,
             getProductDetails: getProductDetails
         };
 
-        // sample
         function getProductList() {
-            return $http.get(url);
-            // more elegant call
-            // url and action could be removed
-            // return $http.get(gbmono.api_site_prefix.product_api_url)
+            return $http.get(url + 'GetProductList');
         }
 
         function getProductDetails(id) {
-            return $http.get(url + action.get_product + id);
+            return $http.get(url + "GetProduct/" + id);
             // more elegant call
             // return $http.get(gbmono.api_site_prefix.product_api_url + '/GetProduct/' + id);
         }
     }
 
 })(angular.module('gbmono'));
+
+
+
+

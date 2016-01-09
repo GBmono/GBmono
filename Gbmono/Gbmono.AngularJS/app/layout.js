@@ -15,21 +15,6 @@
 })(angular.module('gbmono'));
 
 
-/*
-   header block controller
-*/
-(function (module) {
-    // inject the controller params
-    ctrl.$inject = ['$scope'];
-
-    // create controller
-    module.controller('headerController', ctrl);
-
-    // controller body
-    function ctrl($scope) {
-
-    }
-})(angular.module('gbmono'));
 
 
 /*
