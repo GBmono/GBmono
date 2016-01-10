@@ -52,6 +52,7 @@
     <Compile Include="Infrastructure\RepositoryManager.cs" />
     <Compile Include="ModelConfigs\CategoryMap.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\News.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Models\ProductImage.cs" />
