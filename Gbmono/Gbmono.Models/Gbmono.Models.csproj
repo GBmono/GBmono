@@ -55,6 +55,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Models\ProductImage.cs" />
+    <Compile Include="Models\Retailer.cs" />
     <Compile Include="Models\RetailShop.cs" />
     <Compile Include="Models\WebShop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
