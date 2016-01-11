@@ -34,12 +34,13 @@ namespace Gbmono.Models
         public string Flavor { get; set; }
 
         // 容量
-        public double Content { get; set; }
+        // 以字符表示: 10g X 3 
+        public string Content { get; set; }
 
         //商品排列Code
         public string DisplayCode { get; set; }
 
-        public string ContentUnit { get; set; }
+        // public string ContentUnit { get; set; }
 
         // 条形码
         public string BarCode { get; set; }
@@ -55,6 +56,9 @@ namespace Gbmono.Models
 
         // 使用说明
         public string Instruction { get; set; }
+
+        // 追加文案
+        public string ExtraInformation { get; set; }
 
         // 商品图片
         public ICollection<ProductImage> Images { get; set; }
