@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Gbmono.Models;
 
-namespace Gbmono.WebAPI.Repository
+namespace Gbmono.WebAPI.Services
 {
     public class ProductService
     {
@@ -70,8 +70,8 @@ namespace Gbmono.WebAPI.Repository
                     ProductId = productId,
                     PrimaryName = "moony air fit 搭扣M64片",
                     Manufacturer = new Manufacturer { ManufacturerId = 1, Name = "尤妮佳" },
-                    Content = 64,
-                    ContentUnit = "片",
+                    Content = "64",
+                    // ContentUnit = "片",
                     Images=new List<ProductImage>() { new ProductImage { IsPrimary=true, Url="content/images/demo/moony3.jpg", Name="test1" } },
                     Price=1784,
                     RetailShops=new List<RetailShop>() { new RetailShop { Name="松本清(Matsumotokiyoshi)"},new RetailShop { Name= "Tsuruha(ツルハ)" },new RetailShop { Name= "Sundurg（サンドラッグ）" },new RetailShop { Name= "Sugi（スギ）" },new RetailShop { Name= "札幌药妆（サッポロドラッグストア）" } },

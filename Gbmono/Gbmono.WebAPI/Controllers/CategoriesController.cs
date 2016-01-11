@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Gbmono.Models;
 using Gbmono.Models.Infrastructure;
-using Gbmono.WebAPI.Repository;
+using Gbmono.WebAPI.Services;
 
 namespace Gbmono.WebAPI.Controllers
 {
+    [RoutePrefix("Categories")]
     public class CategoriesController : ApiController
     {
         private readonly CategoryService _categoryService;

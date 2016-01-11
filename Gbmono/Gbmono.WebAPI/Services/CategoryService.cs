@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Gbmono.Models;
 
-namespace Gbmono.WebAPI.Repository
+namespace Gbmono.WebAPI.Services
 {
     public class CategoryService
     {
