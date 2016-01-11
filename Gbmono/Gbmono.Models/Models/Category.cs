@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Gbmono.Models
 { 
@@ -10,6 +11,8 @@ namespace Gbmono.Models
 
         public string Name { get; set; }
 
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
+        
+        public IEnumerable<Category> SubCategories { get; set; }
     }
 }

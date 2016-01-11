@@ -7,7 +7,7 @@ using Gbmono.Models;
 
 namespace Gbmono.Models.Infrastructure
 {
-    public class RepositoryManager<T> where T : class
+    public class RepositoryManager
     {
         // db context
         public DbContext Context { get; private set; }
@@ -37,6 +37,8 @@ namespace Gbmono.Models.Infrastructure
 
         // entity repositories
         private IRepository<Category> _categoryRepository;
+        private IRepository<Product> _productRepository;
+
 
         // public accessors
         public IRepository<Category> CategoryRepository
@@ -44,14 +46,18 @@ namespace Gbmono.Models.Infrastructure
             get { return _categoryRepository ?? (_categoryRepository = new Repository<Category>(Context)); }
         }
 
-
-        //Generica Repository
-        private IRepository<T> _Repository;
-
-        // public accessors
-        public IRepository<T> Repository
+        public IRepository<Product> ProductRepository
         {
-            get { return _Repository ?? (_Repository = new Repository<T>(Context)); }
+            get { return _productRepository ?? (_productRepository = new Repository<Product>(Context));  }
         }
+
+        ////Generica Repository
+        //private IRepository<T> _Repository;
+
+        //// public accessors
+        //public IRepository<T> Repository
+        //{
+        //    get { return _Repository ?? (_Repository = new Repository<T>(Context)); }
+        //}
     }
 }
