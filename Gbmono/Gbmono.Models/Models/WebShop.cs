@@ -17,5 +17,7 @@ namespace Gbmono.Models
         public string LogoUrl { get; set; }
 
         public bool Enabled { get; set; }
+
+        public ICollection<Product> Products { get; set; }
     }
 }

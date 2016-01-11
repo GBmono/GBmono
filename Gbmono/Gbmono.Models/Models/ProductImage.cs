@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Gbmono.Models
 {
@@ -15,5 +16,8 @@ namespace Gbmono.Models
         public bool IsThumbnail { get; set; }
 
         public string Summary { get; set; }
+
+        public int ProductId { set; get; }
+        public Product Product { set; get; }
     }
 }

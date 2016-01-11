@@ -25,5 +25,7 @@ namespace Gbmono.Models
         public string Longitude { get; set; }
 
         public bool Enabled { get; set; }
+
+        public ICollection<Product> Products { get; set; }
     }
 }

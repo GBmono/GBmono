@@ -51,6 +51,10 @@
     <Compile Include="DataContext\GbmonSqlContext.cs" />
     <Compile Include="Infrastructure\RepositoryManager.cs" />
     <Compile Include="ModelConfigs\CategoryMap.cs" />
+    <Compile Include="ModelConfigs\ManufacturerMap.cs" />
+    <Compile Include="ModelConfigs\ProductMap.cs" />
+    <Compile Include="ModelConfigs\RetailerMap.cs" />
+    <Compile Include="ModelConfigs\RetailShopMap.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Product.cs" />

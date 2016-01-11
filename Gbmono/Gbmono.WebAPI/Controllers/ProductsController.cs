@@ -45,11 +45,11 @@ namespace Gbmono.WebAPI.Controllers
                                      .Table
                                      .SingleOrDefault(m => m.BarCode == code);
         }
-        
 
         [HttpGet]
         public async Task<IHttpActionResult> GetProductList()
         {
+
             var result =await _productService.GetProductList();
 
             return Ok(result);
