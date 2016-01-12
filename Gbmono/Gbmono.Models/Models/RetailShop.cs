@@ -10,6 +10,9 @@ namespace Gbmono.Models
     {
         public int RetailShopId { get; set; }
 
+        public int RetailderId { get; set; }
+        public Retailer Retailer { get; set; } // 零售商
+
         public string Name { get; set; }
 
         public int CountryId { get; set; }
@@ -26,6 +29,6 @@ namespace Gbmono.Models
 
         public bool Enabled { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        // public ICollection<Product> Products { get; set; }
     }
 }

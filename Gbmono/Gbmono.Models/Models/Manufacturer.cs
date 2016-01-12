@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Gbmono.Models
 {
@@ -14,5 +15,7 @@ namespace Gbmono.Models
         public string LogoUrl { get; set; }
 
         public bool Enabled { get; set; }
+
+        public ICollection<Brand> Brands { get; set; }
     }
 }

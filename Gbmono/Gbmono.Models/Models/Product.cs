@@ -13,8 +13,12 @@ namespace Gbmono.Models
         public int CategoryId { get; set; }
 
         // 品牌商
-        public int ManufacturerId { get; set; }
-        public Manufacturer Manufacturer { get; set; }
+        //public int ManufacturerId { get; set; }
+        //public Manufacturer Manufacturer { get; set; }
+
+        // 品牌，根据品牌可以取得上级的制造商(品牌商)
+        public int BrandId { get; set; }
+        public Brand Brand { get; set; }
 
         // 促销 code
         public string PromotionCode { get; set; }

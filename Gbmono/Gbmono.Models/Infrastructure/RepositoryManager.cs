@@ -38,7 +38,9 @@ namespace Gbmono.Models.Infrastructure
         // entity repositories
         private IRepository<Category> _categoryRepository;
         private IRepository<Product> _productRepository;
-
+        private IRepository<Manufacturer> _manufacturerRepository;
+        private IRepository<Brand> _brandRepository;
+        private IRepository<Retailer> _retailerRepository;
 
         // public accessors
         public IRepository<Category> CategoryRepository
@@ -49,6 +51,21 @@ namespace Gbmono.Models.Infrastructure
         public IRepository<Product> ProductRepository
         {
             get { return _productRepository ?? (_productRepository = new Repository<Product>(Context));  }
+        }
+
+        public IRepository<Manufacturer> ManufacturerRepository
+        {
+            get { return _manufacturerRepository ?? (_manufacturerRepository = new Repository<Manufacturer>(Context)); }
+        }
+
+        public IRepository<Brand> BrandRepository
+        {
+            get { return _brandRepository ?? (_brandRepository = new Repository<Brand>(Context)); }
+        }
+
+        public IRepository<Retailer> RetailerRepository
+        {
+            get { return _retailerRepository ?? (_retailerRepository = new Repository<Retailer>(Context)); }
         }
 
         ////Generica Repository

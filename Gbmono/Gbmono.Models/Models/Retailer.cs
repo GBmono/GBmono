@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace Gbmono.Models.Models
+namespace Gbmono.Models
 {
     /// <summary>
     /// 零售商
@@ -14,6 +15,9 @@ namespace Gbmono.Models.Models
         public string LogoUrl { get; set; }
 
         public bool Enabled { get; set; }
+
+        // retail shops
+        public ICollection<RetailShop> Shops { get; set; }
 
         // type:用来标识改零售商属于境外 境内 跨境通？
     }
