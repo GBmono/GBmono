@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gbmono.Models.ModelConfigs
 {
-    public class ProductMap: EntityTypeConfiguration<Product>
+    public class ProductMap : EntityTypeConfiguration<Product>
     {
         public ProductMap()
         {
@@ -18,13 +18,22 @@ namespace Gbmono.Models.ModelConfigs
 
             // HasOptional(m => m.ParentCategory).WithMany().HasForeignKey(m => m.ParentId); // foreign key in same table
 
-            // not sure
-            //HasMany(m => m.Retailers).WithMany().Map(m =>
-            //           {
-            //               m.ToTable("ProductRetailer");
-            //               m.MapLeftKey("ProductId");
-            //               m.MapRightKey("RetailerId");
-            //           });
+            //Wroking
+            HasMany(m => m.Retailers).WithMany().Map(m =>
+                       {
+                           m.ToTable("ProductRetailer");
+                           m.MapLeftKey("ProductId");
+                           m.MapRightKey("RetailerId");
+                       });
+
+            HasMany(m => m.WebShops).WithMany().Map(m =>
+                        {
+                            m.ToTable("ProductWebShop");
+                            m.MapLeftKey("ProductId");
+                            m.MapRightKey("WebShopId");
+                        });
+
+            HasMany(m => m.Images).WithRequired(m => m.Product).HasForeignKey(m=>m.ProductId);
         }
     }
 }

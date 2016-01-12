@@ -18,6 +18,5 @@ namespace Gbmono.Models
 
         public bool Enabled { get; set; }
 
-        public ICollection<Product> Products { get; set; }
     }
 }

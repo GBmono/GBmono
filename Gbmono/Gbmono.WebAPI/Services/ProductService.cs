@@ -19,17 +19,17 @@ namespace Gbmono.WebAPI.Services
         public async Task<List<Product>> GetProductList()
         {
             //Todo to be removed temp here for testing create db
-            //var repo = new RepositoryManager();
-            //try
-            //{
-            //    repo.ProductRepository.Create(new Product() { PrimaryName = "test",ActivationDate =DateTime.Now,CreatedDate = DateTime.Now, ExpiryDate = DateTime.Now, UpdatedDate = DateTime.Now});
-            //    repo.ProductRepository.Save();
-            //}
-            //catch (Exception ex)
-            //{
-            //    var a = ex;
-            //    throw;
-            //}
+            var repo = new RepositoryManager();
+            try
+            {
+                repo.ProductRepository.Create(new Product() { PrimaryName = "test", ActivationDate = DateTime.Now, CreatedDate = DateTime.Now, ExpiryDate = DateTime.Now, UpdatedDate = DateTime.Now });
+                repo.ProductRepository.Save();
+            }
+            catch (Exception ex)
+            {
+                var a = ex;
+                throw;
+            }
 
 
             var result = await Task<List<Product>>.Run(() =>
@@ -85,12 +85,12 @@ namespace Gbmono.WebAPI.Services
                 {
                     ProductId = productId,
                     PrimaryName = "moony air fit 搭扣M64片",
-                    Manufacturer = new Manufacturer { ManufacturerId = 1, Name = "尤妮佳" },
+                    Brand = new Brand() { BrandId = 1, Name = "尤妮佳" },
                     Content = "64",
                     // ContentUnit = "片",
                     Images = new List<ProductImage>() { new ProductImage { IsPrimary = true, Url = "content/images/demo/moony3.jpg", Name = "test1" } },
                     Price = 1784,
-                    RetailShops = new List<RetailShop>() { new RetailShop { Name = "松本清(Matsumotokiyoshi)" }, new RetailShop { Name = "Tsuruha(ツルハ)" }, new RetailShop { Name = "Sundurg（サンドラッグ）" }, new RetailShop { Name = "Sugi（スギ）" }, new RetailShop { Name = "札幌药妆（サッポロドラッグストア）" } },
+                    //RetailShops = new List<RetailShop>() { new RetailShop { Name = "松本清(Matsumotokiyoshi)" }, new RetailShop { Name = "Tsuruha(ツルハ)" }, new RetailShop { Name = "Sundurg（サンドラッグ）" }, new RetailShop { Name = "Sugi（スギ）" }, new RetailShop { Name = "札幌药妆（サッポロドラッグストア）" } },
                     WebShops = new List<WebShop>() { new WebShop { Name = "A店" } }
                 };
             });
