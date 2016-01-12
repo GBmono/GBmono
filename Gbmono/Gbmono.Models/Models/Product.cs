@@ -67,8 +67,10 @@ namespace Gbmono.Models
         // 商品图片
         public ICollection<ProductImage> Images { get; set; }
 
-        // 零售店列表
-        public ICollection<RetailShop> RetailShops { get; set; }
+        // 零售商
+        public ICollection<Retailer> Retailers { get; set; }
+
+        // public ICollection<RetailShop> RetailShops { get; set; }
 
         // 网店列表
         public ICollection<WebShop> WebShops { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -44,6 +45,17 @@ namespace Gbmono.WebAPI.Controllers
             return _repositoryManager.ProductRepository
                                      .Table
                                      .SingleOrDefault(m => m.BarCode == code);
+        }
+
+        [Route("Recommends")]
+        public IEnumerable<Product> GetRecommendedProducts()
+        {
+            return _repositoryManager.ProductRepository
+                                     .Table
+                                     .Include(m => m.Brand.Manufacturer) // 读取对应品牌和品牌商
+                                     .OrderBy(m => m.ProductCode)
+                                     .ToList();
+                                     
         }
 
         [HttpGet]
