@@ -17,6 +17,14 @@ namespace Gbmono.Models.ModelConfigs
             //HasMany(m => m.WebShops).WithOptional().HasForeignKey(m => m.WebShopId);
 
             // HasOptional(m => m.ParentCategory).WithMany().HasForeignKey(m => m.ParentId); // foreign key in same table
+
+            // not sure
+            //HasMany(m => m.Retailers).WithMany().Map(m =>
+            //           {
+            //               m.ToTable("ProductRetailer");
+            //               m.MapLeftKey("ProductId");
+            //               m.MapRightKey("RetailerId");
+            //           });
         }
     }
 }
