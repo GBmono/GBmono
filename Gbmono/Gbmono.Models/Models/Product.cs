@@ -27,7 +27,7 @@ namespace Gbmono.Models
         public string CuponCode { get; set; }
 
         // topic id
-        public int TopicId { get; set; }
+        public int? TopicId { get; set; }
 
         // 名称
         public string PrimaryName { get; set; }
@@ -53,7 +53,7 @@ namespace Gbmono.Models
         public double Price { get; set; }
 
         // discount??
-        public double Discount { get; set; }
+        public double? Discount { get; set; }
 
         // 商品描述
         public string Description { get; set; }
