@@ -19,17 +19,17 @@ namespace Gbmono.WebAPI.Services
         public async Task<List<Product>> GetProductList()
         {
             //Todo to be removed temp here for testing create db
-            var repo = new RepositoryManager();
-            try
-            {
-                repo.ProductRepository.Create(new Product() { PrimaryName = "test", ActivationDate = DateTime.Now, CreatedDate = DateTime.Now, ExpiryDate = DateTime.Now, UpdatedDate = DateTime.Now });
-                repo.ProductRepository.Save();
-            }
-            catch (Exception ex)
-            {
-                var a = ex;
-                throw;
-            }
+            //var repo = new RepositoryManager();
+            //try
+            //{
+            //    repo.ProductRepository.Create(new Product() { PrimaryName = "test", ActivationDate = DateTime.Now, CreatedDate = DateTime.Now, ExpiryDate = DateTime.Now, UpdatedDate = DateTime.Now });
+            //    repo.ProductRepository.Save();
+            //}
+            //catch (Exception ex)
+            //{
+            //    var a = ex;
+            //    throw;
+            //}
 
 
             var result = await Task<List<Product>>.Run(() =>
