@@ -57,6 +57,7 @@
     <Compile Include="ModelConfigs\RetailShopMap.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Country.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Manufacturer.cs" />

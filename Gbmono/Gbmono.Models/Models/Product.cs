@@ -12,22 +12,13 @@ namespace Gbmono.Models
         // category 商品目录 根据当前目录id可获得上级目录
         public int CategoryId { get; set; }
 
-        // 品牌商
-        //public int ManufacturerId { get; set; }
-        //public Manufacturer Manufacturer { get; set; }
-
         // 品牌，根据品牌可以取得上级的制造商(品牌商)
         public int BrandId { get; set; }
         public Brand Brand { get; set; }
 
-        // 促销 code
-        public string PromotionCode { get; set; }
-
-        // 优惠券 code
-        public string CuponCode { get; set; }
-
-        // topic id
-        public int? TopicId { get; set; }
+        // 产地, map to country
+        public int CountryId { get; set; }
+        public Country Country { get; set; }
 
         // 名称
         public string PrimaryName { get; set; }
@@ -41,10 +32,20 @@ namespace Gbmono.Models
         // 以字符表示: 10g X 3 
         public string Content { get; set; }
 
+        // 重量
+        public double Weight { get; set; }
+
+        // 重量单位
+        public string WeightUnit { get; set; }
+
+        // 体积 15x18x100mm
+        public string Shape { get; set; }
+        
+        // 材质 / 成分
+        public string Texture { get; set; }
+
         //商品排列Code
         public string DisplayCode { get; set; }
-
-        // public string ContentUnit { get; set; }
 
         // 条形码
         public string BarCode { get; set; }
@@ -57,9 +58,11 @@ namespace Gbmono.Models
 
         // 商品描述
         public string Description { get; set; }
+        public ICollection<ProductImage> DescriptionImages { get; set; }
 
         // 使用说明
         public string Instruction { get; set; }
+        public ICollection<ProductImage> InstructionImages { get; set; }
 
         // 追加文案
         public string ExtraInformation { get; set; }
@@ -70,11 +73,17 @@ namespace Gbmono.Models
         // 零售商
         public ICollection<Retailer> Retailers { get; set; }
 
-        // public ICollection<RetailShop> RetailShops { get; set; }
-
         // 网店列表
         public ICollection<WebShop> WebShops { get; set; }
 
+        // 促销 code
+        public string PromotionCode { get; set; }
+
+        // 优惠券 code
+        public string CuponCode { get; set; }
+
+        // topic id
+        public int? TopicId { get; set; }
 
         // 入库日期
         public DateTime CreatedDate { get; set; }
