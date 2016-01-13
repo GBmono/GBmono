@@ -45,7 +45,7 @@ namespace Gbmono.Models
         public string Texture { get; set; }
 
         //商品排列Code
-        public string DisplayCode { get; set; }
+        public int? DisplayCode { get; set; }
 
         // 条形码
         public string BarCode { get; set; }
@@ -83,7 +83,7 @@ namespace Gbmono.Models
         public string CuponCode { get; set; }
 
         // topic id
-        public int? TopicId { get; set; }
+        public string TopicId { get; set; }
 
         // 入库日期
         public DateTime CreatedDate { get; set; }
