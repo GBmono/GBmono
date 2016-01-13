@@ -24,17 +24,17 @@ namespace Gbmono.WebAPI.Controllers
             _repositoryManager = new RepositoryManager();
         }
         #endregion
-        
+
+        [Route("All")]
+
         public IEnumerable<Category> GetAll()
         {
             var categories = _repositoryManager.CategoryRepository.Table.ToList();
 
             // level 1 categories
             var topCategories = categories.Where(m => m.ParentId == null);
-                                                                          
-
             // level 2 categories
-            foreach(var topCate in topCategories)
+            foreach (var topCate in topCategories)
             {
                 // level 2
                 var subcategories = categories.Where(m => m.ParentId == topCate.CategoryId);
@@ -43,7 +43,7 @@ namespace Gbmono.WebAPI.Controllers
                 topCate.SubCategories = subcategories;
 
                 // level 3 categories
-                foreach(var subCate in subcategories)
+                foreach (var subCate in subcategories)
                 {
                     // level 3
                     var cates = categories.Where(m => m.ParentId == subCate.CategoryId);
@@ -53,7 +53,7 @@ namespace Gbmono.WebAPI.Controllers
                 }
             }
 
-            return topCategories;
+            return categories;
         }
 
 

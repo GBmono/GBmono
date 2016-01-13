@@ -11,7 +11,7 @@
     // factory implement
     function factory($http) {
         function getCategories() {
-            return $http.get(gbmono.api_site_prefix.category_api_url + '/GetAllCategory');
+            return $http.get(gbmono.api_site_prefix.category_api_url + '/All');
         }
 
         // return data factory with CRUD calls
