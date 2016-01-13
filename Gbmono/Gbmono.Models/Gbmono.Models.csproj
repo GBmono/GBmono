@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="DataContext\GbmonSqlContext.cs" />
     <Compile Include="Infrastructure\RepositoryManager.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigs\CategoryMap.cs" />
     <Compile Include="ModelConfigs\ManufacturerMap.cs" />
     <Compile Include="ModelConfigs\ProductMap.cs" />
@@ -70,7 +71,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="SqlScripts\gbmono.zip" />
+    <None Include="SqlScripts\gbmono0113.zip" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gbmono.EF\Gbmono.EF.csproj">

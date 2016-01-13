@@ -82,8 +82,8 @@ namespace Gbmono.Models
         // 优惠券 code
         public string CuponCode { get; set; }
 
-        // topic id
-        public string TopicId { get; set; }
+        // topic code
+        public string TopicCode { get; set; }
 
         // 入库日期
         public DateTime CreatedDate { get; set; }
