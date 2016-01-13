@@ -69,7 +69,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="SqlScripts\gbmono.bak" />
+    <None Include="SqlScripts\gbmono.zip" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gbmono.EF\Gbmono.EF.csproj">
