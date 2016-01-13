@@ -70,7 +70,10 @@ namespace Gbmono.WebAPI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetProduct(int id)
         {
-            return Ok(await _productService.GetProductById(id));
+            return await Task.Run(() =>
+            {
+                return Ok(_repositoryManager.ProductRepository.Fetch(f => f.ProductId == id));
+            });            
         }
 
     }

@@ -64,7 +64,7 @@ namespace Gbmono.WebAPI.Services
                         PrimaryName = "纸尿布" + i,
                         BarCode = (4912345678901 + i).ToString(),
                         CuponCode = (8001 + i).ToString(),
-                        TopicId = 9001 + i,
+                        TopicId = (9001 + i).ToString(),
                         Price = price,
                         Description = "日本本土现货花王拉拉裤9-14",
                         Images = dicImages[imageIndex]
