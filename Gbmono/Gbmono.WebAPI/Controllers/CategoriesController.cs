@@ -26,7 +26,6 @@ namespace Gbmono.WebAPI.Controllers
         #endregion
 
         [Route("All")]
-
         public IEnumerable<Category> GetAll()
         {
             var categories = _repositoryManager.CategoryRepository.Table.ToList();
