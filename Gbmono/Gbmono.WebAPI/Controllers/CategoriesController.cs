@@ -52,7 +52,7 @@ namespace Gbmono.WebAPI.Controllers
                 }
             }
 
-            return categories;
+            return topCategories;
         }
 
 

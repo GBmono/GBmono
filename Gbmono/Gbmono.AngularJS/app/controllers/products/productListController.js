@@ -3,29 +3,41 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'productDataFactory'];
+    ctrl.$inject = ['$scope', '$routeParams', 'productDataFactory'];
 
     module.controller('productListController', ctrl);
 
     // create controller
-   // controller body
-    function ctrl($scope, productDataFactory) {
+    // controller body
+    function ctrl($scope, $routeParams, productDataFactory) {
         init();
 
+        
         function init() {
             loadProducts();
         }
 
         // get products
         function loadProducts() {
+            var categoryId = $routeParams.id ? parseInt($routeParams.id) : 0;
             // call web api
-            productDataFactory.getProductList()
-                .success(function (data) {
-                    // success callback
-                    // retreive the data into local array
-                    // $scope.products can be accessed from the view
-                    $scope.products = data;
-                });
+            if (categoryId == 0 ) {
+                productDataFactory.getProductList()
+                    .success(function(data) {
+                        // success callback
+                        // retreive the data into local array
+                        // $scope.products can be accessed from the view
+                        $scope.products = data;
+                    });
+            } else {
+                productDataFactory.getProductListByCategory(categoryId)
+                    .success(function (data) {
+                        // success callback
+                        // retreive the data into local array
+                        // $scope.products can be accessed from the view
+                        $scope.products = data;
+                    });
+            }
         }
 
 
