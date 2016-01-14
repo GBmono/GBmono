@@ -13,6 +13,7 @@ namespace Gbmono.WebAPI
     {
         public static void Register(HttpConfiguration config)
         {
+            log4net.Config.XmlConfigurator.Configure();
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             // Web API configuration and services
