@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
 using System.Web.Http.Cors;
+using Gbmono.Models.DataContext;
 using Gbmono.WebAPI.ExceptionHandling;
+using Microsoft.SqlServer.Server;
 
 namespace Gbmono.WebAPI
 {
@@ -36,6 +40,8 @@ namespace Gbmono.WebAPI
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GbmonoSqlContext, Gbmono.Models.Migrations.Configuration>());
         }
     }
 }
