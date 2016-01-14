@@ -1,0 +1,37 @@
+﻿<div class="row categoryDiv">
+    <div class="col-md-6" ng-repeat="category in allCategories">
+        <div class="row">
+            <div class="col-md-12">
+                <h5>
+                    <b>{{category.Name}}</b>
+                </h5>
+            </div>
+        </div>
+        <div class="row tempMarginBottom" ng-repeat="subCategory in category.SubCategories">
+            <div class="col-md-3">
+                <b>{{subCategory.Name}}</b>
+            </div>
+            <div class="col-md-9">
+                <a ng-href="#/categoryproducts/{{endCategory.CategoryId}}" class="tempMarginRight" ng-repeat="endCategory in subCategory.SubCategories">
+                    <span>{{endCategory.Name}}</span>
+                </a>
+            </div>
+        </div>
+        <hr />
+    </div>
+</div>
+
+
+<style>
+    .tempMarginBottom {
+        margin-bottom: 15px;
+    }
+
+    .tempMarginRight {
+        margin-right: 10px;
+    }
+    .categoryDiv a:hover {
+        text-decoration:underline
+    }
+
+</style>

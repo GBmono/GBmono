@@ -25,7 +25,7 @@
         // category api url 
         category_api_url: gbmono.web_api_app_name + '/Categories',
         // product detail url
-        product_api_url: gbmono.web_api_app_name + '/api/Products',
+        product_api_url: gbmono.web_api_app_name + '/Products',
     };
 
 })(window.gbmono = window.gbmono || {});

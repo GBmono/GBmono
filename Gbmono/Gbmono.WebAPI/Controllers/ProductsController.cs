@@ -58,6 +58,7 @@ namespace Gbmono.WebAPI.Controllers
                                      
         }
 
+        [Route("GetProductList")]
         [HttpGet]
         public async Task<IHttpActionResult> GetProductList()
         {
@@ -67,6 +68,8 @@ namespace Gbmono.WebAPI.Controllers
             return Ok(result);
         }
 
+
+        [Route("GetProduct/{id}")]
         [HttpGet]
         public async Task<IHttpActionResult> GetProduct(int id)
         {
