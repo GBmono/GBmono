@@ -11,14 +11,14 @@ namespace Gbmono.Models
 
         // category 商品目录 根据当前目录id可获得上级目录
         public int CategoryId { get; set; }
-
+        public virtual Category Category { get; set; }
         // 品牌，根据品牌可以取得上级的制造商(品牌商)
         public int BrandId { get; set; }
-        public Brand Brand { get; set; }
+        public virtual Brand Brand { get; set; }
 
         // 产地, map to country
         public int CountryId { get; set; }
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
 
         // 名称
         public string PrimaryName { get; set; }

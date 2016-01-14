@@ -9,6 +9,7 @@ using System.Web.Http;
 using Gbmono.Models;
 using Gbmono.Models.Infrastructure;
 using Gbmono.WebAPI.Services;
+using Gbmono.WebAPI.Models;
 
 namespace Gbmono.WebAPI.Controllers
 {
@@ -72,7 +73,9 @@ namespace Gbmono.WebAPI.Controllers
         {
             return await Task.Run(() =>
             {
-                return Ok(_repositoryManager.ProductRepository.Fetch(f => f.ProductId == id));
+                var product = _repositoryManager.ProductRepository.Fetch(f => f.ProductId == id).FirstOrDefault();
+                
+                return Ok(new ProductViewModel(product));
             });            
         }
 
