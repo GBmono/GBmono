@@ -5,7 +5,7 @@ namespace Gbmono.Models.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Gbmono.Models.DataContext.GbmonoSqlContext>
+    public sealed class Configuration : DbMigrationsConfiguration<Gbmono.Models.DataContext.GbmonoSqlContext>
     {
         public Configuration()
         {
