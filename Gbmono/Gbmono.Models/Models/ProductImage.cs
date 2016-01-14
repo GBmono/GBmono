@@ -7,6 +7,9 @@ namespace Gbmono.Models
     {
         public int ProductImageId { get; set; }
 
+        public int ProductId { set; get; }
+        public Product Product { set; get; }
+
         public string Name { get; set; }
 
         public string Url { get; set; }
@@ -17,7 +20,6 @@ namespace Gbmono.Models
 
         public string Summary { get; set; }
 
-        public int ProductId { set; get; }
-        public Product Product { set; get; }
+        public short ProductImageTypeId { get; set; }
     }
 }
