@@ -51,7 +51,7 @@
         }
 
         function getProductDetails(id) {
-            return $http.get(gbmono.api_site_prefix.product_api_url + "/GetProduct/" + id);
+            return $http.get(gbmono.api_site_prefix.product_api_url + "/" + id);
         }
     }
 

@@ -7,10 +7,7 @@
             <!-- Breadcrumb -->
             <ol class="breadcrumb pull-left">
                 <li><a href="#"><i class="ti ti-home"></i></a></li>
-                <li><a href="#">婴童用品</a></li>
-                <li><a href="#">纸尿布</a></li>
-                <li><a href="#">纸尿裤</a></li>
-                <li class="active">商品</li>
+                <li ng-repeat="category in product.categories"><a href="#/categories/{{category.categoryId}}">{{category.name}}</a></li>  
             </ol>
             <!-- /Breadcrumb -->
 

@@ -5,11 +5,20 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Web;
 using Gbmono.Models;
+using Gbmono.WebAPI.Models;
+using Gbmono.Models.Infrastructure;
 
 namespace Gbmono.WebAPI.Services
 {
     public class CategoryService
     {
+        private readonly RepositoryManager _repositoryManager;
+        public CategoryService(){}
+
+        public CategoryService(RepositoryManager repo)
+        {
+            _repositoryManager = repo;
+        }
         public async Task<List<Category>> GetAllCagegory()
         {
             var result = await Task<List<Category>>.Run(() =>
@@ -109,7 +118,29 @@ namespace Gbmono.WebAPI.Services
             return result;
         }
 
+        public CategoryViewModel GetParentCategory(int id)
+        {
+            var category = _repositoryManager.CategoryRepository.Get(id);
+            return category.ToViewModel();           
+        }
 
+        public void GetParentCategories(int id, ref List<CategoryViewModel> list)
+        {
+            var parent = GetParentCategory(id);
+            list.Add(parent);
+            if (parent.ParentId.HasValue)
+            {
+                GetParentCategories(parent.ParentId.Value, ref list);
+            }
+        }
+
+        public List<CategoryViewModel> GetProductCategoryList(int id)
+        {
+            var list = new List<CategoryViewModel>();
+            GetParentCategories(id, ref list);
+            list.Reverse();
+            return list;
+        }
 
     }
 }
