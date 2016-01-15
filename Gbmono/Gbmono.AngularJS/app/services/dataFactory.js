@@ -81,19 +81,19 @@
         };
 
         function getAll() {
-            return $http.get(gbmono.api_site_prefix.rand_api_url);
+            return $http.get(gbmono.api_site_prefix.brand_api_url);
         }
 
         function getById(id) {
-            return $http.get(gbmono.api_site_prefix.rand_api_url + '/' + id);
+            return $http.get(gbmono.api_site_prefix.brand_api_url + '/' + id);
         }
 
         function create(brand) {
-            return $http.post(gbmono.api_site_prefix.rand_api_url, brand);
+            return $http.post(gbmono.api_site_prefix.brand_api_url, brand);
         }
 
         function update(brand) {
-            return $http.put(gbmono.api_site_prefix.rand_api_url + '/' + brand.brandId, brand);
+            return $http.put(gbmono.api_site_prefix.brand_api_url + '/' + brand.brandId, brand);
         }
 
         function del(id) {
