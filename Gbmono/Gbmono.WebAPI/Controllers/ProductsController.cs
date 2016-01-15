@@ -19,22 +19,21 @@ namespace Gbmono.WebAPI.Controllers
         private readonly ProductService _productService;
         private readonly RepositoryManager _repositoryManager;
 
-        public ProductsController() 
+        public ProductsController()
         {
-            _productService=new ProductService();
+            _productService = new ProductService();
             _repositoryManager = new RepositoryManager();
         }
 
         [Route("Categories/{categoryId}")]
-        public IEnumerable<Product> GetByCategory(int categoryId)
+        public async Task<IHttpActionResult> GetByCategory(int categoryId)
         {
-            return _repositoryManager.ProductRepository
-                                     .Fetch(m => m.CategoryId == categoryId)
-                                     .OrderBy(m => m.PrimaryName)
-                                     .ToList();
+            var result = await _productService.GetProductByCategory(categoryId);
+
+            return Ok(result);
         }
 
-       
+
 
         [Route("BarCodes/{code}")]
         public Product GetByBarCode(string code)
@@ -52,13 +51,13 @@ namespace Gbmono.WebAPI.Controllers
                                      .Include(m => m.Brand.Manufacturer) // 读取对应品牌和品牌商
                                      .OrderBy(m => m.ProductCode)
                                      .ToList();
-                                     
+
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> GetAll()
         {
-            var result =await _productService.GetProductList();
+            var result = await _productService.GetProductList();
             return Ok(result);
         }
 
@@ -69,9 +68,9 @@ namespace Gbmono.WebAPI.Controllers
             return await Task.Run(() =>
             {
                 var product = _repositoryManager.ProductRepository.Fetch(f => f.ProductId == id).FirstOrDefault();
-                
+
                 return Ok(new ProductViewModel(product));
-            });            
+            });
         }
 
         //public Product GetById(int id)
