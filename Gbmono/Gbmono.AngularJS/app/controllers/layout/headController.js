@@ -18,7 +18,7 @@
 
         // get products
         function loadCategory() {
-            categoryDataFactory.getCategories()
+            categoryDataFactory.getAll()
              .success(function (data) {
                  // success callback
                  // retreive the data into local array
@@ -27,22 +27,22 @@
              });
         }
 
-        $scope.categoryHover = function (category) {
-            var childCategories = GetCategoryByParentId(category.CategoryId);
+        //$scope.categoryHover = function (category) {
+        //    var childCategories = GetCategoryByParentId(category.CategoryId);
 
-        };
+        //};
 
-        function GetCategoryByParentId(parentId) {
-            var childCategoriesArray = new Array();
-            angular.forEach($scope.categories, function (data, index, array) {
-                var category = array[index];
-                if (category.ParentId==parentId) {
-                    childCategoriesArray.push(category);
-                }
+        //function GetCategoryByParentId(parentId) {
+        //    var childCategoriesArray = new Array();
+        //    angular.forEach($scope.categories, function (data, index, array) {
+        //        var category = array[index];
+        //        if (category.ParentId==parentId) {
+        //            childCategoriesArray.push(category);
+        //        }
                 
-            });
-            return childCategoriesArray;
-        }
+        //    });
+        //    return childCategoriesArray;
+        //}
 
 
       

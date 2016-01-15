@@ -45,3 +45,7 @@
     display: block;
     width: 200px;
 }
+
+.product .title {
+    height: 45px;
+}

@@ -37,7 +37,7 @@
                     controller: 'productListController',
                     caseInsensitiveMatch: true
                 })
-                .when('/categoryproducts/:id', { // 商品列表页
+                .when('/category/:id/products/', { // 商品列表页
                     templateUrl: gbmono.app_view_path + '/products/list.html',
                     controller: 'productListController',
                     caseInsensitiveMatch: true

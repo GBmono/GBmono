@@ -10,14 +10,16 @@
 
     // factory implement
     function factory($http) {
-        function getCategories() {
-            return $http.get(gbmono.api_site_prefix.category_api_url + '/All');
-        }
-
         // return data factory with CRUD calls
         return {
-            getCategories: getCategories
+            getAll: getAll
         }
+
+        function getAll() {
+            return $http.get(gbmono.api_site_prefix.category_api_url );
+    }
+
+     
     }
 
 })(angular.module('gbmono'));
@@ -37,22 +39,23 @@
 
         // return data factory with CRUD calls
         return {
-            getProductList: getProductList,
-            getProductDetails: getProductDetails,
-            getProductListByCategory: getProductListByCategory
+            getAll: getAll,
+            getById: getById,
+            getByCategory: getByCategory
         };
 
-        function getProductList() {
-            return $http.get(gbmono.api_site_prefix.product_api_url + '/GetProductList');
+        function getAll() {
+            return $http.get(gbmono.api_site_prefix.product_api_url);
+        }
+        function getById(id) {
+            return $http.get(gbmono.api_site_prefix.product_api_url + "/" + id);
         }
 
-        function getProductListByCategory(categoryId) {
+        function getByCategory(categoryId) {
             return $http.get(gbmono.api_site_prefix.product_api_url + '/Categories/' + categoryId);
         }
 
-        function getProductDetails(id) {
-            return $http.get(gbmono.api_site_prefix.product_api_url + "/" + id);
-        }
+      
     }
 
 })(angular.module('gbmono'));

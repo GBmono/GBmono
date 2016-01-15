@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -12,70 +13,89 @@ namespace Gbmono.WebAPI.Services
 {
     public class ProductService
     {
+        private readonly RepositoryManager _repositoryManager;
+
+        public ProductService()
+        {
+            _repositoryManager = new RepositoryManager();
+        }
 
         private static readonly Random random = new Random();
         private static readonly object syncLock = new object();
 
         public async Task<List<Product>> GetProductList()
         {
-            //Todo to be removed temp here for testing create db
-            //var repo = new RepositoryManager();
-            //try
-            //{
-            //    repo.ProductRepository.Create(new Product() { PrimaryName = "test", ActivationDate = DateTime.Now, CreatedDate = DateTime.Now, ExpiryDate = DateTime.Now, UpdatedDate = DateTime.Now });
-            //    repo.ProductRepository.Save();
-            //}
-            //catch (Exception ex)
-            //{
-            //    var a = ex;
-            //    throw;
-            //}
-
-
             var result = await Task<List<Product>>.Run(() =>
             {
-                var productList = new List<Product>();
+                var productList = _repositoryManager.ProductRepository
+                                                    .Table
+                                                    .Include(m => m.Retailers)
+                                                    .ToList();
 
-
-                var images2 = new List<ProductImage>();
-                images2.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "merries2_f", Url = "/content/images/demo/merries2_f.jpg" });
-                images2.Add(new ProductImage() { IsPrimary = false, IsThumbnail = false, Name = "merries2_b", Url = "/content/images/demo/merries2_b.jpg" });
-                var images3 = new List<ProductImage>();
-                images3.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "merries3_f", Url = "/content/images/demo/merries3_f.jpg" });
-                images3.Add(new ProductImage() { IsPrimary = false, IsThumbnail = false, Name = "merries3_b", Url = "/content/images/demo/merries3_b.jpg" });
-                var dicImages = new Dictionary<int, List<ProductImage>>();
-                dicImages.Add(1, images2);
-                dicImages.Add(2, images3);
-
-
-                for (int i = 0; i < 12; i++)
+                foreach (var product in productList)
                 {
-                    int price = 0, imageIndex = 1;
-                    lock (syncLock)
-                    { // synchronize
-                        price = random.Next(100, 200);
-                        imageIndex = random.Next(1, 3);
-                    }
-
-                    productList.Add(new Product()
+                    if (product.Images == null)
                     {
-                        ProductId = i,
-                        CategoryId = i,
-                        PrimaryName = "纸尿布" + i,
-                        BarCode = (4912345678901 + i).ToString(),
-                        CuponCode = (8001 + i).ToString(),
-                        TopicCode = (9001 + i).ToString(),
-                        Price = price,
-                        Description = "日本本土现货花王拉拉裤9-14",
-                        Images = dicImages[imageIndex]
-                    });
+                        product.Images = new List<ProductImage>();
+                        product.Images.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "PicTemp", Url = "/content/images/demo/merries2_f.jpg" });
+                        product.Images.Add(new ProductImage()
+                        {
+                            IsPrimary = false,
+                            IsThumbnail = false,
+                            Name = "PicTemp2",
+                            Url = "/content/images/demo/merries2_b.jpg"
+                        });
+                    }
                 }
+
                 return productList;
             });
 
 
             return result;
         }
+
+        public async Task<List<Product>> GetProductByCategory(int categoryId)
+        {
+            var result = await Task<List<Product>>.Run(() =>
+            {
+                var productList = _repositoryManager.ProductRepository
+                                    .Fetch(m => m.CategoryId == categoryId)
+                                    .OrderBy(m => m.PrimaryName)
+                                    .ToList();
+
+                foreach (var product in productList)
+                {
+                    if (product.Images == null)
+                    {
+                        product.Images = new List<ProductImage>();
+                        product.Images.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "PicTemp", Url = "/content/images/demo/merries2_f.jpg" });
+                        product.Images.Add(new ProductImage()
+                        {
+                            IsPrimary = false,
+                            IsThumbnail = false,
+                            Name = "PicTemp2",
+                            Url = "/content/images/demo/merries2_b.jpg"
+                        });
+                    }
+
+                    //Todo  Fetch  Include table
+                    if (product.Retailers == null)
+                    {
+                        product.Retailers = new List<Retailer>();
+                        product.Retailers.Add(new Retailer() { RetailerId = 3, Name = "松本清" });
+                        product.Retailers.Add(new Retailer() { RetailerId = 4, Name = "资深堂" });
+                    }
+                }
+
+
+                return productList;
+            });
+
+
+            return result;
+        }
+
 
         public async Task<Product> GetProductById(int productId)
         {

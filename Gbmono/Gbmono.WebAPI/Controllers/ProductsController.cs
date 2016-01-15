@@ -22,21 +22,20 @@ namespace Gbmono.WebAPI.Controllers
 
         public ProductsController() 
         {
-            _productService=new ProductService();
+            _productService = new ProductService();
             _repositoryManager = new RepositoryManager();
             _categoryService = new CategoryService(_repositoryManager);
         }
 
         [Route("Categories/{categoryId}")]
-        public IEnumerable<Product> GetByCategory(int categoryId)
+        public async Task<IHttpActionResult> GetByCategory(int categoryId)
         {
-            return _repositoryManager.ProductRepository
-                                     .Fetch(m => m.CategoryId == categoryId)
-                                     .OrderBy(m => m.PrimaryName)
-                                     .ToList();
+            var result = await _productService.GetProductByCategory(categoryId);
+
+            return Ok(result);
         }
 
-        
+
 
 
         [Route("BarCodes/{code}")]
@@ -58,13 +57,10 @@ namespace Gbmono.WebAPI.Controllers
                                      
         }
 
-        [Route("GetProductList")]
         [HttpGet]
-        public async Task<IHttpActionResult> GetProductList()
+        public async Task<IHttpActionResult> GetAll()
         {
-
-            var result =await _productService.GetProductList();
-
+            var result = await _productService.GetProductList();
             return Ok(result);
         }
 
@@ -76,7 +72,7 @@ namespace Gbmono.WebAPI.Controllers
                 var model = product.ToViewModel();
                 model.Categories = _categoryService.GetProductCategoryList(product.CategoryId);
                 return Ok(model);
-            });
+            });            
         }
     }
 }
