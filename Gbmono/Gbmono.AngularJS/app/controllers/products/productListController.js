@@ -22,7 +22,7 @@
             var categoryId = $routeParams.id ? parseInt($routeParams.id) : 0;
             // call web api
             if (categoryId == 0 ) {
-                productDataFactory.getProductList()
+                productDataFactory.getAll()
                     .success(function(data) {
                         // success callback
                         // retreive the data into local array
@@ -30,7 +30,7 @@
                         $scope.products = data;
                     });
             } else {
-                productDataFactory.getProductListByCategory(categoryId)
+                productDataFactory.getByCategory(categoryId)
                     .success(function (data) {
                         // success callback
                         // retreive the data into local array
@@ -38,12 +38,6 @@
                         $scope.products = data;
                     });
             }
-        }
-
-
-
-        $scope.test = function () {
-            alert("Test Allen");
         }
 
 

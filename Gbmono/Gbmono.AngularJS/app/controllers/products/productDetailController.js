@@ -21,7 +21,7 @@
         // get route param id from url
         
         function GetProduct(id) {
-            productDataFactory.getProductDetails(id).success(function (data) {
+            productDataFactory.getById(id).success(function (data) {
                 $scope.product = data;
             });
         }
