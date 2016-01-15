@@ -1,10 +1,8 @@
-﻿<div class="row categoryDiv">
+﻿<div class="row categoryDiv" style="padding:0 35px 0 35px">
     <div class="col-md-6" ng-repeat="category in allCategories">
-        <div class="row">
-            <div class="col-md-12">
-                <h5>
-                    <b>{{category.Name}}</b>
-                </h5>
+        <div class="row" style="background-color:gainsboro; margin:1px;">
+            <div class="col-md-12" style="padding:5px;">
+                <b>{{category.Name}}</b>
             </div>
         </div>
         <div class="row tempMarginBottom" ng-repeat="subCategory in category.SubCategories">
