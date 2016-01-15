@@ -97,7 +97,7 @@
         }
 
         function del(id) {
-            return $http.delete(gbmono.api_site_prefix.rand_api_url + '/' + id);
+            return $http.delete(gbmono.api_site_prefix.brand_api_url + '/' + id);
         }
     }
 
