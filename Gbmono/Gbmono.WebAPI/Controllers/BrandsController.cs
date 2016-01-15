@@ -27,6 +27,7 @@ namespace Gbmono.WebAPI.Controllers
             return _repositoryManager.BrandRepository.Table.OrderBy(m => m.Name).ToList();
         }
 
+        [HttpGet]
         public Brand GetById(int id)
         {
             return _repositoryManager.BrandRepository.Get(id);

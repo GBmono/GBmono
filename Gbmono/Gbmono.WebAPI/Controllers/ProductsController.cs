@@ -34,11 +34,7 @@ namespace Gbmono.WebAPI.Controllers
                                      .ToList();
         }
 
-        public Product GetById(int id)
-        {
-            return _repositoryManager.ProductRepository.Get(id);
-        }
-
+       
 
         [Route("BarCodes/{code}")]
         public Product GetByBarCode(string code)
@@ -59,18 +55,14 @@ namespace Gbmono.WebAPI.Controllers
                                      
         }
 
-        [Route("GetProductList")]
         [HttpGet]
-        public async Task<IHttpActionResult> GetProductList()
+        public async Task<IHttpActionResult> GetAll()
         {
-
             var result =await _productService.GetProductList();
-
             return Ok(result);
         }
 
 
-        [Route("GetProduct/{id}")]
         [HttpGet]
         public async Task<IHttpActionResult> GetProduct(int id)
         {
@@ -81,6 +73,12 @@ namespace Gbmono.WebAPI.Controllers
                 return Ok(new ProductViewModel(product));
             });            
         }
+
+        //public Product GetById(int id)
+        //{
+        //    return _repositoryManager.ProductRepository.Get(id);
+        //}
+
 
     }
 }

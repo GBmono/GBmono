@@ -25,7 +25,6 @@ namespace Gbmono.WebAPI.Controllers
         }
         #endregion
 
-        [Route("All")]
         public IEnumerable<Category> GetAll()
         {
             var categories = _repositoryManager.CategoryRepository.Table.ToList();
@@ -74,12 +73,5 @@ namespace Gbmono.WebAPI.Controllers
                                   .ToList();
         }
 
-        [HttpGet]
-        public async Task<IHttpActionResult> GetAllCategory()
-        {
-            var result=await _categoryService.GetAllCagegory();
-
-            return Ok(result);
-        }
     }
 }
