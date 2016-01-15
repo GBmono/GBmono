@@ -17,13 +17,13 @@
             <!-- Image -->
             <div class="image product-image" >
                 <a href="product.html" class="main">
-                    <img ng-src="{{product.Images[0].Url}}"/>
+                    <img ng-src="{{product.images[0].url}}"/>
                     <!--<img src="Content/images/Empty_set.png" alt="">-->
                 </a>
                 <ul class="additional">
                     <li>
-                        <a ng-href="#/products/{{product.ProductId}}" data-gal="prettyPhoto[gallery 1]" title="Product Name">
-                            <img ng-src="{{product.Images[1].Url}}" />
+                        <a ng-href="#/products/{{product.productId}}" data-gal="prettyPhoto[gallery 1]" title="Product Name">
+                            <img ng-src="{{product.images[1].Url}}" />
                         </a>
                     </li>
                 </ul>
@@ -35,7 +35,7 @@
             <!-- Details -->
             <div class="details">
 
-                <a class="title" href="product.html">{{product.PrimaryName}}</a>
+                <a class="title" href="product.html">{{product.primaryName}}</a>
 
                 <!-- rating -->
                 <!--<ul class="hlinks hlinks-rating">
@@ -47,14 +47,14 @@
                 </ul>-->
                 <!-- /rating -->
 
-                <p>{{product.Description}}</p>
+                <p>{{product.description}}</p>
 
                 <p class="desc">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.</p>
 
                 <!-- Price Box -->
                 <div class="price-box">
                     <!--<span class="price price-old">$2350</span>-->
-                    <span class="price">{{product.Price}} 元</span>
+                    <span class="price">{{product.price}} 元</span>
                 </div>
                 <!-- /Price Box -->
                 <!-- buttons -->
