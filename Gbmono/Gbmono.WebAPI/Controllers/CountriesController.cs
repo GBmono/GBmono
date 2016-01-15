@@ -10,7 +10,7 @@ using Gbmono.Models.Infrastructure;
 
 namespace Gbmono.WebAPI.Controllers
 {
-    [RoutePrefix("Countries")]
+    [RoutePrefix("api/Countries")]
     public class CountriesController : ApiController
     {
         private readonly RepositoryManager _repositoryManager;

@@ -20,6 +20,7 @@
         function loadCategory() {
             categoryDataFactory.getCategories()
              .success(function (data) {
+                 console.log(data);
                  // success callback
                  // retreive the data into local array
                  // $scope.products can be accessed from the view

@@ -4,7 +4,7 @@
 (function (gbmono) {
     /* web api application name */
     //gbmono.web_api_app_name = 'http://localhost/name';
-    gbmono.web_api_app_name = 'http://localhost:28975/';
+    gbmono.web_api_app_name = 'http://localhost:28975/api';
 
     /* angularJs app view root path */
     gbmono.app_view_path = '/app/views';
@@ -26,6 +26,8 @@
         category_api_url: gbmono.web_api_app_name + '/Categories',
         // product detail url
         product_api_url: gbmono.web_api_app_name + '/Products',
+        // brand url
+        brand_api_url: gbmono.web_api_app_name + '/Brands'
     };
 
 })(window.gbmono = window.gbmono || {});

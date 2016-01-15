@@ -13,7 +13,7 @@ using Gbmono.WebAPI.Models;
 
 namespace Gbmono.WebAPI.Controllers
 {
-    [RoutePrefix("Products")]
+    [RoutePrefix("api/Products")]
     public class ProductsController : ApiController
     {
         private readonly ProductService _productService;

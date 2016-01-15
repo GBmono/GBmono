@@ -10,7 +10,7 @@ using Gbmono.Models.Infrastructure;
 
 namespace Gbmono.WebAPI.Controllers
 {
-    [RoutePrefix("Retailers")]
+    [RoutePrefix("api/Retailers")]
     public class RetailersController : ApiController
     {
         private readonly RepositoryManager _repositoryManager;

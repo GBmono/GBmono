@@ -11,7 +11,7 @@ using Gbmono.WebAPI.Services;
 
 namespace Gbmono.WebAPI.Controllers
 {
-    [RoutePrefix("Categories")]
+    [RoutePrefix("api/Categories")]
     public class CategoriesController : ApiController
     {
         private readonly CategoryService _categoryService;

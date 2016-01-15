@@ -58,5 +58,48 @@
 })(angular.module('gbmono'));
 
 
+/*
+    brand data factory
+*/
+(function (module) {
+    // inject params
+    factory.$inject = ['$http'];
 
+    // create instance
+    module.factory('brandDataFactory', factory);
+
+    // factory implement
+    function factory($http) {
+
+        // return data factory with CRUD calls
+        return {
+            getAll: getAll,
+            getById: getById,
+            create: create,
+            update: update,
+            del: del
+        };
+
+        function getAll() {
+            return $http.get(gbmono.api_site_prefix.rand_api_url);
+        }
+
+        function getById(id) {
+            return $http.get(gbmono.api_site_prefix.rand_api_url + '/' + id);
+        }
+
+        function create(brand) {
+            return $http.post(gbmono.api_site_prefix.rand_api_url, brand);
+        }
+
+        function update(brand) {
+            return $http.put(gbmono.api_site_prefix.rand_api_url + '/' + brand.brandId, brand);
+        }
+
+        function del(id) {
+            return $http.delete(gbmono.api_site_prefix.rand_api_url + '/' + id);
+        }
+    }
+
+})(angular.module('gbmono'));
 
