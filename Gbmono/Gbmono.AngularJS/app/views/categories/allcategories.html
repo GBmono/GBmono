@@ -2,16 +2,16 @@
     <div class="col-md-6" ng-repeat="category in allCategories">
         <div class="row" style="background-color:gainsboro; margin:1px;">
             <div class="col-md-12" style="padding:5px;">
-                <b>{{category.Name}}</b>
+                <b>{{category.name}}</b>
             </div>
         </div>
-        <div class="row tempMarginBottom" ng-repeat="subCategory in category.SubCategories">
+        <div class="row tempMarginBottom" ng-repeat="subCategory in category.subCategories">
             <div class="col-md-3">
-                <b>{{subCategory.Name}}</b>
+                <b>{{subCategory.name}}</b>
             </div>
             <div class="col-md-9">
-                <a ng-href="#/categoryproducts/{{endCategory.CategoryId}}" class="tempMarginRight" ng-repeat="endCategory in subCategory.SubCategories">
-                    <span>{{endCategory.Name}}</span>
+                <a ng-href="#/categoryproducts/{{endCategory.categoryId}}" class="tempMarginRight" ng-repeat="endCategory in subCategory.subCategories">
+                    <span>{{endCategory.name}}</span>
                 </a>
             </div>
         </div>
