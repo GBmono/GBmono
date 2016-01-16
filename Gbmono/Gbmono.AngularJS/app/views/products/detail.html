@@ -7,7 +7,7 @@
             <!-- Breadcrumb -->
             <ol class="breadcrumb pull-left">
                 <li><a href="#"><i class="ti ti-home"></i></a></li>
-                <li ng-repeat="category in product.categories"><a href="#/categories/{{category.categoryId}}">{{category.name}}</a></li>  
+                <li ng-repeat="category in product.categories"><a ng-href="#/categories/{{category.categoryId}}/products">{{category.name}}</a></li>  
             </ol>
             <!-- /Breadcrumb -->
 
@@ -52,10 +52,30 @@
     </div>
     <div class="col-md-12">
         <div>
-            <code class="lead" style="white-space:normal;word-break:break-all;word-wrap:break-word;">{{product.instruction}}</code>
+            <pre class="lead" style="border:hidden;background-color:white">{{product.instruction}}</pre>
         </div>        
         <div class="image align-center">
             <img ng-src="{{product.instruction_Image_Url}}" />
+        </div>
+        <hr />
+    </div>
+    
+    <div ng-if="product.retailers!=null" class="col-md-6">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <strong>可购入店铺：</strong>
+            <ul class="ul-circle">
+                <li ng-repeat="retailer in product.retailers"><a href="">{{retailer.name}}</a></li>
+            </ul>            
+        </div>
+    </div>
+    <div ng-if="product.webShops!=null" class="col-md-6">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <strong>可购入网店：</strong>
+            <ul class="ul-circle">
+                <li ng-repeat="webshops in product.webShops"><a href="">{{webshops.name}}</a></li>
+            </ul>
         </div>
     </div>
 </div>

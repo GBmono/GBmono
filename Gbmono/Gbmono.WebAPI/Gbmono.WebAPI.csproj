@@ -121,6 +121,8 @@
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\ModelExtensions.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\RetailerViewModel.cs" />
+    <Compile Include="Models\WebShopViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ProductService.cs" />

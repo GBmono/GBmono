@@ -68,10 +68,19 @@ namespace Gbmono.WebAPI.Controllers
         {
             return await Task.Run(() =>
             {
-                var product = _repositoryManager.ProductRepository.Fetch(f => f.ProductId == id).FirstOrDefault();
-                var model = product.ToViewModel();
-                model.Categories = _categoryService.GetProductCategoryList(product.CategoryId);
-                return Ok(model);
+                var product = _repositoryManager.ProductRepository.Table
+                                                                  .Include(m=>m.Country)
+                                                                  .Include(m=>m.Brand.Manufacturer)
+                                                                  .Include(m=>m.Retailers)
+                                                                  .Include(m=>m.WebShops)
+                                                                  .SingleOrDefault(f => f.ProductId == id);
+                if (product != null)
+                {
+                    var model = product.ToViewModel();
+                    model.Categories = _categoryService.GetProductCategoryList(product.CategoryId);
+                    return Ok(model);
+                }                
+                return Ok(new ProductViewModel());
             });            
         }
     }

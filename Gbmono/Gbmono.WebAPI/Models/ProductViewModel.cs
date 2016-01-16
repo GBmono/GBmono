@@ -22,13 +22,15 @@ namespace Gbmono.WebAPI.Models
         public string Texture { get; set; }
         public string BarCode { get; set; }
         public string Description { get; set; }
-        public string Instruction { get; set; }
-        public List<CategoryViewModel> Categories { get; set; }
+        public string Instruction { get; set; }        
         public string Product_Image_Url { get; set; }
         public string Description_Image_Url { get; set; }
         public string Instruction_Image_Url { get; set; }
         public double Price { get; set; }
 
+        public List<CategoryViewModel> Categories { get; set; }
+        public List<RetailerViewModel> Retailers { get; set; }
+        public List<WebShopViewModel> WebShops { get; set; }
         public ProductViewModel() { }        
     }
 }

@@ -39,11 +39,36 @@ namespace Gbmono.WebAPI.Models
             model.Description = po.Description;
             model.Instruction = po.Instruction;
             model.Price = po.Price;
+            model.Retailers = new List<RetailerViewModel>();
+            foreach (var retailer in po.Retailers)
+            {
+                model.Retailers.Add(retailer.ToViewModel());
+            }
+            model.WebShops = po.WebShops.Select(m => m.ToViewModel()).ToList();
             // TODO: remove hard code image url
             var r = new Random();
             var num = r.Next(3);
             model.Product_Image_Url = string.Format("content/images/demo/product_{0}.png", num);
             model.Instruction_Image_Url = string.Format("content/images/demo/description_{0}.png", num);
+            return model;
+        }
+
+        public static RetailerViewModel ToViewModel(this Retailer po)
+        {
+            var model = new RetailerViewModel();
+            model.RetailerId = po.RetailerId;
+            model.Name = po.Name;
+            model.LogoUrl = po.LogoUrl;
+            return model;
+        }
+
+        public static WebShopViewModel ToViewModel(this WebShop po)
+        {
+            var model = new WebShopViewModel();
+            model.WebShopId = po.WebShopId;
+            model.Name = po.Name;
+            model.Url = po.Url;
+            model.LogoUrl = po.LogoUrl;
             return model;
         }
     }

@@ -37,12 +37,12 @@
                     controller: 'productListController',
                     caseInsensitiveMatch: true
                 })
-                .when('/category/:id/products/', { // 商品列表页
+                .when('/categories/:id/products/', { // 商品列表页
                     templateUrl: gbmono.app_view_path + '/products/list.html',
                     controller: 'productListController',
                     caseInsensitiveMatch: true
                 })
-                .when('/allcategories', { // 商品详细页
+                .when('/categories', { // 商品详细页
                     templateUrl: gbmono.app_view_path + '/categories/allcategories.html',
                     controller: 'categoriesController',
                     caseInsensitiveMatch: true
