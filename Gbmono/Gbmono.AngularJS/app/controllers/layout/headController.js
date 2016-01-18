@@ -3,12 +3,12 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'categoryDataFactory'];
+    ctrl.$inject = ['$scope', 'categoryDataFactory', 'accountDataFactory'];
 
     // create controller
     module.controller('headerController', ctrl);
     // controller body
-    function ctrl($scope, categoryDataFactory) {
+    function ctrl($scope, categoryDataFactory, accountDataFactory) {
         init();
         // page init method
         // 当该view被初始化时 需要执行的功能
@@ -27,24 +27,26 @@
              });
         }
 
-        //$scope.categoryHover = function (category) {
-        //    var childCategories = GetCategoryByParentId(category.CategoryId);
 
-        //};
-
-        //function GetCategoryByParentId(parentId) {
-        //    var childCategoriesArray = new Array();
-        //    angular.forEach($scope.categories, function (data, index, array) {
-        //        var category = array[index];
-        //        if (category.ParentId==parentId) {
-        //            childCategoriesArray.push(category);
-        //        }
-                
-        //    });
-        //    return childCategoriesArray;
-        //}
+        $scope.register = function () {
+            var userName = $scope.registerEmail;
+            var password = $scope.registerPwd;
+            var model = { userName: userName, password: password }
+            accountDataFactory.register(model)
+             .success(function (data) {
+                 //todo store in localstorage
+             });
+        }
 
 
+        $scope.login = function () {
+            var userName = $scope.loginEmail;
+            var password = $scope.loginPwd;
+            accountDataFactory.login(userName, password)
+             .success(function (data) {
+                 //todo store in localstorage
+             });
+        }
       
     }
 

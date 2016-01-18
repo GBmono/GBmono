@@ -18,6 +18,12 @@
 
         // register user
         function register(model) {
+            return $http({
+                url: gbmono.api_site_prefix.account_api_url + '/Register',
+                method: 'POST',
+                data: model
+            });
+
             return $http.get(gbmono.api_site_prefix.account_api_url + '/Register', model);
         }
 
