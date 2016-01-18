@@ -24,7 +24,7 @@
                 data: model
             });
 
-            return $http.get(gbmono.api_site_prefix.account_api_url + '/Register', model);
+            //return $http.get(gbmono.api_site_prefix.account_api_url + '/Register', model);
         }
 
         // login, get access bearer token
