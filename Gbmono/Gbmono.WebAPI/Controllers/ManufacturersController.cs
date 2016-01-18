@@ -39,39 +39,5 @@ namespace Gbmono.WebAPI.Controllers
                                      .SingleOrDefault(m => m.ManufacturerId == id);
         }
 
-        [HttpPost]
-        public IHttpActionResult Create([FromBody] Manufacturer manufacturer)
-        {
-            // todo: validation
-            // same name check
-
-            _repositoryManager.ManufacturerRepository.Create(manufacturer);
-            _repositoryManager.ManufacturerRepository.Save();
-
-            return Ok();
-        }
-
-        [HttpPut]
-        public IHttpActionResult Update(int id, [FromBody] Manufacturer manufacturer)
-        {
-            _repositoryManager.ManufacturerRepository.Delete(manufacturer);
-            _repositoryManager.ManufacturerRepository.Save();
-
-            return Ok();
-        }
-
-        [HttpDelete]
-        public IHttpActionResult Delete(int id)
-        {
-            // todo: delete foreign records
-
-            var entityToDel = _repositoryManager.ManufacturerRepository.Get(id);
-
-            // dele
-            _repositoryManager.ManufacturerRepository.Delete(entityToDel);
-            _repositoryManager.ManufacturerRepository.Save();
-
-            return Ok();
-        }
     }
 }
