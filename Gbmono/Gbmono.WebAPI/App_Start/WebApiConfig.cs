@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
+using Microsoft.Owin.Security.OAuth;
 using System.Web.Http.Cors;
-using Gbmono.Models.DataContext;
-using Gbmono.WebAPI.ExceptionHandling;
-using Microsoft.SqlServer.Server;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
+
+using Gbmono.Models.DataContext;
+using Gbmono.WebAPI.ExceptionHandling;
 
 namespace Gbmono.WebAPI
 {
@@ -19,10 +19,12 @@ namespace Gbmono.WebAPI
     {
         public static void Register(HttpConfiguration config)
         {
-            log4net.Config.XmlConfigurator.Configure();
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
-
             // Web API configuration and services
+            // Configure Web API to use only bearer token authentication.
+            config.SuppressDefaultHostAuthentication();
+            // Bearer token authentication
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
             // Global error handling
             // exception logger
             // There can be multiple exception loggers. (By default, no exception loggers are registered.)
@@ -60,6 +62,9 @@ namespace Gbmono.WebAPI
             }
 
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<GbmonoSqlContext, Gbmono.Models.Migrations.Configuration>());
+
+            log4net.Config.XmlConfigurator.Configure();
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
         }
     }
 }
