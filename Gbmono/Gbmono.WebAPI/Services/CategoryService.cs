@@ -118,13 +118,13 @@ namespace Gbmono.WebAPI.Services
             return result;
         }
 
-        public CategoryViewModel GetParentCategory(int id)
+        public Category GetParentCategory(int id)
         {
             var category = _repositoryManager.CategoryRepository.Get(id);
-            return category.ToViewModel();           
+            return category;           
         }
 
-        public void GetParentCategories(int id, ref List<CategoryViewModel> list)
+        public void GetParentCategories(int id, ref List<Category> list)
         {
             var parent = GetParentCategory(id);
             list.Add(parent);
@@ -134,9 +134,9 @@ namespace Gbmono.WebAPI.Services
             }
         }
 
-        public List<CategoryViewModel> GetProductCategoryList(int id)
+        public List<Category> GetProductCategoryList(int id)
         {
-            var list = new List<CategoryViewModel>();
+            var list = new List<Category>();
             GetParentCategories(id, ref list);
             list.Reverse();
             return list;

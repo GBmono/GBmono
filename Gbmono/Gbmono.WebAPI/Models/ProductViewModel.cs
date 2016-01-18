@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gbmono.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -28,9 +29,9 @@ namespace Gbmono.WebAPI.Models
         public string Instruction_Image_Url { get; set; }
         public double Price { get; set; }
 
-        public List<CategoryViewModel> Categories { get; set; }
-        public List<RetailerViewModel> Retailers { get; set; }
-        public List<WebShopViewModel> WebShops { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<Retailer> Retailers { get; set; }
+        public List<WebShop> WebShops { get; set; }
         public ProductViewModel() { }        
     }
 }

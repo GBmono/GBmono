@@ -8,16 +8,6 @@ namespace Gbmono.WebAPI.Models
 {
     public static class ModelExtensions
     {
-        public static CategoryViewModel ToViewModel(this Category po)
-        {
-            var model = new CategoryViewModel();
-            model.CategoryId = po.CategoryId;
-            model.Name = po.Name;
-            model.CategoryCode = po.CategoryCode;
-            model.ParentId = po.ParentId;
-            return model;
-        }
-
         public static ProductViewModel ToViewModel(this Product po)
         {
             if (null == po) return null;
@@ -39,36 +29,13 @@ namespace Gbmono.WebAPI.Models
             model.Description = po.Description;
             model.Instruction = po.Instruction;
             model.Price = po.Price;
-            model.Retailers = new List<RetailerViewModel>();
-            foreach (var retailer in po.Retailers)
-            {
-                model.Retailers.Add(retailer.ToViewModel());
-            }
-            model.WebShops = po.WebShops.Select(m => m.ToViewModel()).ToList();
+            model.Retailers = po.Retailers.ToList();
+            model.WebShops = po.WebShops.ToList();
             // TODO: remove hard code image url
             var r = new Random();
             var num = r.Next(3);
             model.Product_Image_Url = string.Format("content/images/demo/product_{0}.png", num);
             model.Instruction_Image_Url = string.Format("content/images/demo/description_{0}.png", num);
-            return model;
-        }
-
-        public static RetailerViewModel ToViewModel(this Retailer po)
-        {
-            var model = new RetailerViewModel();
-            model.RetailerId = po.RetailerId;
-            model.Name = po.Name;
-            model.LogoUrl = po.LogoUrl;
-            return model;
-        }
-
-        public static WebShopViewModel ToViewModel(this WebShop po)
-        {
-            var model = new WebShopViewModel();
-            model.WebShopId = po.WebShopId;
-            model.Name = po.Name;
-            model.Url = po.Url;
-            model.LogoUrl = po.LogoUrl;
             return model;
         }
     }
