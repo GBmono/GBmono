@@ -22,6 +22,8 @@
     gbmono.api_token_url = gbmono.web_api_app_name + '/Token'; // bearer token end point
 
     gbmono.api_site_prefix = {
+        // account api url
+        account_api_url: gbmono.web_api_app_name + '/Accounts',
         // category api url 
         category_api_url: gbmono.web_api_app_name + '/Categories',
         // product detail url

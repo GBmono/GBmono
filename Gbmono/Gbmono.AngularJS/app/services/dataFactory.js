@@ -1,4 +1,43 @@
 ﻿/*
+ account data factory
+*/
+(function (module) {
+    // inject params
+    factory.$inject = ['$http'];
+
+    // create instance
+    module.factory('accountDataFactory', factory);
+
+    // factory implement
+    function factory($http) {
+        // return data factory with CRUD calls
+        return {
+            register: register,
+            login : login
+        }
+
+        // register user
+        function register(model) {
+            return $http.get(gbmono.api_site_prefix.account_api_url + '/Register', model);
+        }
+
+        // login, get access bearer token
+        function login(userName, password) {
+            // user name and password is posted as 'application/x-www-form-urlencoded'
+            return $http({
+                url: gbmono.api_token_url,
+                method: 'POST',
+                data: "userName=" + userName + "&password=" + password + "&grant_type=password"
+            });
+        }
+
+
+    }
+
+})(angular.module('gbmono'));
+
+
+/*
     category data factory
 */
 (function (module) {
