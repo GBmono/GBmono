@@ -26,6 +26,7 @@ namespace Gbmono.WebAPI.Controllers
 
         [HttpPost]
         [AllowAnonymous]
+        [Route("Register")]
         public async Task<IHttpActionResult> Create([FromBody]UserBindingModel model)
         {
             // todo: valiation

@@ -22,7 +22,7 @@ namespace Gbmono.WebAPI.Security.Identities
     public class GBmonoUserDbContext : IdentityDbContext<GbmonoUser>
     {
         // constructor with default sql connection string
-        public GBmonoUserDbContext(): base("GbnomuUser", throwIfV1Schema: false)
+        public GBmonoUserDbContext(): base("GbmonoUserSqlConnection", throwIfV1Schema: false)
         {
         }
 
