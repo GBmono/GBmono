@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 using Gbmono.WebAPI.Models;
 using Gbmono.WebAPI.Security.Identities;
+using Newtonsoft.Json.Linq;
 
 namespace Gbmono.WebAPI.Controllers
 {
@@ -39,7 +40,46 @@ namespace Gbmono.WebAPI.Controllers
             {
                 return GetErrorResult(result);
             }
-            return Ok(Services.UserExtensions.GetUserProfile(user.UserProfile));
+            var tokenInfo = GetAccessToken(model);
+            return Ok(tokenInfo);
+            //return Ok(Services.UserExtensions.GetUserProfile(user.UserProfile));
+        }
+
+
+        private AccessTokenViewModel GetAccessToken(UserBindingModel userBinding)
+        {
+            string URI = null, HtmlResult = null;
+            JObject root = new JObject();
+
+            try
+            {
+                var urlFormat = "http://{0}:{1}/token";
+
+                URI = String.Format(urlFormat, "localhost", 28975);
+
+                var queryDict = new Dictionary<string, string>
+                {
+                    {"grant_type", "password"},
+                    {"username", userBinding.UserName},
+                    {"password", userBinding.Password}
+                };
+
+                var httpClient = new HttpClient();
+                var httpContent = new FormUrlEncodedContent(queryDict);
+                var response = httpClient.PostAsync(URI, httpContent).Result;
+                HtmlResult = response.Content.ReadAsStringAsync().Result;
+                root = JObject.Parse(HtmlResult);
+
+                return new AccessTokenViewModel()
+                {
+                    Token = root["access_token"].Value<string>(),
+                    //UserId = 
+                };
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
