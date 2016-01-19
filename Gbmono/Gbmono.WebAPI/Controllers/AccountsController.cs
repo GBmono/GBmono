@@ -34,13 +34,13 @@ namespace Gbmono.WebAPI.Controllers
             user.UserProfile.DisplayName = model.UserName.Split('@')[0];
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
             }
             return Ok(Services.UserExtensions.GetUserProfile(user.UserProfile));
-        }        
+        }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
         {

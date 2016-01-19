@@ -23,15 +23,14 @@
 
         // get products
         function loadProfiles() {
-            alert("aaa");
-            // call web api
-            //productDataFactory.getProductList()
-            //    .success(function (data) {
-            //        // success callback
-            //        // retreive the data into local array
-            //        // $scope.products can be accessed from the view
-            //        $scope.products = data;
-            //    });
+            var model = "";
+
+            profileDataFactory.getMy(model).success(function (data) {
+                $scope.profiles = data;
+            });
+       
         }
+
+      
     }
 })(angular.module('gbmono'));

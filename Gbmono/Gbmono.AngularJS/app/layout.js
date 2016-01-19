@@ -65,6 +65,7 @@
         function register(model) {
             accountDataFactory.register(model)
                  .success(function (data) {
+                     debugger;
                      //todo store in localstorage
                  });
         }
@@ -75,13 +76,11 @@
             $scope.registerData.userName = $scope.registerData.email;
             // show model
             console.log($scope.registerData);
-
             register($scope.registerData);
         }
 
 
         $scope.login = function () {
-            debugger;
             console.log($scope.loginData);
             login($scope.loginData);
         }
