@@ -59,6 +59,8 @@
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\FollowOption.cs" />
+    <Compile Include="Models\FollowOptionType.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Manufacturer.cs" />

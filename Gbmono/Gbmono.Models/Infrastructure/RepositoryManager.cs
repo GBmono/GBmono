@@ -41,6 +41,7 @@ namespace Gbmono.Models.Infrastructure
         private IRepository<Manufacturer> _manufacturerRepository;
         private IRepository<Brand> _brandRepository;
         private IRepository<Retailer> _retailerRepository;
+        private IRepository<FollowOption> _followOptionRepository;
 
         // public accessors
         public IRepository<Category> CategoryRepository
@@ -66,6 +67,11 @@ namespace Gbmono.Models.Infrastructure
         public IRepository<Retailer> RetailerRepository
         {
             get { return _retailerRepository ?? (_retailerRepository = new Repository<Retailer>(Context)); }
+        }
+
+        public IRepository<FollowOption> FollowOptionRepository
+        {
+            get { return _followOptionRepository ?? (_followOptionRepository = new Repository<FollowOption>(Context)); }
         }
 
         ////Generica Repository
