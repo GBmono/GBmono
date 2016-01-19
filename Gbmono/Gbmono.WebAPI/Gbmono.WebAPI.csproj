@@ -154,6 +154,7 @@
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\ManufacturersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\RetailersController.cs" />
     <Compile Include="ExceptionHandling\GenericExceptionHandler.cs" />
     <Compile Include="ExceptionHandling\GenericExceptionLogger.cs" />

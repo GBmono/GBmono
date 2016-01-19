@@ -29,7 +29,9 @@
         // product detail url
         product_api_url: gbmono.web_api_app_name + '/Products',
         // brand url
-        brand_api_url: gbmono.web_api_app_name + '/Brands'
+        brand_api_url: gbmono.web_api_app_name + '/Brands',
+        // profile url
+        profile_api_url: gbmono.web_api_app_name + '/Profiles'
     };
 
 })(window.gbmono = window.gbmono || {});

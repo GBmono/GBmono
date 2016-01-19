@@ -42,7 +42,7 @@ namespace Gbmono.WebAPI.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return Ok(result);
         }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)

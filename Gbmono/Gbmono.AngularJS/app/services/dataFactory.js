@@ -13,7 +13,7 @@
         // return data factory with CRUD calls
         return {
             register: register,
-            login : login
+            login: login
         }
 
         // register user
@@ -44,9 +44,26 @@
     function factory($http) {
         // return data factory with CRUD calls
         return {
-          
+            getMy: getMy
         }
-     
+
+        //Get my profile 
+        function getMy(model) {
+            return $http.post(gbmono.api_site_prefix.profile_api_url + '/GetMyProfile', model, {
+                headers: getHeaders
+            });
+        }
+
+        //Todo Global
+        function getHeaders() {
+            var accessToken = "a";
+            if (accessToken) {
+                return {
+                    "Authorization": "Bearer " + accessToken
+                };
+            }
+        }
+
     }
 })(angular.module('gbmono'));
 
@@ -69,10 +86,10 @@
         }
 
         function getAll() {
-            return $http.get(gbmono.api_site_prefix.category_api_url );
-    }
+            return $http.get(gbmono.api_site_prefix.category_api_url);
+        }
 
-     
+
     }
 
 })(angular.module('gbmono'));
@@ -108,7 +125,7 @@
             return $http.get(gbmono.api_site_prefix.product_api_url + '/Categories/' + categoryId);
         }
 
-      
+
     }
 
 })(angular.module('gbmono'));
