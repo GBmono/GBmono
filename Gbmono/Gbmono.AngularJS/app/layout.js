@@ -54,8 +54,8 @@
 
         // put web api in seperate function
         // login function
-        function login(userName, password) {
-            accountDataFactory.login(userName, password)
+        function login(model) {
+            accountDataFactory.login(model.email, model.password)
                  .success(function (data) {
                      //todo store in localstorage
                  });
@@ -74,12 +74,16 @@
             // use email as userName
             $scope.registerData.userName = $scope.registerData.email;
             // show model
-            console.log($scope.registerData)
+            console.log($scope.registerData);
+
+            register($scope.registerData);
         }
 
 
         $scope.login = function () {
+            debugger;
             console.log($scope.loginData);
+            login($scope.loginData);
         }
     }
 

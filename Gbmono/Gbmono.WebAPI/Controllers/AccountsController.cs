@@ -32,6 +32,8 @@ namespace Gbmono.WebAPI.Controllers
             // todo: valiation
 
             var user = new GbmonoUser() { UserName = model.UserName, Email = model.Email };
+            user.UserProfile=new UserProfile();
+            user.UserProfile.DisplayName = model.UserName.Split('@')[0];
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
