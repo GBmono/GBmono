@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gbmono.Models.Models
+namespace Gbmono.Models
 {
     public enum FollowOptionType
     {
-        Product = 1,
-        Brand,
+        FollowProduct = 1,
+        FollowBrand,
+        ProductCollection,
     }
 }

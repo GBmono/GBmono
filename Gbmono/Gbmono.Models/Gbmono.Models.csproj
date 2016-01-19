@@ -52,6 +52,7 @@
     <Compile Include="Infrastructure\RepositoryManager.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigs\CategoryMap.cs" />
+    <Compile Include="ModelConfigs\FollowOptionMap.cs" />
     <Compile Include="ModelConfigs\ManufacturerMap.cs" />
     <Compile Include="ModelConfigs\ProductMap.cs" />
     <Compile Include="ModelConfigs\RetailerMap.cs" />
