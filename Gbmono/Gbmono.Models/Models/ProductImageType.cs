@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gbmono.Models.Models
+namespace Gbmono.Models
 {
     public enum ProductImageType
     {

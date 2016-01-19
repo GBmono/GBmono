@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gbmono.Models.Models
+namespace Gbmono.Models
 {
     /// <summary>
     /// 新闻, 咨询

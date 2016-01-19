@@ -30,6 +30,7 @@ namespace Gbmono.Models.DataContext
 
             modelBuilder.Configurations.Add(new RetailerMap());
 
+            modelBuilder.Configurations.Add(new FollowOptionMap());
 
             base.OnModelCreating(modelBuilder);
         }

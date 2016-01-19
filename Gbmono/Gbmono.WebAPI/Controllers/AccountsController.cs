@@ -11,7 +11,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Gbmono.WebAPI.Models;
 using Gbmono.WebAPI.Security.Identities;
 
-
 namespace Gbmono.WebAPI.Controllers
 {
     [RoutePrefix("api/Accounts")]
@@ -30,9 +29,8 @@ namespace Gbmono.WebAPI.Controllers
         public async Task<IHttpActionResult> Create([FromBody]UserBindingModel model)
         {
             // todo: valiation
-
             var user = new GbmonoUser() { UserName = model.UserName, Email = model.Email };
-            user.UserProfile=new UserProfile();
+            user.UserProfile = new UserProfile();
             user.UserProfile.DisplayName = model.UserName.Split('@')[0];
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
@@ -41,8 +39,7 @@ namespace Gbmono.WebAPI.Controllers
             {
                 return GetErrorResult(result);
             }
-
-            return Ok(result);
+            return Ok(Services.UserExtensions.GetUserProfile(user.UserProfile));
         }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)

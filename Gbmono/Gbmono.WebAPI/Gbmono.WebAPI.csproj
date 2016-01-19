@@ -165,12 +165,14 @@
     <Compile Include="Models\ModelExtensions.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\UserBindingModel.cs" />
+    <Compile Include="Models\UserProfileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\ApplicationOAuthProvider.cs" />
     <Compile Include="Security\Identities\Config.cs" />
     <Compile Include="Security\Identities\Model.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\UserExtensions.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\Logger.cs" />
   </ItemGroup>
