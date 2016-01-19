@@ -47,6 +47,11 @@
                     controller: 'categoriesController',
                     caseInsensitiveMatch: true
                 })
+                .when('/profiles', { // 商品详细页
+                    templateUrl: gbmono.app_view_path + '/profiles/profiles.html',
+                    controller: 'profilesController',
+                    caseInsensitiveMatch: true
+                })
                 .when('/products/:id', { // 商品详细页
                     templateUrl: gbmono.app_view_path + '/products/detail.html',
                     controller: 'productDetailController',

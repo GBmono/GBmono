@@ -18,13 +18,7 @@
 
         // register user
         function register(model) {
-            return $http({
-                url: gbmono.api_site_prefix.account_api_url + '/Register',
-                method: 'POST',
-                data: model
-            });
-
-            //return $http.get(gbmono.api_site_prefix.account_api_url + '/Register', model);
+            return $http.post(gbmono.api_site_prefix.account_api_url + '/Register', model);
         }
 
         // login, get access bearer token
@@ -36,10 +30,24 @@
                 data: "userName=" + userName + "&password=" + password + "&grant_type=password"
             });
         }
-
-
     }
+})(angular.module('gbmono'));
 
+(function (module) {
+    // inject params
+    factory.$inject = ['$http'];
+
+    // create instance
+    module.factory('profileDataFactory', factory);
+
+    // factory implement
+    function factory($http) {
+        // return data factory with CRUD calls
+        return {
+          
+        }
+     
+    }
 })(angular.module('gbmono'));
 
 
