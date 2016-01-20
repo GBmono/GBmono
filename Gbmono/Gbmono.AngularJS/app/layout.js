@@ -20,12 +20,12 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'categoryDataFactory', 'accountDataFactory'];
+    ctrl.$inject = ['$scope', 'categoryDataFactory', 'accountDataFactory', 'localStorageService'];
 
     // create controller
     module.controller('headerController', ctrl);
     // controller body
-    function ctrl($scope, categoryDataFactory, accountDataFactory) {
+    function ctrl($scope, categoryDataFactory, accountDataFactory, localStorageService) {
         // define scope variable here
         // login model
         $scope.loginData = {};
@@ -57,8 +57,9 @@
         function login(model) {
             accountDataFactory.login(model.email, model.password)
                  .success(function (data) {
-                     //todo store in localstorage
-                 });
+                    localStorageService.set(gbmono.LOCAL_STORAGE_TOKEN_KEY, data.access_token);
+                    //todo store in localstorage
+                });
         }
 
         // register function

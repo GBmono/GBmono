@@ -15,7 +15,7 @@
 
     // config
     // ng-route, ng-animate, kendo-ui modules
-    angular.module('gbmono', ['ngRoute', 'ngAnimate']).config(config);
+    angular.module('gbmono', ['ngRoute', 'ngAnimate', 'LocalStorageModule']).config(config);
 
     // module config
     // config route & http
@@ -62,6 +62,11 @@
                     controller: 'homeController',
                     caseInsensitiveMatch: true
                 });
+
+        // configure global http interceptor
+        $httpProvider.interceptors.push('authInterceptor');
     }
+
+
 })();
 

@@ -23,7 +23,7 @@
 
         // get products
         function loadProfiles() {
-            profileDataFactory.getMy().success(function (data) {
+            profileDataFactory.get().success(function (data) {
                 $scope.profiles = data;
             });
        
