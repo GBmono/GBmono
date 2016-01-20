@@ -17,7 +17,7 @@
     gbmono.LOCAL_STORAGE_TOKEN_KEY = 'gbmono_BEARER_TOKEN'; // localstorage token key name
     gbmono.LOCAL_STORAGE_USER_KEY = 'gbmono_USER_NAME'; // localstorage user account key name
     gbmono.LOCAL_STORAGE_ROLE_KEY = 'gbmono_ROLE_NAME'; // localstorage role key name    
-
+    
     /* web api controller route prefix */
     /* bearer token entry point*/
     gbmono.api_token_url = gbmono.domain + '/Token'; // bearer token end point

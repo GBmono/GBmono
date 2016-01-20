@@ -41,11 +41,8 @@
         }
 
         $scope.follow = function (optionId, followTypeId) {
-            debugger;
-            var userProfileId = localStorage['userProfileId'];
             var followOption = {
-                optionId: optionId,
-                userProfileId: userProfileId,
+                optionId: optionId,                
                 followTypeId: followTypeId
             };
             userActionFactory.follow(followOption)
