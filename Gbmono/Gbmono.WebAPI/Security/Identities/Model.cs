@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -37,6 +38,8 @@ namespace Gbmono.WebAPI.Security.Identities
         public double? Long { get; set; }
         public int? EnableSMS { get; set; }
         public string PhoneNumber { get; set; }
+        public DateTime CreateTime { get; set; }
+
     }
 
     [Table("UserDeviceToken")]
