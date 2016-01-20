@@ -64,25 +64,22 @@
     function factory($http) {
         // return data factory with CRUD calls
         return {
-            getMy: getMy
+            get: get
         }
 
         //Get my profile 
-        function getMy() {
-            //todo make it to $http.post
-            //return $http.post(gbmono.api_site_prefix.profile_api_url + '/GetMyProfile', {
-            //    headers: getHeaders()
-            //});
+        function get() {
+            return $http.get(gbmono.api_site_prefix.profile_api_url);
 
-            var token = "z0qO-u31GlBXqGPTPEK9g7UzzH0NIPDFW5HDZxCozrCggdfBM8niWNxyDi8Cl-PB0IXCbcb_tx-aQVqrkfD2Ghorqg0nyhIR38DZrnc5W0_Ywvw4C2tXRy5nbIZ_FnqHXDOm_0MibSmPqrz32Y9xTrQFT34cL2vd5n6nSs4TL8pyFqzJ5y9-RLU8lalAdIwbP4VKEFn9Ds_Sw0DD8tX9-ue-hyPlR4vk5c4b9w3org5leBzoU6GoVF6HfH7tpDUCgTU35WNXCVXjYEXP0FBQ6Qc4qZLpGyiyXZyjbXP7kogHPF9jJJhpqPoNfFnfLXyqiIffd1cLBcpFZVapa-sAj1093tI-mdt3SN98UNgJDpDiMrWqNB3XHfJJP_cCZxX0bCzqAR6ZMfFY-m94w9KFzPAjxs0Hx_dOSADr24_zM67BJVecGwJZfkE1Jn8Qtf6BT0gRMe8Vv6bVxT2YO66Y1mprJomsq1wZ8LjXuwKuXjGh8xrBv_cK1CVKnx7Bq9M6";
+            //todo global beartoken added
             //working with corred token
-            $http({
-                url: gbmono.api_site_prefix.profile_api_url + '/GetMyProfile',
-                method: "POST",
-                headers: {
-                    "Authorization": "Bearer "+token
-                }
-            });
+            //$http({
+            //    url: gbmono.api_site_prefix.profile_api_url,
+            //    method: "get",
+            //    headers: {
+            //        "Authorization": "Bearer "+token
+            //    }
+            //});
         }
     }
 })(angular.module('gbmono'));
@@ -195,4 +192,42 @@
     }
 
 })(angular.module('gbmono'));
+
+//Global Http Interceptor
+(function (module) {
+    // inject params
+    factory.$inject = ['$q', 'localStorageService'];
+
+    // create instance
+    module.factory('authInterceptor', factory);
+
+    // factory implement
+    function factory($q, localStorageService) {
+        // return data factory with CRUD calls
+        return {
+            request: function (config) {
+                config.headers = config.headers || {};
+                if (config.url != gbmono.api_token_url && localStorageService.get(gbmono.LOCAL_STORAGE_TOKEN_KEY)) {
+                    config.headers.Authorization = 'Bearer ' + localStorageService.get(gbmono.LOCAL_STORAGE_TOKEN_KEY);
+                }
+                return config;
+            },
+            response: function (response) {
+                if (response.status === 401) {
+                    // handle the case where the user is not authenticated
+                }
+                return response || $q.when(response);
+            },
+
+            responseError: function (rejection) {
+                if (rejection.status === 401) {
+                    // handle the case where the user is not authenticated
+                    //TODO 
+                    alert("401 E");
+                }
+            }
+        };
+    }
+})(angular.module('gbmono'));
+
 

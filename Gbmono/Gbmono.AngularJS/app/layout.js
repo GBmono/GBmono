@@ -20,12 +20,12 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'categoryDataFactory', 'accountDataFactory'];
+    ctrl.$inject = ['$scope', 'categoryDataFactory', 'accountDataFactory', 'localStorageService'];
 
     // create controller
     module.controller('headerController', ctrl);
     // controller body
-    function ctrl($scope, categoryDataFactory, accountDataFactory) {
+    function ctrl($scope, categoryDataFactory, accountDataFactory, localStorageService) {
         // define scope variable here
         // login model
         $scope.loginData = {};
@@ -57,14 +57,8 @@
         function login(model) {
             accountDataFactory.login(model.email, model.password)
                  .success(function (data) {
-                     debugger;
+                    localStorageService.set(gbmono.LOCAL_STORAGE_TOKEN_KEY, data.access_token);
                      //todo store in localstorage
-
-                     if (window.localStorage) {
-                         localStorage.userProfileId = data.userProfileId;
-                     } else {
-                         alert('unsupport local storage');
-                     }
                  });
         }
 
@@ -73,8 +67,7 @@
             accountDataFactory.register(model)
                  .success(function (data) {
                      //todo store in localstorage
-
-                     login(model.email, model.password);
+                     login(model);
                  });
         }
 
