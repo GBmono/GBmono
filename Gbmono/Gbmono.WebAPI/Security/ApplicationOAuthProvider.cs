@@ -52,7 +52,7 @@ namespace Gbmono.WebAPI.Security
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager, CookieAuthenticationDefaults.AuthenticationType);
 
             // create properties, user name or other extra information
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationProperties properties = CreateProperties(user);
 
             // initialize a new instance of the Microsoft.Owin.Security.AuthenticationTicket
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
@@ -116,15 +116,26 @@ namespace Gbmono.WebAPI.Security
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        /// <summary>
+        /// return user name, display name and other user related info 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static AuthenticationProperties CreateProperties(GbmonoUser user)
         {
             // extract the user profile name from user name (email)
-            var userProfileName = userName.Split('@')[0];
+            var userDisplayName = user.UserName.Split('@')[0];
+
+            // if profile display name exists in db
+            if(user.UserProfile != null && !string.IsNullOrEmpty(user.UserProfile.DisplayName))
+            {
+                userDisplayName = user.UserProfile.DisplayName;
+            }
 
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName },
-                { "profileName", userProfileName }
+                { "userName", user.UserName },
+                { "displayName", userDisplayName }
             };
             return new AuthenticationProperties(data);
         }
