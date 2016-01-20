@@ -27,7 +27,10 @@
             return $http({
                 url: gbmono.api_token_url,
                 method: 'POST',
-                data: "userName=" + userName + "&password=" + password + "&grant_type=password"
+                data: "userName=" + userName + "&password=" + password + "&grant_type=password",
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                }
             });
         }
     }

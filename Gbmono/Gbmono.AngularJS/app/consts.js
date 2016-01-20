@@ -4,8 +4,9 @@
 (function (gbmono) {
     /* web api application name */
     //gbmono.web_api_app_name = 'http://localhost/name';
-    gbmono.web_api_app_name = 'http://localhost:28975/api';
-
+    gbmono.domain = 'http://localhost:28975/';
+    gbmono.web_api_app_name = gbmono.domain + 'api';
+    
     /* angularJs app view root path */
     gbmono.app_view_path = '/app/views';
 
@@ -19,7 +20,7 @@
 
     /* web api controller route prefix */
     /* bearer token entry point*/
-    gbmono.api_token_url = gbmono.web_api_app_name + '/Token'; // bearer token end point
+    gbmono.api_token_url = gbmono.domain + '/Token'; // bearer token end point
 
     gbmono.api_site_prefix = {
         // account api url

@@ -34,6 +34,7 @@ namespace Gbmono.WebAPI.Security
         // those to acquire an "access_token" and optional "refresh_token". 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
             var userManager = context.OwinContext.GetUserManager<GbmonoUserManager>();
 
             // lookup user by user name and password
