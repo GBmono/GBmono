@@ -57,7 +57,6 @@
         function login(model) {
             accountDataFactory.login(model.email, model.password)
                  .success(function (data) {
-                     debugger;
                      //todo store in localstorage
                  });
         }
@@ -67,8 +66,7 @@
             accountDataFactory.register(model)
                  .success(function (data) {
                      //todo store in localstorage
-
-                     login(model.email, model.password);
+                     login(model);
                  });
         }
 
