@@ -31,7 +31,7 @@ namespace Gbmono.WebAPI.Services
         }
 
         //TODO: get user profile view model
-        
+
         public static UserProfileViewModel GetUserProfile(UserProfile userProfile)
         {
             var viewModel = new UserProfileViewModel();

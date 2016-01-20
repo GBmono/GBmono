@@ -163,7 +163,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HttpResults\InternalServerErrorPlainTextResult.cs" />
-    <Compile Include="Models\AccessTokenViewModel.cs" />
     <Compile Include="Models\ModelExtensions.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\UserBindingModel.cs" />

@@ -118,9 +118,13 @@ namespace Gbmono.WebAPI.Security
 
         public static AuthenticationProperties CreateProperties(string userName)
         {
+            // extract the user profile name from user name (email)
+            var userProfileName = userName.Split('@')[0];
+
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "userName", userName },
+                { "profileName", userProfileName }
             };
             return new AuthenticationProperties(data);
         }

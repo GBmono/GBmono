@@ -12,18 +12,18 @@ namespace Gbmono.WebAPI.Controllers
     public class ProfilesController : ApiController
     {
 
-        [Authorize]
-        [HttpPost]
-        [Route("GetMyProfile")]
-        public UserProfile GetMyProfile()
-        {
-            var identity = RequestContext.Principal.Identity;
+        //[Authorize]
+        //[HttpPost]
+        //[Route("GetMyProfile")]
+        //public UserProfile GetMyProfile()
+        //{
+        //    var identity = RequestContext.Principal.Identity;
 
 
 
 
-            return null;
-        }
+        //    return null;
+        //}
 
     }
 }
