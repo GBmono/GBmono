@@ -59,6 +59,12 @@
                  .success(function (data) {
                      debugger;
                      //todo store in localstorage
+
+                     if (window.localStorage) {
+                         localStorage.userProfileId = data.userProfileId;
+                     } else {
+                         alert('unsupport local storage');
+                     }
                  });
         }
 

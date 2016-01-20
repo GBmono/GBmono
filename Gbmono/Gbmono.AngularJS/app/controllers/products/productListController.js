@@ -3,13 +3,13 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', '$routeParams', 'productDataFactory'];
+    ctrl.$inject = ['$scope', '$routeParams', 'productDataFactory', 'userActionFactory'];
 
     module.controller('productListController', ctrl);
 
     // create controller
     // controller body
-    function ctrl($scope, $routeParams, productDataFactory) {
+    function ctrl($scope, $routeParams, productDataFactory, userActionFactory) {
         init();
 
         
@@ -39,6 +39,20 @@
                     });
             }
         }
+
+        $scope.follow = function (optionId, followTypeId) {
+            debugger;
+            var userProfileId = localStorage['userProfileId'];
+            var followOption = {
+                optionId: optionId,
+                userProfileId: userProfileId,
+                followTypeId: followTypeId
+            };
+            userActionFactory.follow(followOption)
+                .success(function (data) {
+                    debugger;
+                });
+        };
 
 
     }

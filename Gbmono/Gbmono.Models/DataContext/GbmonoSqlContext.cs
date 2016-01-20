@@ -29,9 +29,8 @@ namespace Gbmono.Models.DataContext
             modelBuilder.Configurations.Add(new RetailShopMap());
 
             modelBuilder.Configurations.Add(new RetailerMap());
-
-            // modelBuilder.Configurations.Add(new FollowOptionMap());
-
+            
+            modelBuilder.Entity<FollowOption>().ToTable("FollowOption");
             base.OnModelCreating(modelBuilder);
         }
     }

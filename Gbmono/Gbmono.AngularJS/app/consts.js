@@ -32,7 +32,9 @@
         // brand url
         brand_api_url: gbmono.web_api_app_name + '/Brands',
         // profile url
-        profile_api_url: gbmono.web_api_app_name + '/Profiles'
+        profile_api_url: gbmono.web_api_app_name + '/Profiles',
+        // follow options url
+        follow_options_url: gbmono.web_api_app_name + '/FollowOptions',
     };
 
 })(window.gbmono = window.gbmono || {});

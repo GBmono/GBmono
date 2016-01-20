@@ -36,6 +36,23 @@
     }
 })(angular.module('gbmono'));
 
+/*
+ user action factory
+*/
+(function (module) {
+    factory.$inject = ['$http'];
+    module.factory('userActionFactory', factory);
+    function factory($http) {
+        return {
+            follow: follow,
+        }
+
+        function follow(model) {
+            return $http.post(gbmono.api_site_prefix.follow_options_url + '/follow', model);
+        }
+    }
+})(angular.module('gbmono'));
+
 (function (module) {
     // inject params
     factory.$inject = ['$http'];

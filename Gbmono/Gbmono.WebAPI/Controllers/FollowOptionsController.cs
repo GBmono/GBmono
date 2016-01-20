@@ -29,13 +29,15 @@ namespace Gbmono.WebAPI.Controllers
         {
             return await Task.Run(() =>
             {
-                if (!_repositoryManager.FollowOptionRepository.Any(m => m.FollowTypeId == option.FollowTypeId && m.OptionId == option.OptionId && m.UserProfileId == option.UserProfileId))
+                var optionPO = _repositoryManager.FollowOptionRepository.Fetch(m => m.FollowTypeId == option.FollowTypeId && m.OptionId == option.OptionId && m.UserProfileId == option.UserProfileId).FirstOrDefault();
+                if (optionPO == null)
                 {
+                    option.CreatedDate = DateTime.Now;
                     _repositoryManager.FollowOptionRepository.Create(option);
                 }
                 else
                 {
-                    _repositoryManager.FollowOptionRepository.Delete(option);
+                    _repositoryManager.FollowOptionRepository.Delete(optionPO);
                 }
                 _repositoryManager.FollowOptionRepository.Save();
                 return Ok();
