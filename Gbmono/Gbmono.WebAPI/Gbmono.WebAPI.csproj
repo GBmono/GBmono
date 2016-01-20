@@ -172,6 +172,7 @@
     <Compile Include="Security\ApplicationOAuthProvider.cs" />
     <Compile Include="Security\Identities\Config.cs" />
     <Compile Include="Security\Identities\Model.cs" />
+    <Compile Include="Services\BannerService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\UserExtensions.cs" />

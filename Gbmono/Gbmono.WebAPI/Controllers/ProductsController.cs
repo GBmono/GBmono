@@ -16,15 +16,38 @@ namespace Gbmono.WebAPI.Controllers
     [RoutePrefix("api/Products")]
     public class ProductsController : ApiController
     {
-        private readonly ProductService _productService;
         private readonly RepositoryManager _repositoryManager;
+        private readonly ProductService _productService;        
         private readonly CategoryService _categoryService;
+        private readonly BannerService _bannerService;
 
         public ProductsController() 
         {
-            _productService = new ProductService();
             _repositoryManager = new RepositoryManager();
+            _productService = new ProductService(_repositoryManager);            
             _categoryService = new CategoryService(_repositoryManager);
+            _bannerService = new BannerService(_repositoryManager);
+        }
+        
+        // get product by id
+        public async Task<IHttpActionResult> GetById(int id)
+        {
+            return await Task.Run(() =>
+            {
+                var product = _repositoryManager.ProductRepository.Table
+                                                                  .Include(m => m.Country)
+                                                                  .Include(m => m.Brand.Manufacturer)
+                                                                  .Include(m => m.Retailers)
+                                                                  .Include(m => m.WebShops)
+                                                                  .SingleOrDefault(f => f.ProductId == id);
+                if (product != null)
+                {
+                    var model = product.ToViewModel();
+                    model.Categories = _categoryService.GetProductCategoryList(product.CategoryId);
+                    return Ok(model);
+                }
+                return Ok(new ProductViewModel());
+            });
         }
 
         [Route("Categories/{categoryId}")]
@@ -35,7 +58,12 @@ namespace Gbmono.WebAPI.Controllers
             return Ok(result);
         }
 
-
+        // get banner by product id
+        [Route("{id}/Banner")]
+        public Banner GetBanner(int id)
+        {
+            return _bannerService.GetBanner(id);
+        }
 
 
         [Route("BarCodes/{code}")]
@@ -57,31 +85,5 @@ namespace Gbmono.WebAPI.Controllers
                                      
         }
 
-        [HttpGet]
-        public async Task<IHttpActionResult> GetAll()
-        {
-            var result = await _productService.GetProductList();
-            return Ok(result);
-        }
-
-        public async Task<IHttpActionResult> GetById(int id)
-        {
-            return await Task.Run(() =>
-            {
-                var product = _repositoryManager.ProductRepository.Table
-                                                                  .Include(m=>m.Country)
-                                                                  .Include(m=>m.Brand.Manufacturer)
-                                                                  .Include(m=>m.Retailers)
-                                                                  .Include(m=>m.WebShops)
-                                                                  .SingleOrDefault(f => f.ProductId == id);
-                if (product != null)
-                {
-                    var model = product.ToViewModel();
-                    model.Categories = _categoryService.GetProductCategoryList(product.CategoryId);
-                    return Ok(model);
-                }                
-                return Ok(new ProductViewModel());
-            });            
-        }
     }
 }

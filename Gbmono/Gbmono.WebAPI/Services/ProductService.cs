@@ -15,9 +15,9 @@ namespace Gbmono.WebAPI.Services
     {
         private readonly RepositoryManager _repositoryManager;
 
-        public ProductService()
+        public ProductService(RepositoryManager manager)
         {
-            _repositoryManager = new RepositoryManager();
+            _repositoryManager = manager;
         }
 
         private static readonly Random random = new Random();
