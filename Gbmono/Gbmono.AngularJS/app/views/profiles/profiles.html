@@ -1,1 +1,19 @@
-﻿asdffsa
+﻿<div class="row">
+    <div class="col-md-4 col-lg-offset-4">
+        <label>昵称</label>
+        <input type="text" ng-model="profiles.displayName" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>品牌</label>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-2" ng-repeat="brand in profiles.followBrands">
+                <a href="">{{band.followTypeId}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+

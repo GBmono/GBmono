@@ -5,7 +5,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Gbmono.WebAPI.Models;
 using Gbmono.WebAPI.Security.Identities;
+using Gbmono.WebAPI.Services;
 using Microsoft.AspNet.Identity;
 
 namespace Gbmono.WebAPI.Controllers
@@ -21,15 +23,15 @@ namespace Gbmono.WebAPI.Controllers
         }
 
         [Authorize]
-        public UserProfile Get()
+        public UserProfileViewModel Get()
         {
             var identity = RequestContext.Principal.Identity;
             var userId = identity.GetUserId();
 
             var userProfile = _repositoryManager.GbmonoUserRepository.Table.Include(m => m.UserProfile).Single(m => m.Id == userId);
+            var result = UserExtensions.GetUserProfile(userProfile.UserProfile);
 
-
-            return null;
+            return result;
         }
 
     }
