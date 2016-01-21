@@ -48,7 +48,7 @@
         }
 
         function follow(model) {
-            return $http.post(gbmono.api_site_prefix.follow_options_url + '/follow', model, { headers: { 'Authorization': gbmono.LOCAL_STORAGE_TOKEN_KEY } });
+            return $http.post(gbmono.api_site_prefix.follow_options_url + '/follow', model);
         }
     }
 })(angular.module('gbmono'));
