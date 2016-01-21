@@ -15,11 +15,12 @@ namespace Gbmono.WebAPI.Controllers
     [RoutePrefix("api/Profiles")]
     public class ProfilesController : ApiController
     {
-        private readonly IdentityRepositoryManager _repositoryManager;
+        private readonly IdentityRepositoryManager _identityRepositoryManager;
+
 
         public ProfilesController()
         {
-            _repositoryManager = new IdentityRepositoryManager();
+            _identityRepositoryManager = new IdentityRepositoryManager();
         }
 
         [Authorize]
@@ -28,7 +29,7 @@ namespace Gbmono.WebAPI.Controllers
             var identity = RequestContext.Principal.Identity;
             var userId = identity.GetUserId();
 
-            var userProfile = _repositoryManager.GbmonoUserRepository.Table.Include(m => m.UserProfile).Single(m => m.Id == userId);
+            var userProfile = _identityRepositoryManager.GbmonoUserRepository.Table.Include(m => m.UserProfile).Single(m => m.Id == userId);
             var result = UserExtensions.GetUserProfile(userProfile.UserProfile);
 
             return result;
