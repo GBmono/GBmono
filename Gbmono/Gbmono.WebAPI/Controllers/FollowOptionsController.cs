@@ -41,8 +41,7 @@ namespace Gbmono.WebAPI.Controllers
                 var userId = id.GetUserId();
                 var userProfile = _identityRepositoryManager.GbmonoUserRepository.Table.Include(m => m.UserProfile).Single(m => m.Id == userId);
                 option.UserProfileId = userProfile.UserProfileId;
-                //TODO : get user profile id
-                var optionPO = _repositoryManager.FollowOptionRepository.Fetch(m => m.FollowTypeId == option.FollowTypeId && m.OptionId == option.OptionId && m.UserProfileId == option.UserProfileId).FirstOrDefault();
+                var optionPO = _repositoryManager.FollowOptionRepository.Get(m => m.FollowTypeId == option.FollowTypeId && m.OptionId == option.OptionId && m.UserProfileId == option.UserProfileId);
                 if (optionPO == null)
                 {
                     option.CreatedDate = DateTime.Now;

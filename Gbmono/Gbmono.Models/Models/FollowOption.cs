@@ -14,6 +14,7 @@ namespace Gbmono.Models
         public int UserProfileId { get; set; }
         [Key, Column(Order = 2)]
         public int OptionId { get; set; }
+        [Key, Column(Order = 3)]
         public short FollowTypeId { get; set; }
         public DateTime CreatedDate { get; set; }
     }

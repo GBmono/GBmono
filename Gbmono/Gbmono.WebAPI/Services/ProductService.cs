@@ -34,6 +34,7 @@ namespace Gbmono.WebAPI.Services
 
                 foreach (var product in productList)
                 {
+                    //Todo Temp
                     if (product.Images == null)
                     {
                         product.Images = new List<ProductImage>();

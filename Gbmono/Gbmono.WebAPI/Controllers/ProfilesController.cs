@@ -17,6 +17,7 @@ namespace Gbmono.WebAPI.Controllers
     {
         private readonly IdentityRepositoryManager _identityRepositoryManager;
 
+        
 
         public ProfilesController()
         {
@@ -26,14 +27,37 @@ namespace Gbmono.WebAPI.Controllers
         [Authorize]
         public UserProfileViewModel Get()
         {
+            //Todo Add common function  or Const
             var identity = RequestContext.Principal.Identity;
             var userId = identity.GetUserId();
-
             var userProfile = _identityRepositoryManager.GbmonoUserRepository.Table.Include(m => m.UserProfile).Single(m => m.Id == userId);
+
+
             var result = UserExtensions.GetUserProfile(userProfile.UserProfile);
 
             return result;
         }
+
+        [Authorize]
+        [HttpPut]
+        public UserProfileViewModel Update(UserProfile profile)
+        {
+            //Todo Add common function  or Const
+            var identity = RequestContext.Principal.Identity;
+            var userId = identity.GetUserId();
+            var userProfile = _identityRepositoryManager.GbmonoUserRepository.Table.Include(m => m.UserProfile).Single(m => m.Id == userId);
+
+            //Update Profile Field
+            userProfile.UserProfile.DisplayName = profile.DisplayName;
+            userProfile.UserProfile.PhoneNumber = profile.PhoneNumber;
+
+            _identityRepositoryManager.GbmonoUserRepository.Save();
+
+            var result = UserExtensions.GetUserProfile(userProfile.UserProfile);
+
+            return result;
+        }
+
 
     }
 }

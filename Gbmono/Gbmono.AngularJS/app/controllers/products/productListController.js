@@ -47,7 +47,7 @@
             };
             userActionFactory.follow(followOption)
                 .success(function (data) {
-                    debugger;
+                    alert("Success");
                 });
         };
 

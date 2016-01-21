@@ -21,12 +21,18 @@
             loadProfiles();
         }
 
-        // get products
+        // get profiles
         function loadProfiles() {
             profileDataFactory.get().success(function (data) {
                 $scope.profiles = data;
             });
-       
+        }
+
+        // update products
+        $scope.updateProfile=function () {
+            profileDataFactory.update($scope.profiles.userProfie).success(function (data) {
+                alert("success");
+            });
         }
 
       

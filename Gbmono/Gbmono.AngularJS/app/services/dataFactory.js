@@ -64,22 +64,17 @@
     function factory($http) {
         // return data factory with CRUD calls
         return {
-            get: get
+            get: get,
+            update: update
         }
 
         //Get my profile 
         function get() {
             return $http.get(gbmono.api_site_prefix.profile_api_url);
-
-            //todo global beartoken added
-            //working with corred token
-            //$http({
-            //    url: gbmono.api_site_prefix.profile_api_url,
-            //    method: "get",
-            //    headers: {
-            //        "Authorization": "Bearer "+token
-            //    }
-            //});
+        }
+        //Update my profile 
+        function update(model) {
+            return $http.put(gbmono.api_site_prefix.profile_api_url, model);
         }
     }
 })(angular.module('gbmono'));

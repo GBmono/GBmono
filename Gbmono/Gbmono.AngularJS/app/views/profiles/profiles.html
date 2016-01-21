@@ -1,7 +1,19 @@
 ﻿<div class="row">
-    <div class="col-md-4 col-lg-offset-4">
+    <div class="col-md-4">
         <label>昵称</label>
-        <input type="text" ng-model="profiles.displayName" />
+        <input type="text" ng-model="profiles.userProfie.displayName"/>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <label>电话</label>
+        <input type="text" ng-model="profiles.userProfie.phoneNumber"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <button ng-click="updateProfile()">更新</button>
     </div>
 </div>
 <div class="row">
@@ -16,4 +28,143 @@
         </div>
     </div>
 </div>
+
+
+
+<div class="row">
+    <h5>关注商品</h5>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-md-3" ng-repeat="product in profiles.followProducts">
+
+        <!-- product -->
+        <div class="product clearfix">
+
+            <!-- Image -->
+            <div class="image product-image">
+                <a ng-href="#/products/{{product.productId}}" class="main">
+                    <img ng-src="{{product.images[0].url}}"/>
+                    <!--<img src="Content/images/Empty_set.png" alt="">-->
+                </a>
+                <ul class="additional">
+                    <li>
+                        <a ng-href="#/products/{{product.productId}}" data-gal="prettyPhoto[gallery 1]" title="Product Name">
+                            <img ng-src="{{product.images[1].url}}"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Image -->
+            <!--<span class="label label-sale" ng-click="test()">sale</span>-->
+            <!-- Details -->
+            <div class="details">
+
+                <a class="title" ng-href="#/products/{{product.productId}}" title="{{product.description}}">{{product.primaryName}}</a>
+
+                <!-- rating -->
+                <!--<ul class="hlinks hlinks-rating">
+                    <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                    <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                    <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                    <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+                    <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+                </ul>-->
+                <!-- /rating -->
+                <div>
+                    <span>可购入店铺：</span>
+                    <span ng-repeat="retailer in product.retailers">
+                        #<a href="">{{retailer.name}}</a>
+                    </span>
+                </div>
+                <!-- Price Box -->
+                <div class="price-box">
+                    <!--<span class="price price-old">$2350</span>-->
+                    <span class="price">{{product.price}} 元</span>
+                </div>
+                <!-- /Price Box -->
+                <!-- buttons -->
+                <div class="btn-group">
+                    <a class="btn btn-outline btn-base-hover" href="" ng-click="follow(product.productId,1)">add to note</a>
+                    <a class="btn btn-outline btn-default-hover" href="product.html"><i class="icon fa fa-heart"></i></a>
+                </div>
+                <!-- /buttons -->
+
+            </div>
+            <!-- /Details -->
+
+        </div>
+        <!-- /product -->
+
+    </div>
+</div>
+
+
+
+<div class="row">
+    <h5>记录商品</h5>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-md-3" ng-repeat="product in profiles.productCollections">
+
+        <!-- product -->
+        <div class="product clearfix">
+
+            <!-- Image -->
+            <div class="image product-image">
+                <a ng-href="#/products/{{product.productId}}" class="main">
+                    <img ng-src="{{product.images[0].url}}" />
+                    <!--<img src="Content/images/Empty_set.png" alt="">-->
+                </a>
+                <ul class="additional">
+                    <li>
+                        <a ng-href="#/products/{{product.productId}}" data-gal="prettyPhoto[gallery 1]" title="Product Name">
+                            <img ng-src="{{product.images[1].url}}" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Image -->
+            <!--<span class="label label-sale" ng-click="test()">sale</span>-->
+            <!-- Details -->
+            <div class="details">
+
+                <a class="title" ng-href="#/products/{{product.productId}}" title="{{product.description}}">{{product.primaryName}}</a>
+
+                <!-- rating -->
+                <!--<ul class="hlinks hlinks-rating">
+                    <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                    <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                    <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                    <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+                    <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+                </ul>-->
+                <!-- /rating -->
+                <div>
+                    <span>可购入店铺：</span>
+                    <span ng-repeat="retailer in product.retailers">
+                        #<a href="">{{retailer.name}}</a>
+                    </span>
+                </div>
+                <!-- Price Box -->
+                <div class="price-box">
+                    <!--<span class="price price-old">$2350</span>-->
+                    <span class="price">{{product.price}} 元</span>
+                </div>
+                <!-- /Price Box -->
+                <!-- buttons -->
+                <div class="btn-group">
+                    <a class="btn btn-outline btn-base-hover" href="" ng-click="follow(product.productId,1)">add to note</a>
+                    <a class="btn btn-outline btn-default-hover" href="product.html"><i class="icon fa fa-heart"></i></a>
+                </div>
+                <!-- /buttons -->
+
+            </div>
+            <!-- /Details -->
+
+        </div>
+        <!-- /product -->
+
+    </div>
+</div>
+
 
