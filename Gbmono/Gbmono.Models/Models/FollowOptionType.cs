@@ -8,8 +8,8 @@ namespace Gbmono.Models
 {
     public enum FollowOptionType
     {
-        FollowProduct = 1,
-        FollowBrand,
-        ProductCollection,
+        FollowProduct = 1, //关注的商品
+        FollowBrand = 2,   //关注的品牌
+        FavoriteProduct = 3,     //收藏夹商品
     }
 }
