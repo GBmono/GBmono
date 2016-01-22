@@ -128,16 +128,11 @@ namespace Gbmono.WebAPI.Security
             var userDisplayName = user.UserName.Split('@')[0];
 
             // if profile display name exists in db
-            if (user.UserProfile != null && !string.IsNullOrEmpty(user.UserProfile.DisplayName))
-            {
-                userDisplayName = user.UserProfile.DisplayName;
-            }
-
+    
             IDictionary<string, string> data = new Dictionary<string, string>
             {
                 { "userName", user.UserName },
-                { "displayName", userDisplayName },
-                { "userProfileId", user.UserProfileId.ToString() }
+                { "displayName", userDisplayName }
             };
             return new AuthenticationProperties(data);
         }

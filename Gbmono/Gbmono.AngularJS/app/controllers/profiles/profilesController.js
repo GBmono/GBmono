@@ -11,30 +11,56 @@
     // controller body
     function ctrl($scope, profileDataFactory) {
         // product list
-        $scope.profiles = [];
+        $scope.userInfo = [];
+        $scope.followProducts = [];
+        $scope.followBrands = [];
+        $scope.favoriteProducts = [];
 
         // call page init function
         init();
         // page init method
         // 当该view被初始化时 需要执行的功能
         function init() {
-            loadProfiles();
+            loadUserInfo();
+            loadFollowProducts();
+            loadFollowBrands();
+            loadFavoriteProducts();
         }
 
-        // get profiles
-        function loadProfiles() {
+        // loadUserInfo
+        function loadUserInfo() {
             profileDataFactory.get().success(function (data) {
-                $scope.profiles = data;
+                $scope.userInfo = data;
             });
         }
 
-        // update products
-        $scope.updateProfile=function () {
-            profileDataFactory.update($scope.profiles.userProfie).success(function (data) {
+        // loadFollowProducts
+        function loadFollowProducts() {
+            profileDataFactory.getFollowProducts().success(function (data) {
+                $scope.followProducts = data;
+            });
+        }
+        // loadFollowBrands
+        function loadFollowBrands() {
+            profileDataFactory.getFollowBrands().success(function (data) {
+                $scope.followBrands = data;
+            });
+        }
+        // loadFavoriteProducts
+        function loadFavoriteProducts() {
+            profileDataFactory.getFavoriteProducts().success(function (data) {
+                $scope.favoriteProducts = data;
+            });
+        }
+
+
+        // update userInfo
+        $scope.updateUserInfo = function () {
+            profileDataFactory.update($scope.userInfo).success(function (data) {
                 alert("success");
             });
         }
 
-      
+
     }
 })(angular.module('gbmono'));

@@ -12,9 +12,11 @@ namespace Gbmono.WebAPI.Security.Identities
     // You can add profile data for the user by adding more properties to your GbmonoUser class
     public class GbmonoUser : IdentityUser
     {
-        [ForeignKey("UserProfile")]
-        public int UserProfileId { get; set; }
-        public virtual UserProfile UserProfile { get; set; }
+        public string DisplayName { get; set; }
+        public double? Lat { get; set; }
+        public double? Long { get; set; }
+        public int? EnableSMS { get; set; }
+        public DateTime CreateTime { get; set; }
         // create user instance
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<GbmonoUser> manager, string authenticationType)
         {
@@ -25,33 +27,18 @@ namespace Gbmono.WebAPI.Security.Identities
         }
     }
 
-    [Table("UserProfile")]
-    public class UserProfile
-    {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int UserProfileId { get; set; }
+   
 
-        public string DisplayName { get; set; }
-
-        public double? Lat { get; set; }
-        public double? Long { get; set; }
-        public int? EnableSMS { get; set; }
-        public string PhoneNumber { get; set; }
-        public DateTime CreateTime { get; set; }
-
-    }
-
-    [Table("UserDeviceToken")]
-    public class UserDeviceToken
-    {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int UserDeviceTokenId { get; set; }
-        public int UserId { get; set; }
-        public string DeviceToken { set; get; }
-        public bool Active { set; get; }
-    }
+    //[Table("UserDeviceToken")]
+    //public class UserDeviceToken
+    //{
+    //    [Key]
+    //    [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+    //    public int UserDeviceTokenId { get; set; }
+    //    public int UserId { get; set; }
+    //    public string DeviceToken { set; get; }
+    //    public bool Active { set; get; }
+    //}
 
 
 
@@ -62,10 +49,7 @@ namespace Gbmono.WebAPI.Security.Identities
         public GBmonoUserDbContext() : base("GbmonoUserSqlConnection", throwIfV1Schema: false)
         {
         }
-
-        public DbSet<UserProfile> UserProfiles { get; set; }
-
-        public DbSet<UserDeviceToken> UserDeviceToken { get; set; }
+    
 
         public static GBmonoUserDbContext Create()
         {

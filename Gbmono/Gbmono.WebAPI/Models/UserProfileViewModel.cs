@@ -19,7 +19,6 @@ namespace Gbmono.WebAPI.Models
 
     public class UserProfileViewModel
     {
-        public UserProfile UserProfie { set; get; }
         public List<Product> FollowProducts { set; get; }
         public List<Product> ProductCollections { set; get; }
         public List<Brand> FollowBrands { set; get; }

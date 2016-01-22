@@ -58,7 +58,6 @@
             accountDataFactory.login(model.email, model.password)
                  .success(function (data) {
                      localStorageService.set(gbmono.LOCAL_STORAGE_TOKEN_KEY, data.access_token);
-                     //todo store in localstorage
                  });
         }
 
@@ -66,7 +65,6 @@
         function register(model) {
             accountDataFactory.register(model)
                  .success(function (data) {
-                     //todo store in localstorage
                      login(model);
                  });
         }
