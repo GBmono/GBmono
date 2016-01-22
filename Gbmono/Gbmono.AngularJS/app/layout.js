@@ -20,35 +20,45 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'categoryDataFactory', 'accountDataFactory', 'localStorageService'];
+    ctrl.$inject = ['$scope', 'categoryDataFactory', 'accountDataFactory', 'brandDataFactory', 'localStorageService', 'userActionFactory'];
 
     // create controller
     module.controller('headerController', ctrl);
     // controller body
-    function ctrl($scope, categoryDataFactory, accountDataFactory, localStorageService) {
+    function ctrl($scope, categoryDataFactory, accountDataFactory, brandDataFactory, localStorageService, userActionFactory) {
         // define scope variable here
         // login model
         $scope.loginData = {};
         // register model
         $scope.registerData = {};
 
+        $scope.categories = [];
+        $scope.brands = [];
         // call page init function
         init();
 
         // page init method
         // 当该view被初始化时 需要执行的功能
         function init() {
-            loadCategory();
+            loadCategories();
+            loadBrands();
         }
 
-        // get products
-        function loadCategory() {
+        // get cateogry
+        function loadCategories() {
             categoryDataFactory.getAll()
              .success(function (data) {
                  // success callback
                  // retreive the data into local array
                  // $scope.products can be accessed from the view
                  $scope.categories = data;
+             });
+        }
+
+        function loadBrands() {
+            brandDataFactory.getAll()
+             .success(function (data) {
+                 $scope.brands = data;
              });
         }
 
@@ -83,6 +93,17 @@
             console.log($scope.loginData);
             login($scope.loginData);
         }
+
+        $scope.follow = function (optionId, followTypeId) {
+            var followOption = {
+                optionId: optionId,
+                followTypeId: followTypeId
+            };
+            userActionFactory.follow(followOption)
+                .success(function (data) {
+                    alert("Success");
+                });
+        };
     }
 
 })(angular.module('gbmono'));
