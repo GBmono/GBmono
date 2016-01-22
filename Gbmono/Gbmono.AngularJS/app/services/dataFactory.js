@@ -69,7 +69,10 @@
         // return data factory with CRUD calls
         return {
             get: get,
-            update: update
+            update: update,
+            getFollowProducts: getFollowProducts,
+            getFavoriteProducts: getFavoriteProducts,
+            getFollowBrands: getFollowBrands
         }
 
         //Get my profile 
@@ -80,6 +83,19 @@
         function update(model) {
             return $http.put(gbmono.api_site_prefix.profile_api_url, model);
         }
+
+        function getFollowProducts() {
+            return $http.get(gbmono.api_site_prefix.profile_api_url + "/GetFollowProducts");
+        }
+
+        function getFavoriteProducts() {
+            return $http.get(gbmono.api_site_prefix.profile_api_url + "/GetFavoriteProducts");
+        }
+
+        function getFollowBrands() {
+            return $http.get(gbmono.api_site_prefix.profile_api_url + "/GetFollowBrands");
+        }
+
     }
 })(angular.module('gbmono'));
 

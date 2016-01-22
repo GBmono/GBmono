@@ -12,7 +12,9 @@
         return {
             request: function (config) {
                 config.headers = config.headers || {};
+                //Add  config.url != gbmono.api_token_url or will get cross domain issue
                 if (config.url != gbmono.api_token_url && localStorageService.get(gbmono.LOCAL_STORAGE_TOKEN_KEY)) {
+                //if (localStorageService.get(gbmono.LOCAL_STORAGE_TOKEN_KEY)) {
                     config.headers.Authorization = 'Bearer ' + localStorageService.get(gbmono.LOCAL_STORAGE_TOKEN_KEY);
                 }
                 return config;

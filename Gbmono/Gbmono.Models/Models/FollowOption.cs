@@ -11,7 +11,7 @@ namespace Gbmono.Models
     public class FollowOption
     {
         [Key,Column(Order =1)]
-        public int UserProfileId { get; set; }
+        public string UserId { get; set; }
         [Key, Column(Order = 2)]
         public int OptionId { get; set; }
         [Key, Column(Order = 3)]

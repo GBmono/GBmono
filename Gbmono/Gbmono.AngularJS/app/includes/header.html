@@ -293,39 +293,11 @@
                                 </div>
                                 <!-- /col -->
                                 <!-- col -->
-                                <div class="col-md-3">
-                                    <h5>分类</h5>
-                                    <ul class="links">
-                                        <li><a href="category.html">子品类</a></li>
-                                        <li><a href="category2.html">子品类</a></li>
-                                        <li><a href="product.html">子品类</a></li>
-                                        <li><a href="cart.html">子品类</a></li>
-                                        <li><a href="checkout.html">子品类</a></li>
-                                    </ul>
+                                <div class="col-md-3" ng-repeat="brand in brands">
+                                    <h5>{{brand.name}}   <a class="btn btn-outline btn-default-hover" href="" ng-click="follow(brand.brandId,2)"><i class="icon fa fa-heart"></i></a></h5>
+                                 
                                 </div>
-                                <!-- /col -->
-                                <!-- col -->
-                                <div class="col-md-3">
-                                    <h5>分类</h5>
-                                    <ul class="links">
-                                        <li><a href="page.html">子品类</a></li>
-                                        <li><a href="error-404.html">子品类</a></li>
-                                        <li><a href="error-generic.html">子品类</a></li>
-                                        <li><a href="contact.html">子品类</a></li>
-                                        <li><a href="faq.html">子品类</a></li>
-                                    </ul>
-                                </div>
-                                <!-- /col -->
-                                <!-- col -->
-                                <div class="col-md-3">
-                                    <h5>分类</h5>
-                                    <ul class="links">
-                                        <li><a href="blog.html">子品类</a></li>
-                                        <li><a href="blog-post.html">子品类</a></li>
-                                        <li><a href="login.html">子品类</a></li>
-                                        <li><a href="register.html">子品类</a></li>
-                                    </ul>
-                                </div>
+                              
                                 <!-- /col -->
                             </div>
                             <!-- /Row -->

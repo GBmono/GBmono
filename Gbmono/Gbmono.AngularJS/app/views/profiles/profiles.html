@@ -1,29 +1,36 @@
-﻿<div class="row">
+﻿
+
+
+<div class="row">
+    <h5>个人信息</h5>
+</div>
+<div class="row">
     <div class="col-md-4">
         <label>昵称</label>
-        <input type="text" ng-model="profiles.userProfie.displayName"/>
+        <input type="text" ng-model="userInfo.displayName"/>
 
     </div>
 </div>
 <div class="row">
     <div class="col-md-4">
         <label>电话</label>
-        <input type="text" ng-model="profiles.userProfie.phoneNumber"/>
+        <input type="text" ng-model="userInfo.phoneNumber"/>
     </div>
 </div>
 <div class="row">
     <div class="col-md-4">
-        <button ng-click="updateProfile()">更新</button>
+        <button ng-click="updateUserInfo()">更新</button>
     </div>
 </div>
+
 <div class="row">
-    <div class="col-md-2">
-        <label>品牌</label>
-    </div>
-    <div class="col-md-10">
+    <h5>关注品牌</h5>
+</div>
+<div class="row">
+    <div class="col-md-12">
         <div class="row">
-            <div class="col-md-2" ng-repeat="brand in profiles.followBrands">
-                <a href="">{{band.followTypeId}}</a>
+            <div class="col-md-2" ng-repeat="brand in followBrands">
+                <a href="">{{brand.name}}</a>
             </div>
         </div>
     </div>
@@ -35,7 +42,7 @@
     <h5>关注商品</h5>
 </div>
 <div class="row">
-    <div class="col-sm-6 col-md-3" ng-repeat="product in profiles.followProducts">
+    <div class="col-sm-6 col-md-3" ng-repeat="product in followProducts">
 
         <!-- product -->
         <div class="product clearfix">
@@ -104,7 +111,7 @@
     <h5>记录商品</h5>
 </div>
 <div class="row">
-    <div class="col-sm-6 col-md-3" ng-repeat="product in profiles.productCollections">
+    <div class="col-sm-6 col-md-3" ng-repeat="product in favoriteProducts">
 
         <!-- product -->
         <div class="product clearfix">

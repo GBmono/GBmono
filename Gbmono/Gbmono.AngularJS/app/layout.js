@@ -20,29 +20,32 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'categoryDataFactory', 'accountDataFactory', 'localStorageService'];
+    ctrl.$inject = ['$scope', 'categoryDataFactory', 'accountDataFactory', 'brandDataFactory', 'localStorageService', 'userActionFactory'];
 
     // create controller
     module.controller('headerController', ctrl);
     // controller body
-    function ctrl($scope, categoryDataFactory, accountDataFactory, localStorageService) {
+    function ctrl($scope, categoryDataFactory, accountDataFactory, brandDataFactory, localStorageService, userActionFactory) {
         // define scope variable here
         // login model
         $scope.loginData = {};
         // register model
         $scope.registerData = {};
 
+        $scope.categories = [];
+        $scope.brands = [];
         // call page init function
         init();
 
         // page init method
         // 当该view被初始化时 需要执行的功能
         function init() {
-            loadCategory();
+            loadCategories();
+            loadBrands();
         }
 
-        // get products
-        function loadCategory() {
+        // get cateogry
+        function loadCategories() {
             categoryDataFactory.getAll()
              .success(function (data) {
                  // success callback
@@ -52,13 +55,19 @@
              });
         }
 
+        function loadBrands() {
+            brandDataFactory.getAll()
+             .success(function (data) {
+                 $scope.brands = data;
+             });
+        }
+
         // put web api in seperate function
         // login function
         function login(model) {
             accountDataFactory.login(model.email, model.password)
                  .success(function (data) {
                      localStorageService.set(gbmono.LOCAL_STORAGE_TOKEN_KEY, data.access_token);
-                     //todo store in localstorage
                  });
         }
 
@@ -66,7 +75,6 @@
         function register(model) {
             accountDataFactory.register(model)
                  .success(function (data) {
-                     //todo store in localstorage
                      login(model);
                  });
         }
@@ -85,6 +93,17 @@
             console.log($scope.loginData);
             login($scope.loginData);
         }
+
+        $scope.follow = function (optionId, followTypeId) {
+            var followOption = {
+                optionId: optionId,
+                followTypeId: followTypeId
+            };
+            userActionFactory.follow(followOption)
+                .success(function (data) {
+                    alert("Success");
+                });
+        };
     }
 
 })(angular.module('gbmono'));

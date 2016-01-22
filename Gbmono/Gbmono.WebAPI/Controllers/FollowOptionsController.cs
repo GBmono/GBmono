@@ -20,29 +20,26 @@ namespace Gbmono.WebAPI.Controllers
     public class FollowOptionsController : ApiController
     {
         private readonly RepositoryManager _repositoryManager;
-        private readonly IdentityRepositoryManager _identityRepositoryManager;
 
 
         #region ctor
         public FollowOptionsController()
         {
             _repositoryManager = new RepositoryManager();
-            _identityRepositoryManager = new IdentityRepositoryManager();
 
         }
         #endregion
 
         [Route("follow")]
         [HttpPost]
+        [Authorize]
         public async Task<IHttpActionResult> FollowOption(FollowOption option)
         {
             return await Task.Run(() =>
             {
-                var id = RequestContext.Principal.Identity;
-                var userId = id.GetUserId();
-                var userProfile = _identityRepositoryManager.GbmonoUserRepository.Table.Include(m => m.UserProfile).Single(m => m.Id == userId);
-                option.UserProfileId = userProfile.UserProfileId;
-                var optionPO = _repositoryManager.FollowOptionRepository.Get(m => m.FollowTypeId == option.FollowTypeId && m.OptionId == option.OptionId && m.UserProfileId == option.UserProfileId);
+                var userId = RequestContext.Principal.Identity.GetUserId();
+                option.UserId = userId;
+                var optionPO = _repositoryManager.FollowOptionRepository.Get(m => m.FollowTypeId == option.FollowTypeId && m.OptionId == option.OptionId && m.UserId == option.UserId);
                 if (optionPO == null)
                 {
                     option.CreatedDate = DateTime.Now;

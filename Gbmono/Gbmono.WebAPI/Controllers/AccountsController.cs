@@ -30,16 +30,12 @@ namespace Gbmono.WebAPI.Controllers
         public async Task<IHttpActionResult> Create([FromBody]UserBindingModel model)
         {
             // todo: valiation
-            var user = new GbmonoUser() { UserName = model.UserName, Email = model.Email };
-            user.UserProfile=new UserProfile();
-            user.UserProfile.CreateTime =DateTime.Now;
-
+            var user = new GbmonoUser() { UserName = model.UserName, Email = model.Email, CreateTime = DateTime.Now };
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
             }
-
             return Ok();
         }
 
