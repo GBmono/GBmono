@@ -41,6 +41,10 @@ namespace Gbmono.WebAPI.Services
             viewModel.FollowBrands = new List<Brand>();
             viewModel.FollowProducts = new List<Product>();
             viewModel.ProductCollections = new List<Product>();
+
+            //var brandIdList = new int[] {1, 2, 3};
+            //_repositoryManager.BrandRepository.Table.Where(m => brandIdList.Contains(m.BrandId));
+
             foreach (var follow in followOptions)
             {
                 switch (follow.FollowTypeId)
