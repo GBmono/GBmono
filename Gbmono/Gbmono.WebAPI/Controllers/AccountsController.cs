@@ -33,21 +33,12 @@ namespace Gbmono.WebAPI.Controllers
             var user = new GbmonoUser() { UserName = model.UserName, Email = model.Email };
             user.UserProfile=new UserProfile();
             user.UserProfile.CreateTime =DateTime.Now;
-            try
-            {
-                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-                if (!result.Succeeded)
-                {
-                    return GetErrorResult(result);
-                }
-            }
-            catch (Exception ex)
-            {
-                
-                throw;
-            }
 
-            
+            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            if (!result.Succeeded)
+            {
+                return GetErrorResult(result);
+            }
 
             return Ok();
         }

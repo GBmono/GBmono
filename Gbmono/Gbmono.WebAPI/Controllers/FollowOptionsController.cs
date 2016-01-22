@@ -8,9 +8,10 @@ using System.Web.Http;
 using Gbmono.Models;
 using Gbmono.Models.Infrastructure;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Gbmono.WebAPI.Security;
 using Gbmono.WebAPI.Security.Identities;
-using Microsoft.AspNet.Identity;
+using Gbmono.WebAPI.Attributes;
 
 namespace Gbmono.WebAPI.Controllers
 {
