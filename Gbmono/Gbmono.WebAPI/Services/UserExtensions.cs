@@ -66,7 +66,7 @@ namespace Gbmono.WebAPI.Services
                         }
                         viewModel.FollowProducts.Add(followProduct);
                         break;
-                    case (int)FollowOptionType.ProductCollection:
+                    case (int)FollowOptionType.FavoriteProduct:
                         var productCollection = _repositoryManager.ProductRepository.Table.Include(m => m.Retailers).Single(m => m.ProductId == follow.OptionId);
                         //Todo Temp
                         if (productCollection.Images == null)
