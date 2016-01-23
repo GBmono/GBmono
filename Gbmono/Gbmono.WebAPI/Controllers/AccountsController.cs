@@ -24,6 +24,27 @@ namespace Gbmono.WebAPI.Controllers
             get { return _userManager ?? Request.GetOwinContext().GetUserManager<GbmonoUserManager>(); }
         }
 
+        /// <summary>
+        /// to check if current token is valid
+        /// it returns 401 if token is expired or invalid
+        /// </summary>
+        /// <returns></returns>
+        [Route("Current")]
+        [Authorize]
+        public CurrentUser GetCurrentUser()
+        {
+            // get the user object by current user name
+            var gbmonoUser = UserManager.FindByName(User.Identity.Name);
+
+            // reset password and other sensitive info before returning user object
+            return new CurrentUser
+            {
+                UserName = gbmonoUser.UserName,
+                DisplayName = gbmonoUser.DisplayName,
+                Email = gbmonoUser.Email
+            };
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [Route("Register")]

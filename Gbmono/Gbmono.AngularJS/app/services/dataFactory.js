@@ -12,6 +12,7 @@
     function factory($http) {
         // return data factory with CRUD calls
         return {
+            isAuthenticated:isAuthenticated,
             register: register,
             login: login
         }
@@ -32,6 +33,14 @@
                     'content-type': 'application/x-www-form-urlencoded'
                 }
             });
+        }
+
+        function isAuthenticated(token) {
+            // call authorized web api to validate if current token is valid
+            // add token to authorization header
+            $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+            // call authorized web method
+            return $http.get(gbmono.api_site_prefix.account_api_url + '/Current');
         }
     }
 })(angular.module('gbmono'));

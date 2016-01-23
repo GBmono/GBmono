@@ -42,19 +42,29 @@
                     controller: 'productListController',
                     caseInsensitiveMatch: true
                 })
-                .when('/categories', { // 商品详细页
+                .when('/categories', { // 所有品类
                     templateUrl: gbmono.app_view_path + '/categories/allcategories.html',
                     controller: 'categoriesController',
-                    caseInsensitiveMatch: true
-                })
-                .when('/profiles', { // 商品详细页
-                    templateUrl: gbmono.app_view_path + '/profiles/profile.html',
-                    controller: 'profilesController',
                     caseInsensitiveMatch: true
                 })
                 .when('/products/:id', { // 商品详细页
                     templateUrl: gbmono.app_view_path + '/products/detail.html',
                     controller: 'productDetailController',
+                    caseInsensitiveMatch: true
+                })
+                .when('/profiles', { // 个人中心
+                    templateUrl: gbmono.app_view_path + '/accounts/profile.html',
+                    controller: 'profilesController',
+                    caseInsensitiveMatch: true
+                })
+                .when('/login', { // 登陆
+                    templateUrl: gbmono.app_view_path + '/accounts/login.html',
+                    controller: 'loginController',
+                    caseInsensitiveMatch: true
+                })
+                .when('/register', { // 注册
+                    templateUrl: gbmono.app_view_path + '/accounts/register.html',
+                    controller: 'registerController',
                     caseInsensitiveMatch: true
                 })
                 .otherwise({
@@ -63,8 +73,6 @@
                     caseInsensitiveMatch: true
                 });
 
-        // configure global http interceptor
-        $httpProvider.interceptors.push('authInterceptor');
     }
 
 
