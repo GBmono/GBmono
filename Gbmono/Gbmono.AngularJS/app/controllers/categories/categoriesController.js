@@ -8,7 +8,7 @@
 
     // controller body
     function ctrl($scope, categoryDataFactory) {
-     
+        $scope.allCategories = [];
 
         // call page init function
         init();

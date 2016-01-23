@@ -89,9 +89,15 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-2" ng-repeat="brand in followBrands">
-                                    <a href="">{{brand.name}}</a>
+                                <div class="col-md-3" ng-repeat="brand in followBrands" style="text-align:center">
+                                    <div>
+                                        <img ng-src="{{brand.logoUrl}}" style="width: 200px;height: 120px" />
+                                    </div>
+                                    <div>
+                                        {{brand.name}}<a class="btn" href="" ng-click="followbrand(brand.brandId)"><i class="icon fa fa-heart"></i></a>
+                                    </div>
                                 </div>
+                               
                             </div>
                         </div>
                     </div>

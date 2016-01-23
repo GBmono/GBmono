@@ -1,0 +1,11 @@
+﻿<div class="row categoryDiv" style="padding:0 35px 0 35px">
+    <div class="col-md-3" ng-repeat="brand in allBrands" style="text-align:center">
+        <div ><img ng-src="{{brand.logoUrl}}" style="width: 200px;height: 120px"/>
+        </div>
+        <div>
+            {{brand.name}}<a class="btn" href="" ng-click="followbrand(brand.brandId)"><i class="icon fa fa-heart"></i></a>
+        </div>
+    </div>
+</div>
+
+    
