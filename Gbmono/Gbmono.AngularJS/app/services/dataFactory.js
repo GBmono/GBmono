@@ -208,6 +208,26 @@
 
 })(angular.module('gbmono'));
 
+/*
+    banner data factory
+*/
+(function (module) {
+    // inject params
+    factory.$inject = ['$http'];
 
+    // create instance
+    module.factory('bannerDataFactory', factory);
+
+    // factory implement
+    function factory($http) {
+
+        // return data factory with CRUD calls
+        return {
+
+        };
+
+    }
+
+})(angular.module('gbmono'));
 
 
