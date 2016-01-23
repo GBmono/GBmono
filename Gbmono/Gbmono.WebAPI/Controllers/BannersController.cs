@@ -25,7 +25,7 @@ namespace Gbmono.WebAPI.Controllers
         }
         #endregion
 
-        [Route("Produts/{productId}")]
+        [Route("Products/{productId}")]
         public Banner GetBanner(int productId)
         {
             return _bannerService.GetBanner(productId);
