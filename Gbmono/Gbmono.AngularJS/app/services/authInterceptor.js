@@ -1,4 +1,6 @@
 ﻿//Global Http Interceptor
+// !importance: this global intercepter would be deprecated (removed) from gbmono project
+// DO NOT use this serivce
 (function (module) {
     // inject params
     factory.$inject = ['$q', 'localStorageService'];
