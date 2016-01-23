@@ -5,7 +5,7 @@
             <!-- Breadcrumb -->
             <ol class="breadcrumb pull-left">
                 <li><a href="#"><i class="ti ti-home"></i></a></li>
-                <li ng-repeat="category in product.categories"><a ng-href="#/categories/{{category.categoryId}}/products">{{category.name}}</a></li>  
+                <li ng-repeat="category in product.categories"><a ng-href="#/categories/{{category.categoryId}}/products">{{category.name}}</a></li>
             </ol>
             <!-- /Breadcrumb -->
         </div>
@@ -76,24 +76,15 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 align-left">   
-        <a ng-href="{{productBanner.redirectUrl}}">
-            <!--<div align="center" ng-if="productBanner.bannerType==2">
-                <embed ng-src="{{productBanner.url}}" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-            </div>-->
-            <div align="center" ng-if="productBanner.bannerType==2">
-                <!--<embed id="adVideo"src="{{productBanner.url}}" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
-                <embed id="adVideo" src="http://player.youku.com/player.php/sid/XNjk5OTQwNjI4/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-            </div>
-
-            <div align="center" ng-if="productBanner.bannerType==1">
-            <img ng-src="{{productBanner.url}}" class="col-md-12" />        
-            </div>
-        </a>             
-        
-        <embed ng-if="productBanner.bannerType==2" ng-src="{{productBanner.url}}" quality="high"/>        
+    <div class="col-md-3 align-left">
+        <div align="center" ng-if="productBanner.bannerType==2">
+            <embed ng-src="{{productBanner.url}}" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always"></embed>
+        </div>
+        <a ng-href="{{productBanner.redirectUrl}}"  ng-if="productBanner.bannerType==1">
+            <img ng-src="{{productBanner.url}}" class="col-md-12" />
+        </a>
     </div>
-    
+
 </div>
 <div>
     <hr>
