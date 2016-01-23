@@ -34,33 +34,15 @@
 
         $scope.categories = [];
         $scope.brands = [];
-
-        $scope.loginStatus = {
-           loginFlag : false
-        };
         // call page init function
         init();
 
         // page init method
         // 当该view被初始化时 需要执行的功能
         function init() {
-            loadloginStatus();
             loadCategories();
             loadBrands();
         }
-
-        function loadloginStatus() {
-            var token = localStorageService.get(gbmono.LOCAL_STORAGE_TOKEN_KEY);
-            var displayName = localStorageService.get(gbmono.LOCAL_STORAGE_USER_KEY);
-            if (token != null && displayName!=null) {
-                $scope.loginStatus.loginFlag = true;
-                $scope.loginStatus.token = token;
-                $scope.loginStatus.displayName = displayName;
-            }
-        }
-
-
-
 
         // get cateogry
         function loadCategories() {
@@ -112,8 +94,7 @@
         }
 
         $scope.logout = function () {
-            localStorageService.remove(gbmono.LOCAL_STORAGE_TOKEN_KEY, gbmono.LOCAL_STORAGE_USER_KEY);
-            loadloginStatus();
+            localStorageService.remove(gbmono.LOCAL_STORAGE_TOKEN_KEY, gbmono.LOCAL_STORAGE_USER_KEY);            
         }
 
         $scope.follow = function (optionId, followTypeId) {
