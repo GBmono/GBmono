@@ -17,14 +17,12 @@ namespace Gbmono.WebAPI.Controllers
     public class ProductsController : ApiController
     {
         private readonly RepositoryManager _repositoryManager;
-        private readonly ProductService _productService;        
         private readonly CategoryService _categoryService;
         private readonly BannerService _bannerService;
 
         public ProductsController() 
         {
             _repositoryManager = new RepositoryManager();
-            _productService = new ProductService(_repositoryManager);            
             _categoryService = new CategoryService(_repositoryManager);
             _bannerService = new BannerService(_repositoryManager);
         }
@@ -53,8 +51,40 @@ namespace Gbmono.WebAPI.Controllers
         [Route("Categories/{categoryId}")]
         public async Task<IHttpActionResult> GetByCategory(int categoryId)
         {
-            var result = await _productService.GetProductByCategory(categoryId);
+            var result = await Task<List<Product>>.Run(() =>
+            {
+                var productList = _repositoryManager.ProductRepository
+                                    .Fetch(m => m.CategoryId == categoryId)
+                                    .OrderBy(m => m.PrimaryName)
+                                    .ToList();
 
+                foreach (var product in productList)
+                {
+                    if (product.Images == null)
+                    {
+                        product.Images = new List<ProductImage>();
+                        product.Images.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "PicTemp", Url = "/content/images/demo/merries2_f.jpg" });
+                        product.Images.Add(new ProductImage()
+                        {
+                            IsPrimary = false,
+                            IsThumbnail = false,
+                            Name = "PicTemp2",
+                            Url = "/content/images/demo/merries2_b.jpg"
+                        });
+                    }
+
+                    //Todo  Fetch  Include table
+                    if (product.Retailers == null)
+                    {
+                        product.Retailers = new List<Retailer>();
+                        product.Retailers.Add(new Retailer() { RetailerId = 3, Name = "松本清" });
+                        product.Retailers.Add(new Retailer() { RetailerId = 4, Name = "资深堂" });
+                    }
+                }
+
+
+                return productList;
+            });
             return Ok(result);
         }
 
