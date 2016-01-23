@@ -223,8 +223,12 @@
 
         // return data factory with CRUD calls
         return {
-
+            getByProductId: getByProductId,
         };
+
+        function getByProductId(productId) {
+            return $http.get(gbmono.api_site_prefix.banner_api_url + '/Products/' + productId);
+        }
 
     }
 
