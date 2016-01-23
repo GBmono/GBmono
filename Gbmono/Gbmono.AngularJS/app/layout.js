@@ -129,10 +129,10 @@
             loadCategories();
         }
 
+        // get all categories data
         function loadCategories() {
             categoryDataFactory.getAll()
              .success(function (data) {
-                 console.log(data);
                  $scope.leftBarCategories = data;
              });
         }

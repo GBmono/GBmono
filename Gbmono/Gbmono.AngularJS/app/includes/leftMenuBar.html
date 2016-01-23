@@ -2,14 +2,14 @@
     <ul>
         <li ng-repeat="cate in leftBarCategories"
             ng-class="{ 'has-sub': cate.subCategories.length > 0 }">
-                <a ng-href='#'><span>{{ cate.name}}</span></a>
+                <a href=''><span>{{ cate.name}}</span></a>
                 <ul>
                     <li ng-repeat="sub in cate.subCategories"
                         ng-class="{ 'has-sub': sub.subCategories.length > 0 }">
-                            <a ng-href='#'><span> {{ sub.name }}</span></a>
+                            <a href=''><span> {{ sub.name }}</span></a>
                             <ul>
                                 <li ng-repeat="leafNode in sub.subCategories">
-                                    <a ng-href='#'><span> {{ leafNode.name }}</span></a>
+                                    <a ng-href='#/categories/{{ leafNode.categoryId }}/products/'><span> {{ leafNode.name }}</span></a>
                                 </li>
                             </ul>
                     </li>
