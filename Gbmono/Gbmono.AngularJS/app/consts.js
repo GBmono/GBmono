@@ -40,4 +40,10 @@
         banner_api_url: gbmono.web_api_app_name + '/Banners',
     };
 
+    gbmono.follow_type= {
+        followProduct : 1, //关注的商品
+        followBrand : 2,   //关注的品牌
+        favoriteProduct : 3  //收藏夹商品
+    }
+
 })(window.gbmono = window.gbmono || {});

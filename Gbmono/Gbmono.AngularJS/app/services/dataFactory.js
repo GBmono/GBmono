@@ -129,11 +129,13 @@
         function getAll() {
             return $http.get(gbmono.api_site_prefix.category_api_url);
         }
-
-
     }
 
 })(angular.module('gbmono'));
+
+
+
+
 
 /*
     product data factory

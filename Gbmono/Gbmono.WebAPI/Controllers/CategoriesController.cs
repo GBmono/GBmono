@@ -53,25 +53,5 @@ namespace Gbmono.WebAPI.Controllers
 
             return topCategories;
         }
-
-
-        [Route("Top")]
-        public IEnumerable<Category> GetTopCategories()
-        {
-            return _repositoryManager.CategoryRepository
-                                     .Fetch(m => m.ParentId == null)
-                                     .OrderBy(m => m.CategoryCode)
-                                     .ToList();
-        }
-       
-        [Route("ParentCategories/{parentId}")]
-        public IEnumerable<Category> GetByParentId(int parentId)
-        {
-            return _repositoryManager.CategoryRepository
-                                  .Fetch(m => m.ParentId == parentId)
-                                  .OrderBy(m => m.CategoryCode)
-                                  .ToList();
-        }
-
     }
 }

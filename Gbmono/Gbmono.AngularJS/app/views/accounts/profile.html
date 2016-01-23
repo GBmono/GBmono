@@ -7,10 +7,10 @@
         <div id="myTab">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" ng-click="loadUserInfo()">个人信息</a></li>
-                <li role="presentation"><a href="#products" aria-controls="products" role="tab" data-toggle="tab" ng-click="loadFavoriteProducts()">产品收藏夹</a></li>
+                <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" >个人信息</a></li>
+                <li role="presentation"><a href="#favorites" aria-controls="products" role="tab" data-toggle="tab" ng-click="loadFavoriteProducts()">产品收藏夹</a></li>
                 <li role="presentation"><a href="#brands" aria-controls="brands" role="tab" data-toggle="tab" ng-click="loadFollowBrands()">关注品牌</a></li>
-                <li role="presentation"><a href="#favorites" aria-controls="brands" role="tab" data-toggle="tab" ng-click="loadFollowProducts()">关注商品</a></li>
+                <li role="presentation"><a href="#products" aria-controls="brands" role="tab" data-toggle="tab" ng-click="loadFollowProducts()">关注商品</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -18,7 +18,7 @@
                 <div role="tabpanel" class="tab-pane active" id="profile">
                     <!-- leave as blank -->
                 </div>
-                <div role="tabpanel" class="tab-pane" id="products">
+                <div role="tabpanel" class="tab-pane" id="favorites">
                     <div class="row">
                         <div class="col-sm-6 col-md-3" ng-repeat="product in favoriteProducts">
 
@@ -89,14 +89,20 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-2" ng-repeat="brand in followBrands">
-                                    <a href="">{{brand.name}}</a>
+                                <div class="col-md-3" ng-repeat="brand in followBrands" style="text-align:center">
+                                    <div>
+                                        <img ng-src="{{brand.logoUrl}}" style="width: 200px;height: 120px" />
+                                    </div>
+                                    <div>
+                                        {{brand.name}}<a class="btn" href="" ng-click="followbrand(brand.brandId)"><i class="icon fa fa-heart"></i></a>
+                                    </div>
                                 </div>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="favorites">
+                <div role="tabpanel" class="tab-pane" id="products">
                     <div class="row">
                         <div class="col-sm-6 col-md-3" ng-repeat="product in followProducts">
 
