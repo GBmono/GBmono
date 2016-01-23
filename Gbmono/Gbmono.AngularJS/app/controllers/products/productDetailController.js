@@ -3,13 +3,13 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', '$routeParams', 'productDataFactory', 'bannerDataFactory'];
+    ctrl.$inject = ['$scope', '$routeParams','$sce', 'productDataFactory', 'bannerDataFactory'];
     
     // create controller
     module.controller('productDetailController', ctrl);
 
     // controller body
-    function ctrl($scope, $routeParams, productDataFactory, bannerDataFactory) {
+    function ctrl($scope, $routeParams, $sce, productDataFactory, bannerDataFactory) {
 
         var id = $routeParams.id ? parseInt($routeParams.id) : 0;
 
@@ -30,6 +30,9 @@
         function GetProductBanner(id) {
             bannerDataFactory.getByProductId(id).success(function (data) {
                 $scope.productBanner = data;
+                if ($scope.productBanner && $scope.productBanner.bannerType == 2) {
+                    $scope.productBanner.url = $sce.trustAsResourceUrl($scope.productBanner.url);
+                }
             });
         }
         
