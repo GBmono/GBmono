@@ -30,7 +30,7 @@ namespace Gbmono.WebAPI.Controllers
         }
         
         // get product by id
-        public async Task<IHttpActionResult> GetById(int id)
+        public async Task<ProductViewModel> GetById(int id)
         {
             return await Task.Run(() =>
             {
@@ -44,9 +44,10 @@ namespace Gbmono.WebAPI.Controllers
                 {
                     var model = product.ToViewModel();
                     model.Categories = _categoryService.GetProductCategoryList(product.CategoryId);
-                    return Ok(model);
+                    return model;
                 }
-                return Ok(new ProductViewModel());
+
+                return null;
             });
         }
 
