@@ -20,7 +20,9 @@ namespace Gbmono.WebAPI.Services
         // return banner by product id
         public Banner GetBanner(int productId)
         {
-            throw new NotImplementedException();
+            // todo: temp
+            // return the only banner from db
+            return _repositoryManager.BannerRepository.Table.FirstOrDefault();            
         }
     }
 }
