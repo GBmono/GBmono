@@ -25,9 +25,6 @@
             tab();
 
             loadUserInfo();
-            //loadFollowProducts();
-            //loadFollowBrands();
-            //loadFavoriteProducts();
         }
 
         // loadUserInfo

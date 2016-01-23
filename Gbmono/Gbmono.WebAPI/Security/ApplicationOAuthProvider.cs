@@ -125,7 +125,7 @@ namespace Gbmono.WebAPI.Security
         public static AuthenticationProperties CreateProperties(GbmonoUser user)
         {
             // extract the user profile name from user name (email)
-            var userDisplayName = user.UserName.Split('@')[0];
+            var userDisplayName = user.DisplayName;
 
             // if profile display name exists in db
     

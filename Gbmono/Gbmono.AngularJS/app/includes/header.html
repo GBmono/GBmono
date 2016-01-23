@@ -26,9 +26,54 @@
             <!-- /Brand Col -->
             <!-- Right Col -->
             <div class="right-col">
+                <!-- vcenter login-->
+                <div class="vcenter" ng-show="loginStatus.loginFlag">
 
-                <!-- vcenter -->
-                <div class="vcenter">
+                    <!-- v-centered -->
+                    <div class="vcenter-this">
+                        <!-- Nav Side -->
+                        <nav class="nav-side navbar hnav hnav-sm hnav-borderless" role="navigation">
+
+                            <!-- Dont Collapse -->
+                            <div class="navbar-dont-collapse no-toggle">
+
+                                <!-- Nav Right -->
+                                <ul class="nav navbar-nav navbar-right case-u active-bcolor navbar-center-xs">
+                                    <li class="dropdown has-panel">
+                                        <a aria-expanded="false" href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-left ti ti-user"></i><span class="hidden-sm">{{loginStatus.displayName}}</span><i class="fa fa-angle-down toggler hidden-xs"></i></a>
+
+                                        <!-- Dropdown Panel -->
+                                        <div class="dropdown-menu dropdown-panel arrow-top dropdown-left-xs" style="min-width: 100px" data-keep-open="true">
+                                            <fieldset>
+                                                <form>
+                                                    <div class="form-group">
+                                                        <a href="" ng-click="logout()">退出账号</a>
+                                                    </div>
+                                                </form>
+                                            </fieldset>
+                                        </div>
+                                        <!-- /Dropdown Panel -->
+
+                                    </li>
+                                  
+                                </ul>
+                                <!-- /Nav Right-->
+
+                            </div>
+                            <!-- /Dont Collapse -->
+
+                        </nav>
+                        <!-- /Nav Side -->
+
+                    </div>
+                    <!-- /v-centered -->
+                </div>
+                <!-- /vcenter -->
+
+
+
+                <!-- vcenter anonymous-->
+                <div class="vcenter" ng-show="!loginStatus.loginFlag">
 
                     <!-- v-centered -->
                     <div class="vcenter-this">

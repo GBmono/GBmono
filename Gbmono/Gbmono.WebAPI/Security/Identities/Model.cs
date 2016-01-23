@@ -14,6 +14,7 @@ namespace Gbmono.WebAPI.Security.Identities
         public double? Long { get; set; }
         public int? EnableSMS { get; set; }
         public DateTime CreateTime { get; set; }
+
         // create user instance
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<GbmonoUser> manager, string authenticationType)
         {

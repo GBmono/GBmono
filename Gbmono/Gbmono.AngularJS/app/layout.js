@@ -34,15 +34,33 @@
 
         $scope.categories = [];
         $scope.brands = [];
+
+        $scope.loginStatus = {
+           loginFlag : false
+        };
         // call page init function
         init();
 
         // page init method
         // 当该view被初始化时 需要执行的功能
         function init() {
+            loadloginStatus();
             loadCategories();
             loadBrands();
         }
+
+        function loadloginStatus() {
+            var token = localStorageService.get(gbmono.LOCAL_STORAGE_TOKEN_KEY);
+            var displayName = localStorageService.get(gbmono.LOCAL_STORAGE_USER_KEY);
+            if (token != null && displayName!=null) {
+                $scope.loginStatus.loginFlag = true;
+                $scope.loginStatus.token = token;
+                $scope.loginStatus.displayName = displayName;
+            }
+        }
+
+
+
 
         // get cateogry
         function loadCategories() {
@@ -68,6 +86,8 @@
             accountDataFactory.login(model.email, model.password)
                  .success(function (data) {
                      localStorageService.set(gbmono.LOCAL_STORAGE_TOKEN_KEY, data.access_token);
+                     localStorageService.set(gbmono.LOCAL_STORAGE_USER_KEY, data.displayName);
+                     alert(data.displayName);
                  });
         }
 
@@ -83,15 +103,17 @@
         $scope.register = function () {
             // use email as userName
             $scope.registerData.userName = $scope.registerData.email;
-            // show model
-            console.log($scope.registerData);
             register($scope.registerData);
         }
 
 
         $scope.login = function () {
-            console.log($scope.loginData);
             login($scope.loginData);
+        }
+
+        $scope.logout = function () {
+            localStorageService.remove(gbmono.LOCAL_STORAGE_TOKEN_KEY, gbmono.LOCAL_STORAGE_USER_KEY);
+            loadloginStatus();
         }
 
         $scope.follow = function (optionId, followTypeId) {
