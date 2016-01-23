@@ -301,6 +301,13 @@ namespace Gbmono.Search.IndexManager
             }
         }
 
+        public void CreateIndexWithMappingForProduct()
+        {
+            //var response=Client.CreateIndex(d=> d
+            //.Index(_indexName)
+            //.AddMapping<Product>
+        }
+
         public PagedResponse<T> WrapResult(ISearchResponse<T> response)
         {
             var result = new PagedResponse<T>();

@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CCFAB03B-77DE-4DA4-9E58-88F6D6ED7313}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{4C66C6EF-A8AB-4BD0-8099-9A41E3D024FE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gbmono.Search.IndexManager</RootNamespace>
-    <AssemblyName>Gbmono.Search.IndexManager</AssemblyName>
+    <RootNamespace>Gbmono.Search.IndexBuilder</RootNamespace>
+    <AssemblyName>Gbmono.Search.IndexBuilder</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,18 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Elasticsearch.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
-      <HintPath>..\packages\Elasticsearch.Net.1.7.1\lib\net45\Elasticsearch.Net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
-      <HintPath>..\packages\NEST.1.7.1\lib\net45\Nest.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,26 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Documents\ProductDoc.cs" />
-    <Compile Include="ElasticClientProxy.cs" />
-    <Compile Include="EsRequestException.cs" />
-    <Compile Include="NestClient.cs" />
+    <Compile Include="ProductCreator.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gbmono.Search.Utils\Gbmono.Search.Utils.csproj">
-      <Project>{778c29d8-194a-48e8-bbe4-24ec07ea6971}</Project>
-      <Name>Gbmono.Search.Utils</Name>
+    <ProjectReference Include="..\Gbmono.EF\Gbmono.EF.csproj">
+      <Project>{35B7E126-3D82-4E23-89D9-A23A14D008B2}</Project>
+      <Name>Gbmono.EF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Gbmono.Search.ViewModel\Gbmono.Search.ViewModel.csproj">
-      <Project>{a5de2c79-abda-445b-86ee-f49aa788aee2}</Project>
-      <Name>Gbmono.Search.ViewModel</Name>
+    <ProjectReference Include="..\Gbmono.Models\Gbmono.Models.csproj">
+      <Project>{25e50af1-7433-42ee-a5fa-ed1f1ac8466a}</Project>
+      <Name>Gbmono.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
