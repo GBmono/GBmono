@@ -148,7 +148,7 @@
   border-bottom: 1px solid #f3f2f2;
 }
 #cssmenu ul ul li:hover > a {
-  /*background: #E7214C;*/
+  background: #f3f2f2;
   color: #000000;
 }
 #cssmenu.align-right > ul > li > a {
