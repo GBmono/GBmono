@@ -291,7 +291,7 @@ namespace Gbmono.Search.IndexManager
         {
             if (string.IsNullOrEmpty(_indexName))
             {
-                throw new CustomExceptions.InvalidParamException("_indexName");
+                throw new ArgumentException("_indexName");
             }
             var response = Client.DeleteIndex(_indexName);
             if (response.ServerError != null)
