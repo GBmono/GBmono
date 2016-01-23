@@ -11,6 +11,7 @@
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/css/uikit.css" rel="stylesheet" />
     <link href="content/css/gbmono.css" rel="stylesheet" />
+    <link href="content/css/leftmenu.css" rel="stylesheet" />
 </head>
 <body class="preload tile-1-bg"
       ng-controller="layoutController">
@@ -31,9 +32,9 @@
     </div>
 
     <!-- newsletter -->
-    <div ng-include="'app/includes/newsletter.html'"
+    <!--<div ng-include="'app/includes/newsletter.html'"
          ng-controller="newsletterController">
-    </div>
+    </div>-->
 
     <!-- footer -->
     <div ng-include="'app/includes/footer.html'"
@@ -60,11 +61,9 @@
     <!-- services -->
     <script src="app/services/dataFactory.js"></script>
     <script src="app/services/authInterceptor.js"></script>
-
+    <script src="app/services/uiService.js"></script>
     <!-- layout (master) page controller-->
     <script src="app/layout.js"></script>
-
-
 
     <!-- page controllers-->
     <script src="app/controllers/home/homeController.js"></script>

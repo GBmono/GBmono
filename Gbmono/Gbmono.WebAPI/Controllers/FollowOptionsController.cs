@@ -16,7 +16,7 @@ using Gbmono.WebAPI.Attributes;
 namespace Gbmono.WebAPI.Controllers
 {
     [RoutePrefix("api/FollowOptions")]
-    [GbmonoAuthorize]
+    [Authorize]
     public class FollowOptionsController : ApiController
     {
         private readonly RepositoryManager _repositoryManager;

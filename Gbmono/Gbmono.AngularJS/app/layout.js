@@ -113,15 +113,29 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope'];
+    ctrl.$inject = ['$scope', 'categoryDataFactory'];
 
     // create controller
     module.controller('leftMenuBarController', ctrl);
 
     // controller body
-    function ctrl($scope) {
+    function ctrl($scope, categoryDataFactory) {
+        // categories
+        $scope.leftBarCategories = [];
 
+        init();
 
+        function init() {
+            loadCategories();
+        }
+
+        function loadCategories() {
+            categoryDataFactory.getAll()
+             .success(function (data) {
+                 console.log(data);
+                 $scope.leftBarCategories = data;
+             });
+        }
     }
 
 })(angular.module('gbmono'));

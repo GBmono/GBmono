@@ -1,7 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -28,20 +25,6 @@ namespace Gbmono.WebAPI.Security.Identities
     }
 
    
-
-    //[Table("UserDeviceToken")]
-    //public class UserDeviceToken
-    //{
-    //    [Key]
-    //    [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-    //    public int UserDeviceTokenId { get; set; }
-    //    public int UserId { get; set; }
-    //    public string DeviceToken { set; get; }
-    //    public bool Active { set; get; }
-    //}
-
-
-
     // DbContext which uses a custom user entity with a string primary key
     public class GBmonoUserDbContext : IdentityDbContext<GbmonoUser>
     {

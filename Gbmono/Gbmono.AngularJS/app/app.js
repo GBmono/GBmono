@@ -48,7 +48,7 @@
                     caseInsensitiveMatch: true
                 })
                 .when('/profiles', { // 商品详细页
-                    templateUrl: gbmono.app_view_path + '/profiles/profiles.html',
+                    templateUrl: gbmono.app_view_path + '/profiles/profile.html',
                     controller: 'profilesController',
                     caseInsensitiveMatch: true
                 })
