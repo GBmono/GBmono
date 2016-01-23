@@ -20,6 +20,8 @@ namespace Gbmono.WebAPI.Controllers
         public BannersController()
         {
             _repositoryManager = new RepositoryManager();
+            _bannerService = new BannerService(_repositoryManager);
+
         }
         #endregion
 
