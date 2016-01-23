@@ -86,7 +86,9 @@
         }
         // loadFollowProducts
         $scope.loadFollowProducts = function () {
-           
+            profileDataFactory.getFollowProducts().success(function (data) {
+                $scope.followProducts = data;
+            });
         }
 
         // loadFollowBrands
