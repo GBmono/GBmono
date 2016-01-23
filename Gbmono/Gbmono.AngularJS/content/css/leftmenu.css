@@ -17,7 +17,7 @@
 }
 #cssmenu ul {
   position: relative;
-  z-index: 597;
+  z-index: 100;
   float: left;
 }
 #cssmenu ul li {
