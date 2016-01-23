@@ -3,13 +3,13 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'profileDataFactory', 'uiService'];
+    ctrl.$inject = ['$scope', 'profileDataFactory', 'uiService', 'userActionFactory'];
 
     // create controller
     module.controller('profilesController', ctrl);
 
     // controller body
-    function ctrl($scope, profileDataFactory, uiService) {
+    function ctrl($scope, profileDataFactory, uiService, userActionFactory) {
         // product list
         $scope.userInfo = [];
         $scope.followProducts = [];
@@ -28,7 +28,7 @@
         }
 
         // loadUserInfo
-        function loadUserInfo () {
+        function loadUserInfo() {
             profileDataFactory.get().success(function (data) {
                 $scope.userInfo = data;
             });
@@ -53,6 +53,20 @@
             profileDataFactory.getFavoriteProducts().success(function (data) {
                 $scope.favoriteProducts = data;
             });
+        }
+
+        //Follow & Unfollow
+        //Todo not finished
+        $scope.unFollowBrands = function ($index, optionId) {
+            var followOption = {
+                optionId: optionId,
+                followTypeId: 2
+            };
+            userActionFactory.follow(followOption)
+                .success(function (data) {
+                    $scope.followBrands.splice($index,1);
+                    alert("Success");
+                });
         }
 
         // enable tab
