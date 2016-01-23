@@ -36,6 +36,8 @@
         profile_api_url: gbmono.web_api_app_name + '/Profiles',
         // follow options url
         follow_options_url: gbmono.web_api_app_name + '/FollowOptions',
+        // banner url
+        banner_api_url: gbmono.web_api_app_name + '/Banners',
     };
 
 })(window.gbmono = window.gbmono || {});

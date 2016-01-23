@@ -31,6 +31,9 @@ namespace Gbmono.Models.DataContext
             modelBuilder.Configurations.Add(new RetailerMap());
             
             modelBuilder.Entity<FollowOption>().ToTable("FollowOption");
+
+            modelBuilder.Entity<Banner>().ToTable("Banner");
+
             base.OnModelCreating(modelBuilder);
         }
     }
