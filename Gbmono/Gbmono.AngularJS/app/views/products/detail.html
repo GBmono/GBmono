@@ -81,9 +81,11 @@
         </div>
     </div>
     <div class="col-md-3 align-left">   
-        <a ng-href="{{productBanner.redirectUrl}}">
-            <img ng-src="{{productBanner.url}}" class="col-md-12" />        
-        </a>             
+        <a ng-href="{{productBanner.redirectUrl}}" ng-if="productBanner.bannerType==1">
+            <img ng-src="{{productBanner.url}}" class="col-md-12" />
+        </a>        
+        
+        <embed ng-if="productBanner.bannerType==2" ng-src="{{productBanner.url}}" quality="high"/>        
     </div>
     
 </div>
