@@ -24,35 +24,35 @@
         function init() {
             tab();
 
-            //loadUserInfo();
+            loadUserInfo();
             //loadFollowProducts();
             //loadFollowBrands();
             //loadFavoriteProducts();
         }
 
         // loadUserInfo
-        function loadUserInfo() {
+        function loadUserInfo () {
             profileDataFactory.get().success(function (data) {
                 $scope.userInfo = data;
             });
         }
 
         // loadFollowProducts
-        function loadFollowProducts() {
+        $scope.loadFollowProducts = function () {
             profileDataFactory.getFollowProducts().success(function (data) {
                 $scope.followProducts = data;
             });
         }
 
         // loadFollowBrands
-        function loadFollowBrands() {
+        $scope.loadFollowBrands = function () {
             profileDataFactory.getFollowBrands().success(function (data) {
                 $scope.followBrands = data;
             });
         }
 
         // loadFavoriteProducts
-        function loadFavoriteProducts() {
+        $scope.loadFavoriteProducts = function () {
             profileDataFactory.getFavoriteProducts().success(function (data) {
                 $scope.favoriteProducts = data;
             });
