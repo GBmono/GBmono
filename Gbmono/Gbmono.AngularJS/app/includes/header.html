@@ -26,7 +26,7 @@
             <!-- /Brand Col -->
             <!-- Right Col -->
             <div class="right-col">
-                <!-- vcenter anonymous-->
+                <!-- vcenter profile / login / register -->
                 <div class="vcenter">
 
                     <!-- v-centered -->
@@ -39,7 +39,19 @@
 
                                 <!-- Nav Right -->
                                 <ul class="nav navbar-nav navbar-right case-u active-bcolor navbar-center-xs">
-                                    <li class="dropdown has-panel">
+                                    <!-- profile -->
+                                    <li class="dropdown" ng-show="currentUser.isAuthenticated">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                            <i class="icon-left ti ti-user"></i><span class="hidden-sm">{{ currentUser.displayName }}</span><i class="fa fa-angle-down toggler"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a ng-href="#/profiles">个人中心</a></li>                                            
+                                            <li><a href="" ng-click="logout()">注销</a></li>
+                                        </ul>
+                                    </li>
+                                   
+                                    <!-- login -->
+                                    <li class="dropdown has-panel" ng-show="!currentUser.isAuthenticated">
                                         <a aria-expanded="false" href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-left ti ti-user"></i><span class="hidden-sm">登陆</span><i class="fa fa-angle-down toggler hidden-xs"></i></a>
 
                                         <!-- Dropdown Panel -->
@@ -69,7 +81,8 @@
 
                                     </li>
 
-                                    <li class="dropdown has-panel">
+                                    <!-- register -->
+                                    <li class="dropdown has-panel" ng-show="!currentUser.isAuthenticated">
                                         <a aria-expanded="false" href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-left ti ti-pencil-alt"></i><span class="hidden-sm">注册</span><i class="fa fa-angle-down toggler hidden-xs"></i></a>
 
                                         <!-- Dropdown Panel -->
@@ -313,7 +326,6 @@
                     </li>
 
                     <li><a ng-href="#/products">所有商品</a></li>
-                    <li><a ng-href="#/profiles">个人中心</a></li>
                 </ul>
                 <!-- /Navbar Center -->
 

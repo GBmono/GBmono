@@ -35,12 +35,6 @@ namespace Gbmono.WebAPI.Controllers
         }
 
 
-        public async Task<IHttpActionResult> Get()
-        {
-            var userInfo = await UserManager.FindByNameAsync(RequestContext.Principal.Identity.Name);
-            return Ok(userInfo);
-        }
-
         [HttpPut]
         public async Task<IHttpActionResult> Update(GbmonoUser user)
         {
