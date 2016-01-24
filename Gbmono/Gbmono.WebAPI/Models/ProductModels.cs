@@ -10,8 +10,6 @@ namespace Gbmono.WebAPI.Models
     {
         public int ProductId { get; set; }
 
-        public string ProductCode { get; set; }
-
         public string ProductName { get; set; }
 
         public int BrandId { get; set; }
@@ -27,8 +25,9 @@ namespace Gbmono.WebAPI.Models
     /// <summary>
     ///  detailed product model
     /// </summary>
-    public class ProductDetailModel
+    public class ProductDetailModel: ProductSimpleModel
     {
-
+        // reuse mandatory properties
+        // add extra properties 
     }
 }
