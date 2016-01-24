@@ -10,7 +10,8 @@
 
     function svr($timeout) {
         return {
-            tab: tab
+            tab: tab,
+            carousel: carousel
         };
 
         // tab
@@ -19,6 +20,21 @@
             // disable the default behavior
             $timeout(function () {
                 $('a[data-toggle="tab"]').click(function (e) {
+                    e.preventDefault();
+                });
+            });
+        }
+
+        // bootstrap slider
+        function carousel() {
+            $timeout(function () {
+                $('.carousel').carousel({
+                    pause: true,
+                    interval: false
+                });
+
+                // disable 
+                $('.carousel-control').click(function (e) {
                     e.preventDefault();
                 });
             });

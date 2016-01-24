@@ -52,6 +52,11 @@
                     controller: 'productDetailController',
                     caseInsensitiveMatch: true
                 })
+                .when('/special', { // 特色货架
+                    templateUrl: gbmono.app_view_path + '/products/special.html',
+                    controller: 'productSpecialController',
+                    caseInsensitiveMatch: true
+                })
                 .when('/brands', { // 商品详细页
                     templateUrl: gbmono.app_view_path + '/brands/allbrands.html',
                     controller: 'brandsController',
