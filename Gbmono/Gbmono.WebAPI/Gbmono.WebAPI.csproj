@@ -165,6 +165,7 @@
     </Compile>
     <Compile Include="HttpResults\InternalServerErrorPlainTextResult.cs" />
     <Compile Include="Models\ModelExtensions.cs" />
+    <Compile Include="Models\ProductModels.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\UserModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

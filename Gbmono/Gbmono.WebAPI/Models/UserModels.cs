@@ -7,14 +7,6 @@ using Gbmono.Models;
 
 namespace Gbmono.WebAPI.Models
 {
-    // this class can be deleted
-    public class UserProfileViewModel
-    {
-        public List<Product> FollowProducts { set; get; }
-        public List<Product> ProductCollections { set; get; }
-        public List<Brand> FollowBrands { set; get; }
-    }
-
     /// <summary>
     /// user register binding model
     /// </summary>
