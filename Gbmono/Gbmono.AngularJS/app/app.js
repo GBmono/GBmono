@@ -41,10 +41,35 @@
                     templateUrl: gbmono.app_view_path + '/products/list.html',
                     controller: 'productListController',
                     caseInsensitiveMatch: true
-                })
+                })                
                 .when('/categories', { // 所有品类
                     templateUrl: gbmono.app_view_path + '/categories/allcategories.html',
                     controller: 'categoriesController',
+                    caseInsensitiveMatch: true
+                })
+                .when('/shelves', { //所有品类货架
+                    templateUrl: gbmono.app_view_path + '/shelves/all.html',
+                    controller: 'shelfListController',
+                    caseInsensitiveMatch: true
+                })
+                .when('/shelves/:id', { //单个品类货架
+                    templateUrl: gbmono.app_view_path + '/shelves/single.html',
+                    controller: 'shelfListController',
+                    caseInsensitiveMatch: true
+                })
+                .when('/shelves/weekly', { //本周推荐货架页
+                    templateUrl: gbmono.app_view_path + '/shelves/single.html',
+                    controller: 'shelfListController',
+                    caseInsensitiveMatch: true
+                })
+                .when('/shelves/season', { //当季推荐货架页
+                    templateUrl: gbmono.app_view_path + '/shelves/single.html',
+                    controller: 'shelfListController',
+                    caseInsensitiveMatch: true
+                })
+                .when('/shelves/brand', { //品牌特设货架页
+                    templateUrl: gbmono.app_view_path + '/shelves/single.html',
+                    controller: 'shelfListController',
                     caseInsensitiveMatch: true
                 })
                 .when('/products/:id', { // 商品详细页
@@ -57,11 +82,11 @@
                     controller: 'productSpecialController',
                     caseInsensitiveMatch: true
                 })
-                .when('/brands', { // 商品详细页
+                .when('/brands', { // 所有品牌
                     templateUrl: gbmono.app_view_path + '/brands/allbrands.html',
                     controller: 'brandsController',
                     caseInsensitiveMatch: true
-                })
+                })                
                 .when('/profiles', { // 个人中心
                     templateUrl: gbmono.app_view_path + '/accounts/profile.html',
                     controller: 'profilesController',
