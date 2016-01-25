@@ -170,7 +170,6 @@
     <Compile Include="Models\UserModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\ApplicationOAuthProvider.cs" />
-    <Compile Include="Attributes\GbmonoAuthorize.cs" />
     <Compile Include="Security\Identities\Config.cs" />
     <Compile Include="Security\Identities\Model.cs" />
     <Compile Include="Services\BannerService.cs" />
