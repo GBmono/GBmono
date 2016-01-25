@@ -17,6 +17,23 @@
     <!-- product list -->
     <div class="col-md-9">
         <div class="row">
+            <div class="col-md-2"><span style="color: white; background-color: red">品牌</span></div>
+            <div class="col-md-1"><a href="">A</a></div>
+            <div class="col-md-1"><a href="">B</a></div>
+            <div class="col-md-1"><a href="">C</a></div>
+            <div class="col-md-1"><a href="">D</a></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><span style="color: white; background-color: red">功效</span></div>
+            <div class="col-md-1"><a href="">A</a></div>
+            <div class="col-md-1"><a href="">B</a></div>
+            <div class="col-md-1"><a href="">C</a></div>
+            <div class="col-md-1"><a href="">D</a></div>
+        </div>
+        <div class="row">
+            <span style="color: white; background-color: red">综合排序</span><input type="button" value="销量"/><input type="button" value="价格"/>
+        </div>
+        <div class="row">
             <!-- Col -->
             <div class="col-sm-6 col-md-3" ng-repeat="product in products">
 
@@ -26,13 +43,13 @@
                     <!-- Image -->
                     <div class="image product-image">
                         <a ng-href="#/products/{{product.productId}}" class="main">
-                            <img ng-src="{{product.images[0].url}}" />
+                            <img ng-src="{{product.images[0].url}}"/>
                             <!--<img src="Content/images/Empty_set.png" alt="">-->
                         </a>
                         <ul class="additional">
                             <li>
                                 <a ng-href="#/products/{{product.productId}}" data-gal="prettyPhoto[gallery 1]" title="Product Name">
-                                    <img ng-src="{{product.images[1].url}}" />
+                                    <img ng-src="{{product.images[1].url}}"/>
                                 </a>
                             </li>
                         </ul>
@@ -46,12 +63,12 @@
 
                         <!-- rating -->
                         <!--<ul class="hlinks hlinks-rating">
-                    <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
-                    <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
-                    <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
-                    <li><a href="#"><i class="icon fa fa-star"></i></a></li>
-                    <li><a href="#"><i class="icon fa fa-star"></i></a></li>
-                </ul>-->
+                            <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                            <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                            <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+                        </ul>-->
                         <!-- /rating -->
                         <div>
                             <span>可购入店铺：</span>
