@@ -37,6 +37,8 @@
         follow_options_url: gbmono.web_api_app_name + '/FollowOptions',
         // banner url
         banner_api_url: gbmono.web_api_app_name + '/Banners',
+        // retail url
+        retail_api_url: gbmono.web_api_app_name + '/Retailers'
     };
 
     gbmono.follow_type= {

@@ -246,3 +246,30 @@
 })(angular.module('gbmono'));
 
 
+
+/*
+    retail data factory
+*/
+(function (module) {
+    // inject params
+    factory.$inject = ['$http'];
+
+    // create instance
+    module.factory('retailDataFactory', factory);
+
+    // factory implement
+    function factory($http) {
+
+        // return data factory with CRUD calls
+        return {
+            getAll: getAll
+        };
+
+        function getAll() {
+            return $http.get(gbmono.api_site_prefix.retail_api_url);
+        }
+    }
+
+})(angular.module('gbmono'));
+
+

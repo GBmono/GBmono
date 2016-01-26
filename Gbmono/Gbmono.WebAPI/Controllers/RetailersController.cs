@@ -24,8 +24,9 @@ namespace Gbmono.WebAPI.Controllers
 
         public IEnumerable<Retailer> GetAll()
         {
-            return _repositoryManager.RetailerRepository.Table.OrderBy(m => m.Name).ToList();
+            return _repositoryManager.RetailerRepository.Table.Include(m=>m.Shops).ToList();
         }
+
 
         public Retailer GetById(int id)
         {
