@@ -16,8 +16,8 @@ namespace Gbmono.Models
 
         public bool Enabled { get; set; }
 
-        // retail shops
-        public ICollection<RetailShop> Shops { get; set; }
+        //retail shops
+        public virtual ICollection<RetailShop> Shops { get; set; }
 
         // type:用来标识改零售商属于境外 境内 跨境通？
     }

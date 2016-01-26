@@ -15,7 +15,7 @@ namespace Gbmono.Models.ModelConfigs
             ToTable("Retailer"); // table name in db
 
             HasKey(m => m.RetailerId); // primary key
-            // HasOptional(m => m.ParentCategory).WithMany().HasForeignKey(m => m.ParentId); // foreign key in same table
+            HasMany(m => m.Shops).WithRequired(m=>m.Retailer).HasForeignKey(m => m.RetailderId); // foreign key in same table
         }
 
     }
