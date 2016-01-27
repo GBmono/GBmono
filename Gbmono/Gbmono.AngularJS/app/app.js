@@ -103,7 +103,7 @@
                     caseInsensitiveMatch: true
                 })
                .when('/retails', { // 注册
-                   templateUrl: gbmono.app_view_path + '/retails/allretails.html',
+                   templateUrl: gbmono.app_view_path + '/retailers/allretails.html',
                    controller: 'retailsController',
                    caseInsensitiveMatch: true
                })
