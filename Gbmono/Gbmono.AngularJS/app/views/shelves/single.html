@@ -1,14 +1,21 @@
-﻿<div class="row" ng-if="shelfDisplay" >
-    <div class="col-md-12 align-center">
+﻿<div class="row" >
+    <!-- left menu bar -->
+    <div class="col-md-3">
+        <div ng-include="'app/includes/leftMenuBar.html'"
+             ng-controller="leftMenuBarController">
+        </div>
+    </div>
+    <div class="col-md-9 align-center" ng-if="shelfDisplay">
         <div ng-click="displayToggle()">
             <img src="content/images/demo/single.png" />
         </div>                
-    </div>    
-</div>
-<div class="row" ng-init="loadProducts()" ng-if="!shelfDisplay">
-    <div class="col-md-12">
+    </div>
+    <div class="col-md-9" ng-init="loadProducts()" ng-if="!shelfDisplay">
+        <div ng-include="'app/includes/searchgroup.html'">
+
+        </div>
         <div class="align-right" ng-click="displayToggle()">
-            <img width="80" height="80" src="content/images/demo/single.png" title="返回货架" alt="返回货架"/>
+            <img width="80" height="80" src="content/images/demo/single.png" title="返回货架" alt="返回货架" />
         </div>
         <div class="row">
             <!-- Col -->
@@ -38,15 +45,6 @@
 
                         <a class="title" ng-href="#/products/{{product.productId}}" title="{{product.description}}">{{product.primaryName}}</a>
 
-                        <!-- rating -->
-                        <!--<ul class="hlinks hlinks-rating">
-                        <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
-                        <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
-                        <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="icon fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="icon fa fa-star"></i></a></li>
-                    </ul>-->
-                        <!-- /rating -->
                         <div>
                             <span>可购入店铺：</span>
                             <span ng-repeat="retailer in product.retailers">
@@ -74,5 +72,5 @@
 
             </div>
         </div>
-    </div>
+    </div>  
 </div>
