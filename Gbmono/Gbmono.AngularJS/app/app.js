@@ -102,9 +102,9 @@
                     controller: 'registerController',
                     caseInsensitiveMatch: true
                 })
-               .when('/retails', { // 注册
-                   templateUrl: gbmono.app_view_path + '/retailers/allretails.html',
-                   controller: 'retailsController',
+               .when('/retailers', { // 注册
+                   templateUrl: gbmono.app_view_path + '/retailers/allretailers.html',
+                   controller: 'retailersController',
                    caseInsensitiveMatch: true
                })
                 .otherwise({

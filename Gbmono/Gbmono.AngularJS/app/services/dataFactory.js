@@ -255,7 +255,7 @@
     factory.$inject = ['$http'];
 
     // create instance
-    module.factory('retailDataFactory', factory);
+    module.factory('retailerDataFactory', factory);
 
     // factory implement
     function factory($http) {
