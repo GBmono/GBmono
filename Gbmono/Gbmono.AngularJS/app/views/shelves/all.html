@@ -1,5 +1,11 @@
 ﻿<div class="row">
-    <div class="main-col col-md-12 align-center">
+    <!-- left menu bar -->
+    <div class="col-md-3">
+        <div ng-include="'app/includes/leftMenuBar.html'"
+             ng-controller="leftMenuBarController">
+        </div>
+    </div>
+    <div class="main-col col-md-9 align-center">
         <a href="#/shelves/4">
             <img src="content/images/demo/allshelves.png" />
         </a>        
