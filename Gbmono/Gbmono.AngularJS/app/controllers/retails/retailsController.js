@@ -38,9 +38,9 @@
 
 
         function initGoogleMap() {
-            var center = { lat: 38.204824, lng: 138.252924 };
+            var center = { lat: 37.204824, lng: 137.252924 };
             map = new google.maps.Map(document.getElementById('mapCanvas'), {
-                zoom: 5,
+                zoom: 6,
                 center: center
             });
 
