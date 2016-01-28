@@ -1,22 +1,30 @@
 ﻿<div class="row" >
     <!-- left menu bar -->
-    <div class="col-md-3">
+    <div class="col-md-2">
         <div ng-include="'app/includes/leftMenuBar.html'"
              ng-controller="leftMenuBarController">
         </div>
     </div>
-    <div class="col-md-9 align-center" ng-if="shelfDisplay">
-        <div ng-click="displayToggle()">
-            <img src="content/images/demo/single.png" />
+    
+    <div class="col-md-10 align-center" ng-if="!shelfDisplay">
+        <h2>{{shelfTitle}}</h2>
+        <div ng-click="displayToggle()" class="shelf-bounce margin-y-10 animated bounceIn">
+            <img src="content/images/demo/single.png" height="480" width="480"/>
         </div>                
     </div>
-    <div class="col-md-9" ng-init="loadProducts()" ng-if="!shelfDisplay">
-        <div ng-include="'app/includes/searchgroup.html'">
-
+    <div class="col-md-10" ng-init="loadProducts()" ng-if="shelfDisplay">
+        <div class="row">            
+            <img src="content/images/demo/xne.png" height="180" style="cursor:pointer" class="col-md-10" />
+            <div class="col-md-2 align-center" ng-click="displayToggle()">
+                <div style="width:64px;cursor:pointer">
+                    <img width="64" height="64" src="content/images/demo/single.png" title="切换货架" alt="切换货架" />
+                    <h8>切换货架</h8>
+                </div>
+            </div>
         </div>
-        <div class="align-right" ng-click="displayToggle()">
-            <img width="80" height="80" src="content/images/demo/single.png" title="返回货架" alt="返回货架" />
+        <div class="col-md-10 align-left" ng-include="'app/views/products/_productFilter.html'">
         </div>
+        
         <div class="row">
             <!-- Col -->
             <div class="col-sm-6 col-md-3" ng-repeat="product in products">
@@ -27,13 +35,13 @@
                     <!-- Image -->
                     <div class="image product-image">
                         <a ng-href="#/products/{{product.productId}}" class="main">
-                            <img ng-src="{{product.images[0].url}}" />
+                            <img ng-src="{{product.primaryImageUrl}}" />
                             <!--<img src="Content/images/Empty_set.png" alt="">-->
                         </a>
                         <ul class="additional">
                             <li>
                                 <a ng-href="#/products/{{product.productId}}" data-gal="prettyPhoto[gallery 1]" title="Product Name">
-                                    <img ng-src="{{product.images[1].url}}" />
+                                    <img ng-src="{{product.primaryImageUrl}}" />
                                 </a>
                             </li>
                         </ul>
@@ -43,7 +51,7 @@
                     <!-- Details -->
                     <div class="details">
 
-                        <a class="title" ng-href="#/products/{{product.productId}}" title="{{product.description}}">{{product.primaryName}}</a>
+                        <a class="title" ng-href="#/products/{{product.productId}}" title="{{product.description}}">{{product.productName}}</a>
 
                         <div>
                             <span>可购入店铺：</span>
@@ -74,3 +82,10 @@
         </div>
     </div>  
 </div>
+
+<style>
+    .product .image .additional > li {
+        width: 100%;
+        height: 100%;
+    }
+</style>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gbmono.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Gbmono.WebAPI.Models
@@ -19,6 +20,8 @@ namespace Gbmono.WebAPI.Models
         public double Price { get; set; }
 
         public string PrimaryImageUrl { get; set; }
+
+        public List<Retailer> Retailers { get; set; }
     }  
 
 
@@ -29,5 +32,22 @@ namespace Gbmono.WebAPI.Models
     {
         // reuse mandatory properties
         // add extra properties 
+        public string ProductCode { get; set; }
+        public int ManufacturerId { get; set; }
+        public string ManufacturerName { get; set; }
+        public string CountryName { get; set; }
+        public string Flavor { get; set; }
+        public string Content { get; set; }
+        public string WeightString { get; set; }
+        public string Shape { get; set; }
+        public string Texture { get; set; }
+        public string BarCode { get; set; }
+        public string Description { get; set; }
+        public string Instruction { get; set; }        
+        public string DescriptionImageUrl { get; set; }
+        public string InstructionImageUrl { get; set; }
+
+        public List<Category> Categories { get; set; }        
+        public List<WebShop> WebShops { get; set; }
     }
 }

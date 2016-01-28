@@ -8,34 +8,50 @@ namespace Gbmono.WebAPI.Models
 {
     public static class ModelExtensions
     {
-        public static ProductViewModel ToViewModel(this Product po)
+        public static ProductSimpleModel ToSimpleModel(this Product po)
         {
-            if (null == po) return null;
-            var model = new ProductViewModel();
-            model.Product_Id = po.ProductId;
-            model.Product_Code = po.ProductCode;
-            model.Brand_Id = po.BrandId;
-            model.Brand_Name = po.Brand.Name;
-            model.Manufacturer_Id = po.Brand.ManufacturerId;
-            model.Manufacturer_Name = po.Brand.Manufacturer.Name;
-            model.Country_Name = po.Country.Name;
-            model.Product_Name = po.PrimaryName;
-            model.Flavor = po.Flavor;
-            model.Content = po.Content;
-            model.Weight_String = string.Format("{0} {1}", po.Weight, po.WeightUnit);
-            model.Shape = po.Shape;
-            model.Texture = po.Texture;
-            model.BarCode = po.BarCode;
-            model.Description = po.Description;
-            model.Instruction = po.Instruction;
-            model.Price = po.Price;
-            model.Retailers = po.Retailers.ToList();
-            model.WebShops = po.WebShops.ToList();
-            // TODO: remove hard code image url
+            var model = new ProductSimpleModel
+            {
+                ProductId = po.ProductId,
+                ProductName = po.PrimaryName,
+                BrandId = po.BrandId,
+                BrandName = po.Brand.Name,
+                Price = po.Price,
+                PrimaryImageUrl = "content/images/demo/product_1.jpg",
+                Retailers = po.Retailers.ToList()
+            };
+
+            return model;           
+        }
+
+        public static ProductDetailModel ToModel(this Product po)
+        {
             var r = new Random();
             var num = r.Next(3);
-            model.Product_Image_Url = string.Format("content/images/demo/product_{0}.png", num);
-            model.Instruction_Image_Url = string.Format("content/images/demo/description_{0}.png", num);
+            var model = new ProductDetailModel
+            {
+                ProductId = po.ProductId,
+                ProductName = po.PrimaryName,
+                BrandId = po.BrandId,
+                BrandName = po.Brand.Name,
+                Price = po.Price,
+                PrimaryImageUrl = string.Format("content/images/demo/product_{0}.png", num),
+                ProductCode = po.ProductCode,
+                ManufacturerId = po.Brand.ManufacturerId,
+                ManufacturerName = po.Brand.Manufacturer.Name,
+                CountryName = po.Country.Name,
+                Flavor = po.Flavor,
+                Content = po.Content,
+                WeightString = string.Format("{0} {1}", po.Weight, po.WeightUnit),
+                Shape = po.Shape,
+                Texture = po.Texture,
+                BarCode = po.BarCode,
+                Description = po.Description,
+                Instruction = po.Instruction,
+                Retailers = po.Retailers.ToList(),
+                WebShops = po.WebShops.ToList(),
+                InstructionImageUrl = string.Format("content/images/demo/description_{0}.png", num)
+            };
             return model;
         }
     }

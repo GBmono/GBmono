@@ -1,6 +1,9 @@
 ﻿<div class="row categoryDiv" style="padding:0 35px 0 35px">
     <div class="col-md-3" ng-repeat="brand in allBrands" style="text-align:center">
-        <div ><img ng-src="{{brand.logoUrl}}" style="width: 200px;height: 120px"/>
+        <div style="cursor:pointer">
+            <a href="#/shelves/4">
+                <img ng-src="{{brand.logoUrl}}" style="width: 200px;height: 120px" />
+            </a>            
         </div>
         <div>
             {{brand.name}}<a class="btn" href="" ng-click="followbrand(brand.brandId)"><i class="icon fa fa-heart"></i></a>

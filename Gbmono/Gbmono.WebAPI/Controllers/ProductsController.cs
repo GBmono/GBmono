@@ -28,7 +28,7 @@ namespace Gbmono.WebAPI.Controllers
         }
         
         // get product by id
-        public async Task<ProductViewModel> GetById(int id)
+        public async Task<ProductDetailModel> GetById(int id)
         {
             return await Task.Run(() =>
             {
@@ -40,7 +40,7 @@ namespace Gbmono.WebAPI.Controllers
                                                                   .SingleOrDefault(f => f.ProductId == id);
                 if (product != null)
                 {
-                    var model = product.ToViewModel();
+                    var model = product.ToModel();
                     model.Categories = _categoryService.GetProductCategoryList(product.CategoryId);
                     return model;
                 }
@@ -49,44 +49,43 @@ namespace Gbmono.WebAPI.Controllers
             });
         }
 
-        [Route("Categories/{categoryId}")]
-        public async Task<IHttpActionResult> GetByCategory(int categoryId)
+        public async Task<IEnumerable<ProductSimpleModel>> GetAll()
         {
-            var result = await Task<List<Product>>.Run(() =>
+            return await Task.Run(() =>
             {
-                var productList = _repositoryManager.ProductRepository
-                                    .Fetch(m => m.CategoryId == categoryId)
-                                    .OrderBy(m => m.PrimaryName)
-                                    .ToList();
-
-                foreach (var product in productList)
+                var productList = _repositoryManager.ProductRepository.Table
+                                                                .Include(m => m.Brand)
+                                                                .Include(m => m.Retailers)
+                                                                .Take(20).ToList();
+                if (productList != null && productList.Count > 0)
                 {
-                    if (product.Images == null)
-                    {
-                        product.Images = new List<ProductImage>();
-                        product.Images.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "PicTemp", Url = "/content/images/demo/product_1.jpg" });
-                        product.Images.Add(new ProductImage()
-                        {
-                            IsPrimary = false,
-                            IsThumbnail = false,
-                            Name = "PicTemp2",
-                            Url = "/content/images/demo/product_1.jpg"
-                        });
-                    }
-
-                    //Todo  Fetch  Include table
-                    if (product.Retailers == null)
-                    {
-                        product.Retailers = new List<Retailer>();
-                        product.Retailers.Add(new Retailer() { RetailerId = 3, Name = "松本清" });
-                        product.Retailers.Add(new Retailer() { RetailerId = 4, Name = "资深堂" });
-                    }
+                    var models = productList.Select(m => m.ToSimpleModel()).ToList();
+                    return models;
                 }
-
-
-                return productList;
+                return null;
             });
-            return Ok(result);
+        }
+
+        [Route("Categories/{categoryId}")]
+        public async Task<IEnumerable<ProductSimpleModel>> GetByCategory(int categoryId)
+        {
+            return await Task.Run(() =>
+            {
+                var productList = _repositoryManager.ProductRepository.Table
+                                    .Include(m => m.Brand)
+                                    .Include(m => m.Retailers)
+                                    .Where(m => m.CategoryId == categoryId)
+                                    .OrderBy(m => m.PrimaryName)
+                                    .Take(20)
+                                    .ToList();
+                if (productList != null && productList.Count > 0)
+                {
+                    var models = productList.Select(m => m.ToSimpleModel()).ToList();
+                    return models;
+                }
+                return null;
+
+            });
         }
 
         // get banner by product id

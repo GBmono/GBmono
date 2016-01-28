@@ -54,22 +54,22 @@
                 })
                 .when('/shelves/:id', { //单个品类货架
                     templateUrl: gbmono.app_view_path + '/shelves/single.html',
-                    controller: 'shelfListController',
+                    controller: 'specialShelfController',
                     caseInsensitiveMatch: true
                 })
                 .when('/shelves/weekly', { //本周推荐货架页
                     templateUrl: gbmono.app_view_path + '/shelves/single.html',
-                    controller: 'shelfListController',
+                    controller: 'specialShelfController',
                     caseInsensitiveMatch: true
                 })
                 .when('/shelves/season', { //当季推荐货架页
                     templateUrl: gbmono.app_view_path + '/shelves/single.html',
-                    controller: 'shelfListController',
+                    controller: 'specialShelfController',
                     caseInsensitiveMatch: true
                 })
                 .when('/shelves/brand', { //品牌特设货架页
                     templateUrl: gbmono.app_view_path + '/shelves/single.html',
-                    controller: 'shelfListController',
+                    controller: 'specialShelfController',
                     caseInsensitiveMatch: true
                 })
                 .when('/products/:id', { // 商品详细页
@@ -86,7 +86,12 @@
                     templateUrl: gbmono.app_view_path + '/brands/allbrands.html',
                     controller: 'brandsController',
                     caseInsensitiveMatch: true
-                })                
+                })
+                .when('/news', { //促销信息
+                    templateUrl: gbmono.app_view_path + '/news/allnews.html',
+                    controller: 'newsController',
+                    caseInsensitiveMatch: true
+                })
                 .when('/profiles', { // 个人中心
                     templateUrl: gbmono.app_view_path + '/accounts/profile.html',
                     controller: 'profilesController',
