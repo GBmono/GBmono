@@ -6,7 +6,7 @@
     ctrl.$inject = ['$scope', '$routeParams', '$timeout', 'productDataFactory'];
 
     // create controller
-    module.controller('shelfListController', ctrl);
+    module.controller('specialShelfController', ctrl);
 
     // controller body
     function ctrl($scope, $routeParams, $timeout, productDataFactory) {
