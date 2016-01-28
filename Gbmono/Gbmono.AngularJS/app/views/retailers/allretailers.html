@@ -1,0 +1,62 @@
+﻿
+
+
+<div class="row">
+    <div class="col-md-3">
+        <!-- Nav Side -->
+        <nav class="ukb-nav-side navbar vnav vnav-md" role="navigation">
+            <!-- Navbar Collapse-->
+            <div class="">
+                <!-- Navbar Nav -->
+                <ul class="nav navbar-nav line-left">
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown"><i class="icon-left fa fa-flag"></i><span class="text">零售商</span><span class="toggler rot-135 ti ti-plus"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="retailer in allRetailers">
+                                <a data-viewer="true" href="" ng-click="showRetailShop(retailer.shops)">
+                                    {{retailer.name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- /Navbar Nav -->
+            </div>
+            <!-- /Navbar Collapse -->
+        </nav>
+        <!-- /Top Nav -->
+    </div>
+    <div class="col-sm-9 main">
+        <table ng-repeat="shop in activeRetailShop">
+            <tr class="row">
+                <th class="col-md-3">店舗名</th>
+                <td class="col-md-9">{{shop.name}}</td>
+            </tr>
+            <tr class="row">
+                <th class="col-md-3">地址</th>
+                <td class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-6">{{shop.address}}</div>
+                        <div class="col-md-6">
+                            <div class="icon-container">
+                                <a ng-click="showRetailShopMap(shop)" ng-href=""><span class="ti-search"></span></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="row">
+                <th class="col-md-3">电话号码</th>
+                <td class="col-md-9">xxxx-xxxx-xxx</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+
+
+<div class="row" style="padding: 45px">
+    <div id="mapCanvas" style="height: 500px"></div>
+</div>
