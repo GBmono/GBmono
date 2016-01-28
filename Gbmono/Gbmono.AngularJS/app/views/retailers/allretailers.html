@@ -19,6 +19,21 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown"><i class="icon-left fa fa-flag"></i><span class="text">地区</span><span class="toggler rot-135 ti ti-plus"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a data-viewer="true" href="">
+                                    京都
+                                </a>
+                            </li>
+                            <li>
+                                <a data-viewer="true" href="">
+                                    大阪
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
                 <!-- /Navbar Nav -->
             </div>
@@ -27,36 +42,43 @@
         <!-- /Top Nav -->
     </div>
     <div class="col-sm-9 main">
-        <table ng-repeat="shop in activeRetailShop">
+        <table ng-repeat="shop in activeRetailShop" >
             <tr class="row">
-                <th class="col-md-3">店舗名</th>
-                <td class="col-md-9">{{shop.name}}</td>
-            </tr>
-            <tr class="row">
-                <th class="col-md-3">地址</th>
-                <td class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-6">{{shop.address}}</div>
-                        <div class="col-md-6">
-                            <div class="icon-container">
-                                <a ng-click="showRetailShopMap(shop)" ng-href=""><span class="ti-search"></span></a>
-                            </div>
-
-                        </div>
-                    </div>
+                <th class="col-md-3 shopsTag">店舗名</th>
+                <td class="col-md-9 shopsContent">
+                    {{shop.name}}
                 </td>
             </tr>
             <tr class="row">
-                <th class="col-md-3">电话号码</th>
-                <td class="col-md-9">xxxx-xxxx-xxx</td>
+                <th class="col-md-3 shopsTag">电话号码</th>
+                <td class="col-md-9 shopsContent">
+                    xxxx-xxxx-xxx
+                </td>
+            </tr>
+            <tr class="row">
+                <th class="col-md-3 shopsTag">地址</th>
+                <td class="col-md-9 shopsContent">
+                    {{shop.address}}
+                </td>
+            </tr>
+            <tr class="row">
+                <th class="col-md-3 shopsTag">地图</th>
+                <td class="col-md-9 shopsContent icon-container">
+                    <span class="icon-name"></span>
+                    <!--<span class="ti-search" ng-mouseover="showRetailShopMap(shop)"></span>-->
+                    <span class="ti-search" ng-click="showRetailShopMap(shop)"></span>
+                </td>
             </tr>
         </table>
+
+       
 
     </div>
 </div>
 
 
-
-<div class="row" style="padding: 45px">
-    <div id="mapCanvas" style="height: 500px"></div>
+<div id="mapModal" class="modal">
+    <div class="row" style="padding: 45px">
+        <div class="col-md-6 col-md-offset-3" id="mapCanvasDetail" style="height: 500px"></div>
+    </div>
 </div>

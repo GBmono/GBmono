@@ -11,6 +11,7 @@
         $scope.activeRetailShop = [];
         var map;
         var markersArray = [];
+        var defaultZoom = 10;
         // call page init function
         init();
 
@@ -25,8 +26,8 @@
 
         function initGoogleMap() {
             var center = { lat: 37.204824, lng: 137.252924 };
-            map = new google.maps.Map(document.getElementById('mapCanvas'), {
-                zoom: 6,
+            map = new google.maps.Map(document.getElementById('mapCanvasDetail'), {
+                zoom: defaultZoom,
                 center: center
             });
         }
@@ -38,20 +39,33 @@
         $scope.showRetailShopMap = function (shop) {
             var shopMark = [shop.name, parseFloat(shop.latitude), parseFloat(shop.longitude), 1];
             clearOverlays();
+
+            $('#mapModal').on("shown.bs.modal", function () {
+                google.maps.event.trigger(map, "resize");
+            });
+            $('#mapModal').modal('show');
             setSingleShop(shopMark);
         }
+
+
 
 
         function loadRetails() {
             retailDataFactory.getAll().success(function (data) {
                 $scope.allRetailers = data;
-            }
+                if (data.length > 0) {
+                    $scope.activeRetailShop = data[0].shops;
+                }
+                }
             );
         };
 
 
 
         function setSingleShop(shop) {
+            var newCenter = { lat: shop[1], lng: shop[2] };
+            map.setCenter(newCenter);
+            map.setZoom(defaultZoom);
             var marker = new google.maps.Marker({
                 position: { lat: shop[1], lng: shop[2] },
                 map: map,
