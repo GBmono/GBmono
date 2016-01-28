@@ -64,13 +64,13 @@ namespace Gbmono.WebAPI.Controllers
                     if (product.Images == null)
                     {
                         product.Images = new List<ProductImage>();
-                        product.Images.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "PicTemp", Url = "/content/images/demo/merries2_f.jpg" });
+                        product.Images.Add(new ProductImage() { IsPrimary = true, IsThumbnail = false, Name = "PicTemp", Url = "/content/images/demo/product_1.jpg" });
                         product.Images.Add(new ProductImage()
                         {
                             IsPrimary = false,
                             IsThumbnail = false,
                             Name = "PicTemp2",
-                            Url = "/content/images/demo/merries2_b.jpg"
+                            Url = "/content/images/demo/product_1.jpg"
                         });
                     }
 

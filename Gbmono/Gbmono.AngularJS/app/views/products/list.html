@@ -1,24 +1,34 @@
 ﻿<div class="row">
-
-    <!--Tempory Style,will be removed-->
-    <style>
-        .product .image .additional > li {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
     <!-- left menu bar -->
-    <div class="col-md-3">
+    <div class="col-md-2">
         <div ng-include="'app/includes/leftMenuBar.html'"
              ng-controller="leftMenuBarController">
         </div>
     </div>
 
     <!-- product list -->
-    <div class="col-md-9">
-        <div ng-include="'app/includes/searchgroup.html'">
-
+    <div class="col-md-10" style="padding-left:25px; padding-right:20px;">
+        <div>
+            <img src="../../../content/images/2.png" />
+            <img src="../../../content/images/1.png" />
         </div>
+        <br />
+        <div class="row">
+            <!-- tag filter-->
+            <div class="col-md-11" ng-include="'app/views/products/_productFilter.html'">
+            </div>          
+        </div>
+        <div class="row">
+            <div class="col-md-11">
+                <ul class="hlinks hlinks-boxed">
+                    <li><a href="">价格</a></li>
+                    <li><a href="">活跃度</a></li>
+                    <li><a href="">上货日期</a></li>
+                    <li><a href="">销量</a></li>
+                </ul>
+            </div>
+        </div>
+        <br />
         <div class="row">
             <!-- Col -->
             <div class="col-sm-6 col-md-3" ng-repeat="product in products">
@@ -86,3 +96,12 @@
     </div>
  
 </div>
+    
+
+<!--Tempory Style,will be removed-->
+<style>
+    .product .image .additional > li {
+        width: 100%;
+        height: 100%;
+    }
+</style>
