@@ -59,17 +59,17 @@
                 })
                 .when('/shelves/weekly', { //本周推荐货架页
                     templateUrl: gbmono.app_view_path + '/shelves/single.html',
-                    controller: 'shelfListController',
+                    controller: 'specialShelfController',
                     caseInsensitiveMatch: true
                 })
                 .when('/shelves/season', { //当季推荐货架页
                     templateUrl: gbmono.app_view_path + '/shelves/single.html',
-                    controller: 'shelfListController',
+                    controller: 'specialShelfController',
                     caseInsensitiveMatch: true
                 })
                 .when('/shelves/brand', { //品牌特设货架页
                     templateUrl: gbmono.app_view_path + '/shelves/single.html',
-                    controller: 'shelfListController',
+                    controller: 'specialShelfController',
                     caseInsensitiveMatch: true
                 })
                 .when('/products/:id', { // 商品详细页

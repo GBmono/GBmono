@@ -39,13 +39,13 @@
                     <!-- Image -->
                     <div class="image product-image">
                         <a ng-href="#/products/{{product.productId}}" class="main">
-                            <img ng-src="{{product.images[0].url}}"/>
+                            <img ng-src="{{product.primaryImageUrl}}"/>
                             <!--<img src="Content/images/Empty_set.png" alt="">-->
                         </a>
                         <ul class="additional">
                             <li>
                                 <a ng-href="#/products/{{product.productId}}" data-gal="prettyPhoto[gallery 1]" title="Product Name">
-                                    <img ng-src="{{product.images[1].url}}"/>
+                                    <img ng-src="{{product.primaryImageUrl}}"/>
                                 </a>
                             </li>
                         </ul>
@@ -55,7 +55,7 @@
                     <!-- Details -->
                     <div class="details">
 
-                        <a class="title" ng-href="#/products/{{product.productId}}" title="{{product.description}}">{{product.primaryName}}</a>
+                        <a class="title" ng-href="#/products/{{product.productId}}" title="{{product.description}}">{{product.productName}}</a>
 
                         <!-- rating -->
                         <!--<ul class="hlinks hlinks-rating">

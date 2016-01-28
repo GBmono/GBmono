@@ -14,13 +14,13 @@
     <div class="col-md-9">
         <div class="col-md-12" style="height:100%">
             <div class="col-md-6 thumbnail align-center no-border">
-                <img ng-src="{{product.product_Image_Url}}" style="max-height:300px;max-width:300px" />
+                <img ng-src="{{product.primaryImageUrl}}" style="max-height:300px;max-width:300px" />
             </div>
             <div class="col-md-6 align-center">
                 <table class="table table-bordered">
                     <tr>
                         <td class="col-md-2">商品名</td>
-                        <td class="col-md-10">{{product.product_Name}}</td>
+                        <td class="col-md-10">{{product.productName}}</td>
                     </tr>
                     <tr>
                         <td>容量</td>
@@ -28,7 +28,7 @@
                     </tr>
                     <tr>
                         <td>规格</td>
-                        <td>{{product.weight_String}}</td>
+                        <td>{{product.weightString}}</td>
                     </tr>
                     <tr>
                         <td class="col-md-2">条形码</td>
@@ -52,7 +52,7 @@
                 <pre class="lead" style="border:hidden;background-color:white">{{product.instruction}}</pre>
             </div>
             <div class="image align-center">
-                <img ng-src="{{product.instruction_Image_Url}}" />
+                <img ng-src="{{product.instructionImageUrl}}" />
             </div>
             <hr />
         </div>

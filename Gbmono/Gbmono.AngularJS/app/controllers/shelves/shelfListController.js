@@ -9,7 +9,7 @@
     module.controller('shelfListController', ctrl);
 
     // controller body
-    function ctrl($scope, $routeParams, productDataFactory, bannerDataFactory) {
+    function ctrl($scope, $routeParams, productDataFactory) {
         
         $scope.shelfDisplay = true;
 
@@ -19,24 +19,33 @@
 
         $scope.loadProducts = function () {
             var categoryId = $routeParams.id ? parseInt($routeParams.id) : 0;
-            // call web api
-            if (categoryId == 0) {
-                productDataFactory.getAll()
+            
+            productDataFactory.getAll()
                     .success(function (data) {
                         // success callback
                         // retreive the data into local array
                         // $scope.products can be accessed from the view
                         $scope.products = data;
                     });
-            } else {
-                productDataFactory.getByCategory(categoryId)
-                    .success(function (data) {
-                        // success callback
-                        // retreive the data into local array
-                        // $scope.products can be accessed from the view
-                        $scope.products = data;
-                    });
-            }
+
+            //// call web api
+            //if (categoryId == 0) {
+            //    productDataFactory.getAll()
+            //        .success(function (data) {
+            //            // success callback
+            //            // retreive the data into local array
+            //            // $scope.products can be accessed from the view
+            //            $scope.products = data;
+            //        });
+            //} else {
+            //    productDataFactory.getByCategory(categoryId)
+            //        .success(function (data) {
+            //            // success callback
+            //            // retreive the data into local array
+            //            // $scope.products can be accessed from the view
+            //            $scope.products = data;
+            //        });
+            //}
         }
     }
 })(angular.module('gbmono'));
