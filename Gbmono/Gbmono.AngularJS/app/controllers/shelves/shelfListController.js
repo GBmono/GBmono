@@ -10,6 +10,10 @@
 
     // controller body
     function ctrl($scope, $routeParams, productDataFactory) {
+
+        $scope.initBxslider = function () {
+            $('.bxslider').bxSlider();
+        }
         
         $scope.shelfDisplay = true;
 
