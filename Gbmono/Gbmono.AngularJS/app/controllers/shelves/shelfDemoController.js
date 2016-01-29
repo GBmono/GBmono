@@ -18,7 +18,8 @@
             $("#mybook").booklet({
                 width:  '95%',
                 height: 650,
-                pageNumbers: false
+                pageNumbers: false,
+                pagePadding: 20
                 //tabs:  true,
                 //tabWidth:  180,            
                 //tabHeight:  20
