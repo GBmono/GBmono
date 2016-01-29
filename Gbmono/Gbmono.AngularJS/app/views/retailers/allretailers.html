@@ -1,6 +1,6 @@
 ﻿
 
-<div class="row">
+<div class="row" style="padding:25px;">
     <div class="col-md-3">
         <!-- Nav Side -->
         <nav class="ukb-nav-side navbar vnav vnav-md" role="navigation">
@@ -51,28 +51,28 @@
         <!-- /Top Nav -->
     </div>
     <div class="col-sm-9 main">
-        <table ng-repeat="shop in activeRetailShop">
+        <table ng-repeat="shop in activeRetailShop" class="table table-bordered">
             <tr class="row">
-                <th class="col-md-3 shopsTag">店舗名</th>
-                <td class="col-md-9 shopsContent">
+                <th class="col-md-3">店舗名</th>
+                <td class="col-md-9">
                     {{shop.name}}
                 </td>
             </tr>
             <tr class="row">
-                <th class="col-md-3 shopsTag">电话号码</th>
-                <td class="col-md-9 shopsContent">
+                <th class="col-md-3">电话号码</th>
+                <td class="col-md-9">
                     xxxx-xxxx-xxx
                 </td>
             </tr>
             <tr class="row">
-                <th class="col-md-3 shopsTag">地址</th>
-                <td class="col-md-9 shopsContent">
+                <th class="col-md-3">地址</th>
+                <td class="col-md-9">
                     {{shop.address}}
                 </td>
             </tr>
             <tr class="row">
-                <th class="col-md-3 shopsTag">地图</th>
-                <td class="col-md-9 shopsContent icon-container">
+                <th class="col-md-3">地图</th>
+                <td class="col-md-9 icon-container">
                     <span class="icon-name"></span>
                     <!--<span class="ti-search" ng-mouseover="showRetailShopMap(shop)"></span>-->
                     <span class="ti-search" ng-click="showRetailShopMap(shop)"></span>
