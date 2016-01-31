@@ -24,6 +24,7 @@
         function GetProduct(id) {
             productDataFactory.getById(id).success(function (data) {
                 $scope.product = data;
+                $("#bcTarget").barcode(data.barCode, "ean13", {barWidth:2, barHeight:30});
             });
         }
 

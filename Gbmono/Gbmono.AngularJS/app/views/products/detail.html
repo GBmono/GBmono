@@ -13,14 +13,24 @@
     </section>
     <div class="col-md-9">
         <div class="col-md-12" style="height:100%">
-            <div class="col-md-6 thumbnail align-center no-border">
-                <img ng-src="{{product.primaryImageUrl}}" style="max-height:300px;max-width:300px" />
+            <div class="col-md-6 align-center no-border">
+                <div>
+                    <img ng-src="{{product.primaryImageUrl}}" style="max-height:300px;max-width:300px" />
+                </div>
+                <div>
+                    <a href=""><i class="icon fa fa-folder"> 加入收藏夹</i></a>
+                    <a href=""><i class="icon fa fa-heart"> 关注</i></a>
+                </div>
             </div>
             <div class="col-md-6 align-center">
                 <table class="table table-bordered">
                     <tr>
                         <td class="col-md-2">商品名</td>
                         <td class="col-md-10">{{product.productName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">品牌名</td>
+                        <td class="col-md-10"><a href="">{{product.brandName}}</a></td>
                     </tr>
                     <tr>
                         <td>容量</td>
@@ -32,7 +42,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-2">条形码</td>
-                        <td class="col-md-10">{{product.barCode}}</td>
+                        <td class="col-md-10"><div id="bcTarget"></div></td>
                     </tr>
                     <tr>
                         <td>价格</td>
@@ -56,7 +66,12 @@
             </div>
             <hr />
         </div>
-
+        <div class="col-md-12">
+            <h1>品牌介绍</h1>
+            <a href="">
+                <img src="content/images/demo/brand0.jpg" />
+            </a>            
+        </div>
         <div ng-if="product.retailers!=null" class="col-md-6">
             <div class="col-md-2"></div>
             <div class="col-md-10">
