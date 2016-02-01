@@ -10,19 +10,19 @@
                 <ul class="nav navbar-nav line-left">
                     <li class="dropdown">
                         <a href="" data-toggle="dropdown"><span class="text">北海道・東北</span><span class="toggler rot-135 ti ti-plus"></span></a>
-                       
+
                     </li>
                     <li class="dropdown">
                         <a href="" data-toggle="dropdown"><span class="text">関東</span><span class="toggler rot-135 ti ti-plus"></span></a>
-                        
+
                     </li>
                     <li class="dropdown">
                         <a href="" data-toggle="dropdown"><span class="text">北陸・東海</span><span class="toggler rot-135 ti ti-plus"></span></a>
-                        
+
                     </li>
                     <li class="dropdown">
                         <a href="" data-toggle="dropdown"><span class="text">関西</span><span class="toggler rot-135 ti ti-plus"></span></a>
-                        
+
                     </li>
                     <li class="dropdown">
                         <a href="" data-toggle="dropdown"><span class="text">中国・四国</span><span class="toggler rot-135 ti ti-plus"></span></a>
@@ -41,7 +41,7 @@
             </div>
             <!-- /Navbar Collapse -->
         </nav>
-        <br /><br />
+        <br/><br/>
         <!-- /Top Nav -->
         <nav class="ukb-nav-side navbar vnav vnav-md" role="navigation">
             <!-- Navbar Collapse-->
@@ -54,21 +54,6 @@
                             <li ng-repeat="retailer in allRetailers">
                                 <a data-viewer="true" href="" ng-click="showRetailShop(retailer.shops)">
                                     {{retailer.name}}
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="" data-toggle="dropdown"><i class="icon-left fa fa-flag"></i><span class="text">地区</span><span class="toggler rot-135 ti ti-plus"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a data-viewer="true" href="">
-                                    京都
-                                </a>
-                            </li>
-                            <li>
-                                <a data-viewer="true" href="">
-                                    大阪
                                 </a>
                             </li>
                         </ul>
@@ -89,7 +74,13 @@
             <!-- /Navbar Collapse -->
         </nav>
     </div>
+
     <div class="col-sm-9 main">
+        <div class="row">
+            <div class="col-md-12" id="mapAll" style="height: 400px">
+            </div>
+        </div>
+
         <table ng-repeat="shop in activeRetailShop" class="table table-bordered">
             <tr class="row">
                 <th class="col-md-3">店舗名</th>
@@ -114,17 +105,11 @@
                 <td class="col-md-9 icon-container">
                     <span class="icon-name"></span>
                     <!--<span class="ti-search" ng-mouseover="showRetailShopMap(shop)"></span>-->
-                    <span class="ti-search" ng-click="showRetailShopMap(shop)"></span>
+                    <span class="ti-search" ng-mouseover="animateMarker(shop)" ng-mouseleave="stopAnimateMarker(shop)"></span>
                 </td>
             </tr>
         </table>
 
 
-    </div>
-</div>
-
-<div id="mapModal" class="modal">
-    <div class="row" style="padding: 45px">
-        <div class="col-md-6 col-md-offset-3" id="mapCanvasDetail" style="height: 500px"></div>
     </div>
 </div>

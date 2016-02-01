@@ -11,43 +11,56 @@
         $scope.activeRetailShop = [];
         var map;
         var markersArray = [];
-        var defaultZoom = 10;
+        var defaultMapZoom = 5;
         // call page init function
         init();
-
         // page init method
         function init() {
-            initGoogleMap();
+            //initGoogleMap();
+            initMap();
 
             loadRetails();
         }
 
 
-
-        function initGoogleMap() {
-            var center = { lat: 37.204824, lng: 137.252924 };
-            map = new google.maps.Map(document.getElementById('mapCanvasDetail'), {
-                zoom: defaultZoom,
+        function initMap() {
+            var center = { lat: 38.904824, lng: 137.252924 };
+            map = new google.maps.Map(document.getElementById('mapAll'), {
+                zoom: defaultMapZoom,
                 center: center
             });
         }
 
+
         $scope.showRetailShop = function (shops) {
             $scope.activeRetailShop = shops;
-        }
 
-        $scope.showRetailShopMap = function (shop) {
-            var shopMark = [shop.name, parseFloat(shop.latitude), parseFloat(shop.longitude), 1];
+            //Clean Marks
             clearOverlays();
 
-            $('#mapModal').on("shown.bs.modal", function () {
-                google.maps.event.trigger(map, "resize");
-            });
-            $('#mapModal').modal('show');
-            setSingleShop(shopMark);
+            //Show Shops Mark
+            showShopsOnMap($scope.activeRetailShop);
         }
 
+        $scope.animateMarker = function (shop) {
+            var retailShopId = shop.retailShopId;
+            angular.forEach(markersArray, function (markerInstance, index, array) {
+                if (markerInstance.retailShopId==retailShopId) {
+                    var marker = markerInstance.marker;
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            });
+        }
 
+        $scope.stopAnimateMarker = function (shop) {
+            var retailShopId = shop.retailShopId;
+            angular.forEach(markersArray, function (markerInstance, index, array) {
+                if (markerInstance.retailShopId == retailShopId) {
+                    var marker = markerInstance.marker;
+                    marker.setAnimation(google.maps.Animation.DROP);
+                }
+            });
+        }
 
 
         function loadRetails() {
@@ -55,70 +68,41 @@
                 $scope.allRetailers = data;
                 if (data.length > 0) {
                     $scope.activeRetailShop = data[0].shops;
+                    showShopsOnMap($scope.activeRetailShop);
                 }
-                }
+            }
             );
         };
 
 
+        function showShopsOnMap(shops) {
+            angular.forEach(shops, function (shop, index, array) {
+                var shopMark = [shop.name, parseFloat(shop.latitude), parseFloat(shop.longitude), 1, shop.retailShopId];
+                setSingleShop(shopMark);
+            });
+        }
 
         function setSingleShop(shop) {
-            var newCenter = { lat: shop[1], lng: shop[2] };
-            map.setCenter(newCenter);
-            map.setZoom(defaultZoom);
             var marker = new google.maps.Marker({
                 position: { lat: shop[1], lng: shop[2] },
                 map: map,
                 title: shop[0],
-                zIndex: shop[3]
+                zIndex: shop[3],
+                animation: google.maps.Animation.DROP
             });
-            markersArray.push(marker);
+            var markerInstance = { retailShopId: shop[4], marker: marker }
+            markersArray.push(markerInstance);
         }
+
+
+        
 
         function clearOverlays() {
             for (var i = 0; i < markersArray.length; i++) {
-                markersArray[i].setMap(null);
+                markersArray[i].marker.setMap(null);
             }
             markersArray.length = 0;
         }
-
-
-        //function loadRetails() {
-        //    retailDataFactory.getAll().success(function (data) {
-        //        $scope.allRetailers = data;
-
-        //        //todo temp function
-        //        angular.forEach(data, function (retail, index, array) {
-        //            angular.forEach(retail.shops, function (shop, index, array) {
-        //                var shopMark = [shop.name, parseFloat(shop.latitude), parseFloat(shop.longitude), 1];
-        //                setSingleShop(shopMark);
-        //            }
-        //            );
-        //        });
-        //    }
-        //    );
-        //};
-
-        //function setMutilMarkers() {
-        //    var shops = [
-        //      ['shops1', -33.890542, 151.274856, 1],
-        //      ['shops2', -33.923036, 151.259052, 1],
-        //      ['shops3', -34.028249, 151.157507, 1],
-        //      ['shops4', -33.80010128657071, 151.28747820854187, 1],
-        //      ['shops5', -33.950198, 151.259302, 1]
-        //    ];
-
-        //    for (var i = 0; i < shops.length; i++) {
-        //        var shop = shops[i];
-        //        var marker = new google.maps.Marker({
-        //            position: { lat: shop[1], lng: shop[2] },
-        //            map: map,
-        //            title: shop[0],
-        //            zIndex: shop[3]
-        //        });
-        //    }
-        //}
-
     }
 
 })(angular.module('gbmono'));
