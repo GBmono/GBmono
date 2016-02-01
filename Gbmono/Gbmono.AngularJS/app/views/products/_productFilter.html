@@ -3,6 +3,20 @@
         <tr>
             <td>
                 <ul class="hlinks">
+                    <li><a href="" style="font-weight:bold;">分类</a></li>
+                </ul>
+            </td>
+            <td>
+                <ul class="hlinks">
+                    <li ng-repeat="filter in filterCategories">
+                        <a href="">{{filter.name}}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul class="hlinks">
                     <li><a href="" style="font-weight:bold;">品牌</a></li>
                 </ul>
             </td>

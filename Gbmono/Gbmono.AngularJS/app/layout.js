@@ -187,6 +187,35 @@
 
 })(angular.module('gbmono'));
 
+/*
+    product filter controller
+*/
+(function (module) {
+    // inject the controller params
+    ctrl.$inject = ['$scope', '$routeParams', 'categoryDataFactory'];
+    // create controller
+    module.controller('productFilterController', ctrl);
+
+    // controller body
+    function ctrl($scope, $routeParams, categoryDataFactory) {
+
+        init();
+
+        function init() {
+            getFilterCategories($routeParams.id);
+        }
+        
+        // get filter categories
+        function getFilterCategories(categoryId) {
+            categoryDataFactory.getFilterCategories(categoryId)
+                                .success(function (data) {
+                                    $scope.filterCategories = data;
+                                });
+
+        };
+    }
+
+})(angular.module('gbmono'));
 
 /*
    footer block controller

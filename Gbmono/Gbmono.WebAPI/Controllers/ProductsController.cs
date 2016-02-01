@@ -71,10 +71,11 @@ namespace Gbmono.WebAPI.Controllers
         {
             return await Task.Run(() =>
             {
+                var subCategories = _repositoryManager.CategoryRepository.Fetch(f => f.ParentId == categoryId).Select(s => s.CategoryId).ToList();
                 var productList = _repositoryManager.ProductRepository.Table
                                     .Include(m => m.Brand)
                                     .Include(m => m.Retailers)
-                                    .Where(m => m.CategoryId == categoryId)
+                                    .Where(m => subCategories.Contains(m.CategoryId))
                                     .OrderBy(m => m.PrimaryName)
                                     .Take(20)
                                     .ToList();
@@ -83,7 +84,7 @@ namespace Gbmono.WebAPI.Controllers
                     var models = productList.Select(m => m.ToSimpleModel()).ToList();
                     return models;
                 }
-                return null;
+                return new List<ProductSimpleModel>();
 
             });
         }
