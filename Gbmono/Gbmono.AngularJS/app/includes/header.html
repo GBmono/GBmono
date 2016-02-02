@@ -193,7 +193,7 @@
                 <!-- Navbar Center -->
                 <ul class="nav navbar-nav navbar-center line-top line-pcolor case-c">
                     <li class="active"><a href="#">主页</a></li>
-                    <li><a ng-href="#/categories">药妆产品</a></li>
+                    <!--<li><a ng-href="#/categories">药妆产品</a></li>-->
                     <!--<li>
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">药妆产品<i class="fa fa-angle-down toggler"></i></a>
                         <ul class="dropdown-menu">
@@ -204,6 +204,39 @@
                             <li><a ng-href="#/products">所有商品</a></li>
                         </ul>
                     </li>-->
+                    <li class="dropdown dropdown-mega">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">药妆产品<i class="fa fa-angle-down toggler"></i></a>
+                        <!-- Mega Menu -->
+                        <div class="mega-menu dropdown-menu">
+                            <!-- Row -->
+                            <div class="row">
+
+                                <!-- col -->
+                                <div class="col-md-9">
+                                    <table>
+                                        <tr ng-repeat="category in categories">
+                                            <td class="align-right">
+                                                <ul class="hlinks">
+                                                    <li><a href="">{{category.name.trim()}} <i class="fa fa-angle-right"></i></a></li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="hlinks">
+                                                    <li ng-repeat="subCategory in category.subCategories">
+                                                        <a href="#/categories/{{ subCategory.categoryId }}/products/">{{subCategory.name.trim()}}</a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                </div>
+                                <!-- /col -->
+                            </div>
+                            <!-- /Row -->
+                        </div>
+                        <!-- /Mega Menu -->
+                    </li>
                     <li><a ng-href="#/retailers">药妆店</a></li>
                     <li><a ng-href="#/categories">所有分类</a></li>
                     <li><a ng-href="#/news">促销</a></li>
