@@ -54,7 +54,7 @@ namespace Gbmono.WebAPI.Controllers
             return topCategories;
         }
 
-        [Route("GetFilterCategories/{categoryId}")]
+        [Route("FilterCategories/{categoryId}")]
         public async Task<IEnumerable<Category>> GetFilterCategories(int categoryId)
         {
             return await Task.Run(() =>

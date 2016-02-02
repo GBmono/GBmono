@@ -132,7 +132,7 @@
         }
 
         function getFilterCategories(categoryId) {
-            return $http.get(gbmono.api_site_prefix.category_api_url + "/GetFilterCategories/" + categoryId);
+            return $http.get(gbmono.api_site_prefix.category_api_url + "/FilterCategories/" + categoryId);
         }
     }
 
