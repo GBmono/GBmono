@@ -92,6 +92,11 @@
                     controller: 'brandsController',
                     caseInsensitiveMatch: true
                 })
+                .when('/brands/:id', {  //品牌介绍
+                    templateUrl: gbmono.app_view_path + '/brands/brief.html',
+                    controller: 'brandsController',
+                    caseInsensitiveMatch: true
+                })
                 .when('/news', { //促销信息
                     templateUrl: gbmono.app_view_path + '/news/allnews.html',
                     controller: 'newsController',
